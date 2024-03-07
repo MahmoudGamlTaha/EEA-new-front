@@ -1,0 +1,38 @@
+<!-- Main Note -->
+<div *ngIf="mainNote">
+<app-dynamic-form [model]="mainNote"></app-dynamic-form>
+</div>
+<!-- Reviewer -->
+<h6 *ngIf="reviewer">
+  {{ "customer.applicationWasReviewedBy" | translate }}
+  <span class="fw-bold">{{ reviewer }}</span>
+</h6>
+<div *ngIf="reviewersList">
+<app-btn-dropdown
+  [btnText]="'customer.redirection'"
+  [menuList]="reviewersList"
+  [buttonWidth]="'w-25 my-5 gradient'"
+></app-btn-dropdown>
+</div>
+<!-- Review -->
+<div class="row" *ngIf="statusArr">
+  <div
+    class="col-md-4 col-12 p-0"
+    [ngClass]="status.class"
+    (click)="onSelectingStatus(status)"
+    [id]="status.name"
+    *ngFor="let status of statusArr"
+  >
+    <button class="status btn">{{status.name | translate}}</button>
+    <div
+      [ngStyle]="
+        selectedStatus !== status.name
+          ? { visibility: 'hidden' }
+          : { visibility: 'visible' }
+      "
+    >
+    <label class="boldFormLabel">{{statusNoteLabel | translate}}</label>
+      <app-dynamic-form [model]="statusNote"></app-dynamic-form>
+    </div>
+  </div>
+</div>

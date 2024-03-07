@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/colors.scss";
+@import "./assets/fonts.scss";
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// boostrap 5
+// @import 'ngx-toastr/toastr-bs5-alert';
+
+body {
+  font-family: Tajawal-Medium;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.section {
+  padding: 80px 0px 90px 0px;
+}
+
+
+.link {
+  border-bottom: 1px solid var(--light-blue-400);
+  color:var(--light-blue-400)
+}
+p {
+  margin: 0px;
+  font-size: 13px;
+}
+.row {
+  align-items: center;
+}
+.btn {
+  border: 0px;
+}
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+.gradient {
+  background: transparent linear-gradient(90deg, #0070c4 0%, #00b8c4 100%) 0% 0%
+    no-repeat padding-box;
+  color: var(--white-100);
+}
+
+.gradient-2 {
+  background: transparent linear-gradient(90deg, #0070c4 0%, #007bff 100%) 0% 0%
+    no-repeat padding-box;
+  color: var(--white-100);
+}
+
+.primary {
+  background: #f7fafd;
+  border-radius: 10px;
+  color: #222222;
+  font-size: 16px;
+}
+
+a.blue {
+  background: #045fa4;
+  border-radius: 10px;
+  color: var(--white-100);
+  font-size: 16px;
+}
+
+.gradient:hover {
+  background: transparent linear-gradient(90deg, #0070c4 0%, #00b8c4 100%) 0% 0%
+    no-repeat padding-box;
+  color: var(--white-100);
+}
+.btn:focus{
+  box-shadow: none;
+}
+input[type='checkbox'] {
+  cursor: pointer;
+}
+.subtitle {
+  color: var(--grey-100);
+}
+.error {
+  border-color: var(--red-100);
+}
+.form-control::placeholder,
+.placeHolder,
+.form-select {
+  font-size: 13px;
+  color: var(--dark-blue-100);
+  opacity: 50%;
+}
+
+.boldFormLabel {
+  font-weight: bold;
+  font-size: 0.813rem;
+  color: var(--dark-blue-100);
+}
+.normalFormLabel{
+  font-size: 0.813rem;
+  color: var(--dark-blue-100);
+}
+.form-control,
+.form-select {
+  border-radius: 13px;
+  border: 1px solid #ced4da;
+}
+.form-select:focus,
+.form-control:focus {
+  border-color: var(--grey-300);
+  outline: 0.813rem;
+  box-shadow: none;
+}
+.card{
+  border-radius: 20px;
+}
+//To Remove arrows from input type number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 1000px) {
+  .normalFormLabel,
+  .boldFormLabel
+  .form-control::placeholder,
+  .placeHolder {
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  p {
+    font-size: 11px;
+  }
+}
+
+.red {
+  color: var(--red-100);
+}
+
+.grey {
+  color: var(--grey-100);
+}
+@media only screen and (max-width: 500px) {
+  .normalFormLabel,
+  .boldFormLabel,
+  .form-control::placeholder,
+  .placeHolder {
+    font-size: 0.5rem;
+  }
+}
+
+.custom-container {
+  .mat-mdc-dialog-container .mdc-dialog__surface {
+    padding: 0;
+    border-radius: 20px ;
+  }
+}

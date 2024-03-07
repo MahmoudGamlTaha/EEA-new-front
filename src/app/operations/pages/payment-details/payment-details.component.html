@@ -1,0 +1,5 @@
+<app-subtitle>{{ "routingHeader.paymentDetails" | translate }}</app-subtitle>
+<div *ngIf="request">
+<app-payment-details-card [title]="'customer.paymentOfFees'" [paymentDetails]="paymentDetails"></app-payment-details-card>
+<app-dynamic-form [model]="formModel" [submitButtonName]="'customer.completePayment'" [checkerForm]="false"></app-dynamic-form>
+</div>

@@ -1,0 +1,11 @@
+<section class="section">
+  <app-subtitle>{{ "routingHeader.registerCompany" | translate }}</app-subtitle>
+  <div *ngIf="model" class="container text-center">
+    <!-- Form -->
+   <app-dynamic-form  #companyRegisterationForm [model]="model"></app-dynamic-form>
+   <app-submit-button
+   [buttonName]="'common.submit'"
+   (submitData)="onSubmit(companyRegisterationForm['dynamicFormGroup'])"
+ ></app-submit-button>
+  </div>
+</section>

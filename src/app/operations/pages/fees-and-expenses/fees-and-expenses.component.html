@@ -1,0 +1,44 @@
+<app-subtitle>{{ "routingHeader.feesAndExpenses" | translate }}</app-subtitle>
+<!-- Payment form -->
+<ng-container>
+  <app-dynamic-form
+  #paymentForm 
+  [model]="feesForm"
+  [isInlineInput]="false"
+></app-dynamic-form>
+<div class="row my-5 align-items-center">
+  <div class="col-4">
+    <app-submit-button
+      [hidden]="true"
+      (click)="calculateTotalFees(paymentForm.dynamicFormGroup.value)"
+      [buttonName]="'customer.calculateTotalFees'"
+      [class]="'filterButton'"
+    ></app-submit-button>
+  </div>
+  <div class="col-8">
+    <app-dynamic-form
+      [model]="totalForm"
+      [isInlineInput]="true"
+    ></app-dynamic-form>
+  </div>
+</div>
+
+<app-reviewer-form #reviewerForm [requestId]="requestId" [statusNote]="statusNote"  [statusNoteLabel]="'customer.NoteEnvironmentalProtectionFund'" [reviewersList]="reviewersList" [statusArr]="statusArr" [reviewer]="reviewer"></app-reviewer-form>
+<app-dynamic-form
+[model]="manualOrAutomatic"
+(formValuesEmitter)="changeRadio($event)"
+>
+</app-dynamic-form>
+<app-submit-button
+*ngIf="requestStatus == 'CustomerPAID' && !isCustomer"
+(click)="submitConfirmExpenses(paymentForm.dynamicFormGroup.value)"
+[buttonName]="'customer.confirmPayment'"
+[class]="'filterButton'"
+></app-submit-button>
+<app-submit-button
+*ngIf="requestStatus != 'CustomerPAID'"
+(click)="submitExpenses(paymentForm.dynamicFormGroup.value)"
+[buttonName]="isCustomer==true?'customer.payExpense':'customer.sendExpenses'"
+[class]="'filterButton'"
+></app-submit-button>
+</ng-container>

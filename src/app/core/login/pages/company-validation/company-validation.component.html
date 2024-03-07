@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="container">
+    <app-subtitle>{{ "routingHeader.companyValidation" | translate }}</app-subtitle>
+
+    <mat-horizontal-stepper #stepper>
+      <mat-step  >
+          <div class="container">
+            <!-- Form -->
+            <app-dynamic-form #companyValidationForm [model]="model"></app-dynamic-form>
+          </div>
+          <div class="custom-btn">
+              <button class="col-2  btn gradient  "  (click)="onSubmit(companyValidationForm['dynamicFormGroup'])">{{'admissionForm.next' | translate}}</button>
+          </div>
+      </mat-step>
+      <mat-step >
+          <app-digital-sealing-submition></app-digital-sealing-submition>
+          <div class="row align-items-start justify-content-between" >
+              <button class="col-2 btn gradient  " matStepperPrevious (click)="onSubmit(companyValidationForm['dynamicFormGroup'])">{{'admissionForm.back' | translate}}</button>
+              <button class="col-2 btn gradient  " matStepperNext (click)="openDialog()">{{'admissionForm.next' | translate}}</button>
+            </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+
+  </section>
+
+  

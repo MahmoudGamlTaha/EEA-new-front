@@ -1,0 +1,65 @@
+<section *ngIf="mainModel != undefined">
+  <app-subtitle>{{ "routingHeader.form" | translate }}</app-subtitle>
+  <div class="container">
+    <!-- Title -->
+    <div class="title">
+      <h5 class="text-center py-5">{{ "admissionForm.title" | translate }}</h5>
+    </div>
+    <!-- Print Button -->
+    <div class="row justify-content-end pb-3">
+      <div class="col-auto">
+        <button class="btn gradient px-5">
+          {{ "admissionForm.print" | translate }}
+        </button>
+      </div>
+    </div>
+    <!-- Form -->
+    <app-dynamic-form
+      #cardForm
+      [model]="mainModel"
+      [checkerForm]="formType == 'check'"
+      [class]="'card p-3'"
+      [isDisabled]="formType == 'check' && auth.user.sub.administrativeId == 11"
+    ></app-dynamic-form>
+    <!-- Documents -->
+    <app-attached-documents
+      *ngIf="auth.user.sub.administrativeId != 11"
+      #documentForm
+      [header]="'admissionForm.provideUsWithTheFollowingDocuments'"
+      [checkerForm]="formType == 'check'"
+      [model]="documentModel"
+    ></app-attached-documents>
+    <!-- Case Document -->
+    <app-attached-documents
+      #caseForm
+      [case]="case"
+      [header]="'admissionForm.unloadingOnTheHook'"
+      [checkerForm]="formType == 'check'"
+      [model]="caseModel"
+    ></app-attached-documents>
+    <!-- Digital Seal -->
+
+    <app-digital-sealing-form
+      *ngIf="formType != 'check'"
+      #digitalSealingForm
+      [header]="'admissionForm.insertTheElectronicSeal' | translate"
+      [model]="digitalSealingModel"
+    ></app-digital-sealing-form>
+    <!-- Form Submition -->
+    <div class="text-center mt-5">
+    </div>
+    <!-- If reviweing rdf form with customer request form -->
+    <app-rdf-form  #rdfForm [isReviewing]="auth.user.sub.administrativeId != null && auth.user.sub.administrativeId !=11" [isEditForm]="formType =='edit' && formType !='check' " [isCheckerForm]="formType == 'check'" *ngIf="pendingRdf" ></app-rdf-form>
+    <!-- If reviweing rdf form with customer request form -->
+    <app-reviewer-form
+    *ngIf="auth.user.sub['administrativeId'] != null"
+    #reviewerForm
+    [statusNote]="statusNote"
+    [statusNoteLabel]="'customer.addNotesForCoalUnit'"
+    [mainNote]="mainNote"
+    [reviewer]="auth.user.sub['name']"
+    [reviewersList]="reviewersList"
+    [statusArr]="statusArr"
+  ></app-reviewer-form>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<section>
+  <app-subtitle>{{ "routingHeader.companyInfo" | translate }}</app-subtitle>
+  <div class="container">
+    <!-- Edit -->
+    <div [class]="currentLang =='ar' ? 'text-start' : 'text-end'">
+        <app-btn
+        class="btn"
+        additionalCss="gradient px-5"
+        btnRadius="10"
+        [btnText]="'common.edit'"
+        (onBtnClick)="editCompany()"
+      ></app-btn>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto mb-3 mt-3">
+        <app-select-dropdown type="coal" [items]="companiesList" (selectedItem)="onSelectCompany($event)"></app-select-dropdown>
+      </div>
+    </div>
+    <!-- Form -->
+    <app-dynamic-form [model]="model"></app-dynamic-form>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+  <form [formGroup]="formName">
+  <div
+  *ngIf="field !== undefined">
+  <select
+  #selectList
+  (change)="addCompany(selectList.value)"
+    [ngClass]="
+      (formName.controls[field.fieldName].invalid &&
+      (formName.controls[field.fieldName].dirty ||
+        formName.controls[field.fieldName].touched)
+        ? 'error'
+        : '')||
+        (currentLang === 'ar' ? 'ar' : 'en')
+    "
+    [ngClass]="field?.border"
+    class="form-select"
+    [formControlName]="field?.fieldName"
+  >
+    <option [value]="null" class="placeHolder" disabled selected>{{ field.label | translate }}</option>
+    <option *ngFor="let option of field.options" [value]="option.id" [disabled] ="field.isDisabled" >
+      {{ option.name | translate }}
+    </option>
+    <option *ngIf="field.addCompany" value="" class="addCompany">
+      {{'customer.addCompany' | translate }}
+      +
+  </option>
+  </select>
+</div>
+</form>

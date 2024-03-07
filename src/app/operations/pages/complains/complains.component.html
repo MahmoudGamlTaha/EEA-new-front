@@ -1,0 +1,19 @@
+<app-subtitle>{{ "routingHeader.complains" | translate }}</app-subtitle>
+<!-- DropDown Menu -->
+<app-btn-dropdown
+  [btnText]="'customer.orderNumber'"
+  [menuList]="dropDownList"
+  [buttonWidth]="'w-50 mb-5'"
+></app-btn-dropdown>
+
+<!--  TextArea -->
+<app-dynamic-form
+  #form
+  [model]="formModel"
+></app-dynamic-form>
+<!-- Submit Button -->
+<div class="text-center">
+  <button class="col-2 btn gradient" (click)="onSubmit()">
+    {{ 'customer.submit' | translate }}
+  </button>
+</div>

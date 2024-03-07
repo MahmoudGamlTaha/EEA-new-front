@@ -1,0 +1,6 @@
+<app-subtitle>{{ "routingHeader.paymentOfFees" | translate }}</app-subtitle>
+<app-btn-dropdown [btnText]="'customer.all'" [menuList]="dropDownList" [buttonWidth]="'w-50 mb-5'"></app-btn-dropdown>
+
+<div *ngFor="let card of notificationCards">
+    <app-notifications-card [card]="card"></app-notifications-card>
+</div>

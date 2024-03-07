@@ -1,0 +1,47 @@
+<mat-horizontal-stepper #stepper>
+  <!-- Admission Form -->
+  <mat-step>
+    <ng-template matStepLabel>Data </ng-template>
+    <app-admission-form
+      #admissionForm
+    ></app-admission-form>
+
+    <button
+        class="col-2 btn gradient"
+        (click)="onSubmitAdmissionFormData(stepper)"
+
+      >
+        {{ "admissionForm.next" | translate }}
+      </button>
+  </mat-step>
+  <!-- Rdf Form -->
+  <mat-step *ngIf="isCementCompany">
+    <ng-template matStepLabel>RDF</ng-template>
+    <app-rdf-form #rdfForm [requestId]="requestId"></app-rdf-form>
+    <div class="row align-items-start justify-content-between">
+      <button
+        class="col-2 btn gradient"
+        matStepperNext
+        (click)="onSubmitRdfFormData(stepper)"
+      >
+        {{ "admissionForm.next" | translate }}
+      </button>
+      <button class="col-2 btn gradient" matStepperPrevious (click)="backToAdmissionForm()">
+        {{ "admissionForm.back" | translate }}
+      </button>
+    </div>
+  </mat-step>
+  <!-- Digital Sealing form -->
+  <mat-step>
+    <ng-template matStepLabel>Digital Sealing</ng-template>
+    <app-digital-sealing-submition></app-digital-sealing-submition>
+    <div class="row align-items-start justify-content-between">
+      <button class="col-2 btn gradient" matStepperNext (click)="openDialog()">
+        {{ "admissionForm.next" | translate }}
+      </button>
+      <button class="col-2 btn gradient" matStepperPrevious (click)="scroll()">
+        {{ "admissionForm.back" | translate }}
+      </button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
