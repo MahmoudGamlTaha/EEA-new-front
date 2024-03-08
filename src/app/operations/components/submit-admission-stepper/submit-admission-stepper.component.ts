@@ -55,11 +55,10 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
-    this.selectedCompanySubscription$ =
-    this.admissionFormApiService.selectedCompany.subscribe((res) => {
+   /* this.admissionFormApiService.selectedCompany.subscribe((res) => {
       console.log(res);
       this.selectedCompanyId = res;
-    });
+    });*/
   }
   scroll() {
     window.scroll(0, 0);
@@ -81,6 +80,7 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
   onSubmitAdmissionFormData(stepper: MatStepper) {
     this.scroll();
     this.admissionForm.onSubmit();
+   
     this.nextSubscription = this.admissionFormService.nextPage.subscribe((res) => {
       if (res) {
            console.log(this.selectedCompanyId);

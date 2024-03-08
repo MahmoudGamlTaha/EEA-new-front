@@ -231,7 +231,7 @@ export class AdmissionFormComponent {
          let requestCompnay = this.companies.filter((c)=>{
         return c.id == this.customerRequestData.companyId
         })[0];
-      this.admissionFormApiService.selectedCompany =  this.customerRequestData.companyId;
+      this.admissionFormApiService.selectedCompany.next(this.customerRequestData.companyId)  ;
         console.log(requestCompnay);
         this.isCementCompany = requestCompnay?.activity.code == 'RDF-Cement'?true:false;
         this.mainModel = this.admissionFormModelsService.getMainModel(
@@ -275,6 +275,7 @@ export class AdmissionFormComponent {
     this.rdfApiService
     .getRdfRequestById(id)
     .subscribe((request) => {
+      console.log(request.content);
       this.cementRdfService.initForm(this.customerRequestData,this.formType,request.content)
       this.isRdfRequestReady = true
        this.invoice = this.cementRdfService.invoiceData;

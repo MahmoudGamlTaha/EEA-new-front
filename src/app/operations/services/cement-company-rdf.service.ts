@@ -26,6 +26,7 @@ export class CementCompanyRdfService {
 
 initForm(data , formType, rdf) {
   console.log(rdf);
+  console.log(data);
   this.invoiceData= {
     invoices:{
     name: 'invoiceData',
