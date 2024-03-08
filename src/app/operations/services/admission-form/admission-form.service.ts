@@ -9,6 +9,7 @@ import { CementCompanyRdfService } from '../cement-company-rdf.service';
 export class AdmissionFormService {
   nextPage = new BehaviorSubject({ nextPage: false, requestId: null });
   customerRequest;
+  IsCementCompany;
   constructor( private rdfApiService : RdfApisService , private cementRdfService : CementCompanyRdfService) {}
 
   isInputToBeEdited(input, inputsList): boolean {

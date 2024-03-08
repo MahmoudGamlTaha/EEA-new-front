@@ -40,6 +40,7 @@ export class RequestsSubmittedComponent {
   serviceNameDropDownList: DropDownItem[];
   statusDropDownList: DropDownItem[];
   formModel;
+  formType;
   @ViewChild('dynamicTableWrapper', { static: false })
   dynamicTableWrapper: DynamicTableComponent;
   headers;
@@ -58,7 +59,6 @@ export class RequestsSubmittedComponent {
     this.requestSubmittedService.getCustomerRequests().subscribe((res) => {
       this.tableData = [];
       for (let request of res['content']) {
-        console.log(request);
         this.tableData.push({
           serviceName:request.requestType.name,
           orderNumber: request['id'],
@@ -83,20 +83,25 @@ export class RequestsSubmittedComponent {
   ngAfterViewInit()
  {
   this.dynamicTableWrapper.buttonClick.subscribe((event) => {
+    
+    
+    console.log(event);
     if(event['key'] == 'details') {
       switch(this.auth.userRole[0]) {
           case 'department_supervisor':
+             
             if(this.auth.user.sub.administrativeId == 8 || this.auth.user.sub.administrativeId == 11) {
-              this.router.navigateByUrl('operations/requestForm/check/'+ event.row['orderNumber'])
+              this.formType ="check";
             }else if (this.auth.user.sub.administrativeId == 12) {
-              this.router.navigateByUrl('operations/requestForm/view-only/'+ event.row['orderNumber'])
+              this.formType = 'view-only';
              // this.router.navigateByUrl('operations/feesAndExpenses/'+ event.row['orderNumber'])
             }
           break;
           case 'customer':
-            this.router.navigateByUrl('operations/requestForm/edit/'+ event.row['orderNumber'])
+               this.formType = 'edit'
           break;
       }
+      this.router.navigateByUrl(`operations/requestForm/${this.formType}/`+ event.row['orderNumber'])
 
     }
 });

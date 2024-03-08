@@ -207,9 +207,9 @@ export class AdmissionFormComponent {
 
   getAllCompanies() {
     this.admissionFormUtilitiesService.getAllCompanies().subscribe((res) => {
-      this.companies = res['content'];
       this.mainModelArrays['allCompanies'] = res['content'];
-
+      this.companies = res['content'];
+      
       if (this.formType == 'check' || this.formType =='view-only') {
         this.getRequestById(this.requestId);
       } else if (this.formType == 'edit') {
@@ -227,10 +227,13 @@ export class AdmissionFormComponent {
       .getCustomerRequestById(id)
       .subscribe((request) => {
         this.customerRequestData = request['content']
-         let requestCompnay = this.ownerCompaniesArr.filter((c)=>{
-        return c.id ==this.customerRequestData.companyId
+        console.log(this.ownerCompaniesArr);
+         let requestCompnay = this.companies.filter((c)=>{
+        return c.id == this.customerRequestData.companyId
         })[0];
-        this.isCementCompany = requestCompnay.activity.code == 'RDF-Cement';
+      this.admissionFormApiService.selectedCompany =  this.customerRequestData.companyId;
+        console.log(requestCompnay);
+        this.isCementCompany = requestCompnay?.activity.code == 'RDF-Cement'?true:false;
         this.mainModel = this.admissionFormModelsService.getMainModel(
           this.mainModelArrays,
           request['content'],
@@ -274,7 +277,7 @@ export class AdmissionFormComponent {
     .subscribe((request) => {
       this.cementRdfService.initForm(this.customerRequestData,this.formType,request.content)
       this.isRdfRequestReady = true
-       
+       this.invoice = this.cementRdfService.invoiceData;
     });
 
   }
@@ -300,10 +303,10 @@ export class AdmissionFormComponent {
     
     if(this.pendingRdf) {
      
-      rdfForm = this.rdfForm;
-      invoiceDetails = this.rdfForm['invoiceDetails']['dynamicFormGroup'].value;
-      totalRdfForm = this.rdfForm['totalRdfForm']['dynamicFormGroup'].value;
-      wastePercentage = this.rdfForm['wastePercentage']['dynamicFormGroup'].value;
+      //rdfForm = this.rdfForm;
+      //invoiceDetails = this.rdfForm['invoiceDetails']['dynamicFormGroup'].value;
+      //totalRdfForm = this.rdfForm['totalRdfForm']['dynamicFormGroup'].value;
+      //wastePercentage = this.rdfForm['wastePercentage']['dynamicFormGroup'].value;
       }
     if(this.formType == 'check' && this.auth.user.sub.administrativeId == 11) {
       this.initStatusforReviewForm(requestStatus , {invoiceDetails , totalRdfForm , wastePercentage} , this.pendingRdf, this.formType)
@@ -320,7 +323,9 @@ export class AdmissionFormComponent {
     let inputsList = []
     let clearList = [];
     let checkerInputs = []
-    if(formType != 'view-only'){
+   
+    if(!isRdf){
+      console.log('form enable');
       checkerInputs = this.admissionFormService.checkerForm(forms);
       checkerInputs.map((input) => {
         console.log("input" , input);
@@ -349,6 +354,15 @@ export class AdmissionFormComponent {
     }
 
     submitReviewForm(status , inputsList , isRdf) {
+      if(isRdf){
+        this.admissionFormService.nextPage.next({
+          nextPage: true,
+          requestId: this.requestId,
+        });
+        console.log('return RDF');
+        return;
+      }
+        
       this.operationsApiService
       .updateRequestStatus(this.requestId, status)
       .subscribe((response) => {});

@@ -95,6 +95,7 @@ const routes: Routes = [
           import(
             '@operations/pages/digital-sealing-submition/digital-sealing-submition.component'
           ).then((m) => m.DigitalSealingSubmitionComponent),
+          
         data: { breadcrumb: 'facilityActivation' },
       },
  

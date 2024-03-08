@@ -1,6 +1,6 @@
 import { AdmissionFormMappingService } from './../../services/admission-form/admission-form-mapping.service';
 import { AdmissionFormApiService } from './../../services/admission-form/admission-form-api.service';
-import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdmissionFormComponent } from '@operations/pages/admission-form/admission-form.component';
 import { DigitalSealingSubmitionComponent } from '@operations/pages/digital-sealing-submition/digital-sealing-submition.component';
@@ -28,7 +28,7 @@ import { AdmissionFormService } from '@operations/services/admission-form/admiss
   styleUrl: './submit-admission-stepper.component.scss',
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class SubmitAdmissionStepperComponent implements OnInit {
+export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
   @ViewChild('admissionForm') admissionForm: AdmissionFormComponent;
   @ViewChild('rdfForm') rdfForm: RdfFormComponent;
   selectedCompanyId;
@@ -49,9 +49,17 @@ export class SubmitAdmissionStepperComponent implements OnInit {
   ngOnInit(): void {
     this.selectedCompanySubscription$ =
       this.admissionFormApiService.selectedCompany.subscribe((res) => {
-        
+        console.log(res);
         this.selectedCompanyId = res;
       });
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    this.selectedCompanySubscription$ =
+    this.admissionFormApiService.selectedCompany.subscribe((res) => {
+      console.log(res);
+      this.selectedCompanyId = res;
+    });
   }
   scroll() {
     window.scroll(0, 0);
@@ -75,8 +83,9 @@ export class SubmitAdmissionStepperComponent implements OnInit {
     this.admissionForm.onSubmit();
     this.nextSubscription = this.admissionFormService.nextPage.subscribe((res) => {
       if (res) {
-        
-        let selectedCompany = this.admissionForm.ownerCompaniesArr.filter(
+           console.log(this.selectedCompanyId);
+           console.log(this.admissionForm.companies);
+        let selectedCompany = this.admissionForm.companies.filter(
           (company) => {
             return company.id == this.selectedCompanyId;
           }

@@ -49,7 +49,8 @@
     <div class="text-center mt-5">
     </div>
     <!-- If reviweing rdf form with customer request form -->
-    <app-rdf-form  #rdfForm [isReviewing]="auth.user.sub.administrativeId != null && auth.user.sub.administrativeId !=11" [isEditForm]="formType =='edit' && formType !='check' " [isCheckerForm]="formType == 'check'" *ngIf="pendingRdf" ></app-rdf-form>
+   <!-- <app-rdf-form  #rdfForm [isReviewing]="auth.user.sub.administrativeId != null && auth.user.sub.administrativeId !=11" [isEditForm]="formType =='edit' && formType !='check' " [isCheckerForm]="formType == 'check'" *ngIf="pendingRdf" ></app-rdf-form>
+    -->
     <!-- If reviweing rdf form with customer request form -->
     <app-reviewer-form
     *ngIf="auth.user.sub['administrativeId'] != null"
