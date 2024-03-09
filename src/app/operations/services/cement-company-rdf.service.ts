@@ -62,7 +62,7 @@ initForm(data , formType, rdf) {
       },
 
       date: {
-        isDisabled:data?data.status!='CompleteEntry' && data.status !='Created':false,
+        isDisabled:data?data.status!='CompleteEntry' && data.status !='Created'?true:data.requester:false,
         type: 'date',
         value: this.utilService.convertDate(rdf?.createdDate),
         col: 'col-md-3',
