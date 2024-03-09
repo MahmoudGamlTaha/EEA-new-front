@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { flip } from '@popperjs/core';
 import { UtilitiesService } from '@shared/services/utilities.service';
+import { AuthService } from 'app/core/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class CementCompanyRdfService {
   statusArr;
   utilService;
 
-  constructor(utilService:UtilitiesService) {
+  constructor(utilService:UtilitiesService,  private auth: AuthService) {
     this.utilService = utilService;
     this.initForm(null,null,null);
   }
@@ -39,7 +40,7 @@ initForm(data , formType, rdf) {
     },
     subModel: {
       weightInTon: {
-        isDisabled:data?data.status!='CompleteEntry' && data.status !='Created':false,
+        isDisabled:true ,
         type: 'number',
         value: rdf?.weightInTon,
         col: 'col-md-3',
