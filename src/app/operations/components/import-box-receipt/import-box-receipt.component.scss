@@ -1,0 +1,12 @@
+.logo-card{
+  position: relative;
+  .bg-card{
+    opacity: 0.2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 550px;
+    position: absolute;
+  }
+}

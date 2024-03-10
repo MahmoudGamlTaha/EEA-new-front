@@ -1,0 +1,118 @@
+<div class="row justify-content-end pb-3">
+  <div class="col-auto">
+    <button class="btn gradient px-5">
+      {{ "admissionForm.print" | translate }}
+    </button>
+  </div>
+</div>
+
+<div class="card px-4 py-5 logo-card">
+  <img class="bg-card" src="assets/images/logo-footer.png">
+  <span class="row justify-content-end mx-4">{{"importBoxReceipt.receiptNumber"| translate}}</span>
+
+  <div style="line-height: 2rem;">
+    <div class="row mx-1">
+      <div class="col-8">
+        <span>{{"importBoxReceipt.name"| translate}}</span>
+        :
+        صندوق حماية البيئة
+      </div>
+
+
+      <div class="col-4">
+        <span>{{"importBoxReceipt.date"| translate}}</span>
+        :
+        29/08/2022
+      </div>
+    </div>
+
+    <div class="col-12">
+      <span>{{"importBoxReceipt.code"| translate}}</span>
+      :
+      12900202
+    </div>
+
+    <div class="row mx-1 align-items-start">
+      <span class="col-auto">{{"importBoxReceipt.requestName"| translate}}</span>
+      :
+      <span class="col-auto">
+        <span>
+          مؤمن ربيع محمد عثمان
+        </span>
+        <br>
+        <span>
+          كينج ستون للفحم-2224100053
+        </span>
+      </span>
+    </div>
+    <div class="col-12">
+      <span>{{"importBoxReceipt.payWay"| translate}}</span>
+      :
+      دفع اليكترونى
+    </div>
+  </div>
+
+  <span class="row justify-content-center mx-5">
+    {{"importBoxReceipt.receipt"| translate}}
+    0000000004
+  </span>
+
+  <table class="table table-bordered my-2">
+    <tbody>
+      <tr>
+        <td class="p-1">
+          <span>{{ "importBoxReceipt.no" | translate}}</span>
+        </td>
+        <td class="p-1">
+          <span>{{ "importBoxReceipt.ServicesProvided" | translate}}</span>
+        </td>
+        <td class="p-1">
+          <span>{{ "importBoxReceipt.amount" | translate}}</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="p-1">
+          <span>1</span>
+        </td>
+        <td class="p-1">
+          <span>
+            اصدار خطاب عدم ممانعة شحنات الفحم (حجري-بترولي)
+            <br>
+            من 29/8/2022 الي 29/8/2022
+            <br>
+            رقم : 2224100051500019
+          </span>
+        </td>
+        <td class="p-1">
+          <span>6270.0 {{ "importBoxReceipt.eg" | translate}} </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="p-1"></td>
+        <td class="p-1">
+          <span>{{ "importBoxReceipt.total" | translate}}</span>
+        </td>
+        <td class="p-1">
+          <span>6270.0 {{ "importBoxReceipt.eg" | translate}} </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="text-center mt-5">
+    فقط ستة آلاف و مئتان و سبعون جنيه مصري لا غير
+  </span>
+
+  <hr style="background-color: black;">
+
+  <span>ماقبله 0  {{ "importBoxReceipt.eg" | translate}}</span>
+  <span>{{ "importBoxReceipt.total" | translate}} 6270.0 {{ "importBoxReceipt.eg" | translate}} </span>
+</div>
+
+<div class="row justify-content-center pb-3">
+  <div class="col-auto">
+    <button class="btn gradient px-5 mt-4">
+      {{ "importBoxReceipt.send" | translate }}
+    </button>
+  </div>
+</div>

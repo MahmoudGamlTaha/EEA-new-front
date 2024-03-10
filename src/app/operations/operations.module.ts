@@ -5,9 +5,38 @@ import { CustomerRoutingModule } from './operations-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { OperationsLayoutComponent } from './components/operations-layout/operations-layout.component';
 import { SidebarComponent } from '@shared/components/sidebar/sidebar.component';
+import { ImportBoxTemp1Component } from './components/import-box-temp1/import-box-temp1.component';
+import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
+import { NotificationsCardComponent } from '@shared/components/cards/notifications-card/notifications-card.component';
+import { BtnDropdownComponent } from '@shared/components/buttons/btn-dropdown/btn-dropdown.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DocumentAttachementComponent } from './components/document-attachement/document-attachement.component';
+import { DynamicErrorComponent } from '@shared/components/dynamic-form/components/dynamic-error/dynamic-error.component';
+import { DynamicDownloadComponent } from '@shared/components/dynamic-form/components/dynamic-field/components/dynamic-download/dynamic-download.component';
+import { NewImportBoxComponent } from './pages/new-import-box/new-import-box.component';
+import { ImportBoxTemp2Component } from './components/import-box-temp2/import-box-temp2.component';
+import { ImportBoxReceiptComponent } from './components/import-box-receipt/import-box-receipt.component';
 
 @NgModule({
-  declarations: [OperationsLayoutComponent],
-  imports: [CommonModule, CustomerRoutingModule, SharedModule , SidebarComponent],
+  declarations: [
+    OperationsLayoutComponent,
+    ImportBoxTemp1Component,
+    NewImportBoxComponent,
+    ImportBoxTemp2Component,
+    ImportBoxReceiptComponent
+  ],
+  imports: [
+    CommonModule,
+    CustomerRoutingModule,
+    SharedModule,
+    SidebarComponent,
+    SubtitleComponent,
+    NotificationsCardComponent ,
+    BtnDropdownComponent,
+    ReactiveFormsModule,
+    DocumentAttachementComponent,
+    DynamicErrorComponent,
+    DynamicDownloadComponent
+  ],
 })
 export class OperationsModule {}

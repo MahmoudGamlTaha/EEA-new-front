@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OperationsLayoutComponent } from './components/operations-layout/operations-layout.component';
+import { NewImportBoxComponent } from './pages/new-import-box/new-import-box.component';
 
 const routes: Routes = [
   {
@@ -95,10 +96,10 @@ const routes: Routes = [
           import(
             '@operations/pages/digital-sealing-submition/digital-sealing-submition.component'
           ).then((m) => m.DigitalSealingSubmitionComponent),
-          
+
         data: { breadcrumb: 'facilityActivation' },
       },
- 
+
       {
         path: 'requestsSubmitted',
         loadComponent: () =>
@@ -113,6 +114,11 @@ const routes: Routes = [
           import('@operations/pages/import-box/import-box.component').then(
             (m) => m.ImportBoxComponent
           ),
+        data: { breadcrumb: 'importBox' },
+      },
+      {
+        path: 'importBox2',
+        component:NewImportBoxComponent,
         data: { breadcrumb: 'importBox' },
       },
       {

@@ -68,6 +68,10 @@ export class HeaderService {
           name: 'routingHeader.requestForm',
           path: '/operations/requestForm/add/new',
         },
+        {
+          name: 'routingHeader.importBox',
+          path: '/operations/importBox2',
+        },
       ],
     },
     {
