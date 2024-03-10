@@ -5,11 +5,10 @@
     <app-admission-form
       #admissionForm
     ></app-admission-form>
-
     <button
         class="col-2 btn gradient"
+        matStepperNext
         (click)="onSubmitAdmissionFormData(stepper)"
-
       >
         {{ "admissionForm.next" | translate }}
       </button>
@@ -17,7 +16,7 @@
   <!-- Rdf Form -->
   <mat-step *ngIf="isCementCompany">
     <ng-template matStepLabel>RDF</ng-template>
-    <app-rdf-form #rdfForm [requestId]="requestId"></app-rdf-form>
+    <app-rdf-form #rdfForm [requestId]="requestId" [formType]="formType" [isReviewing]="formType=='check'" [isCheckerForm]="formType =='check'"></app-rdf-form>
     <div class="row align-items-start justify-content-between">
       <button
         class="col-2 btn gradient"
@@ -32,8 +31,8 @@
     </div>
   </mat-step>
   <!-- Digital Sealing form -->
-  <mat-step>
-    <ng-template matStepLabel>Digital Sealing</ng-template>
+  <mat-step >
+    <ng-template matStepLabel >Digital Sealing</ng-template>
     <app-digital-sealing-submition></app-digital-sealing-submition>
     <div class="row align-items-start justify-content-between">
       <button class="col-2 btn gradient" matStepperNext (click)="openDialog()">

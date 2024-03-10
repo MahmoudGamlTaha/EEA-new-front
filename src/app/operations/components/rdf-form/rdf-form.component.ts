@@ -8,6 +8,10 @@ import { DynamicFormComponent } from '@shared/components/dynamic-form/dynamic-fo
 import { CementCompanyRdfService } from '@operations/services/cement-company-rdf.service';
 import { WastePercentageComponent } from '../waste-percentage/waste-percentage.component';
 import { DigitalSealingFormComponent } from '../digital-sealing-form/digital-sealing-form.component';
+import { OperationsApiService } from '@operations/services/operations.api.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { AdmissionFormService } from '@operations/services/admission-form/admission-form.service';
 
 @Component({
   selector: 'app-rdf-form',
@@ -33,7 +37,7 @@ export class RdfFormComponent {
   @Input() requestId: number;
   @Input() isCheckerForm: boolean;
   @Input() isEditForm: boolean;
-
+  @Input() formType:string;
   formModel;
   totalRdf;
   wastePercentageFormModel;
@@ -42,7 +46,11 @@ export class RdfFormComponent {
   constructor(
     private cementCompanyRdfService: CementCompanyRdfService,
     private rdfApisService: RdfApisService,
-    private utilitiesApiService: UtilitiesApiService
+    private utilitiesApiService: UtilitiesApiService,
+    private operationsApiService:OperationsApiService,
+    private toastr: ToastrService,
+    private router: Router,
+    private admissionFormService:AdmissionFormService
   ) {
 //     var date = new Date(1942615200 * 1000);
 // console. log(date. toUTCString());
@@ -66,7 +74,6 @@ export class RdfFormComponent {
     let totalRdf = this.totalRdfForm['dynamicFormGroup'].value;
     let wastePercentage = this.wastePercentage['dynamicFormGroup'].value;
     let digitalSealForm = this.digitalSealForm['formGroup'].value;
-
     console.log(invoiceDetails , totalRdf , wastePercentage , digitalSealForm);
     
     let formData = new FormData();
@@ -96,6 +103,47 @@ export class RdfFormComponent {
     // return reqObj;
   }
   onSubmit() {
-    this.convertingFormsToRequestObj();
+    if(this.isReviewing){
+      let invoiceDetails = this.invoiceDetails['dynamicFormGroup'].value;
+      let totalRdf = this.totalRdfForm['dynamicFormGroup'].value;
+      let wastePercentage = this.wastePercentage['dynamicFormGroup'].value;
+     let checkerInputs = this.admissionFormService.checkerForm( {invoiceDetails , totalRdf , wastePercentage});
+     
+     let inputsList = [];
+     let clearList = [];
+     let requestStatus = 'AcceptRDF';
+     checkerInputs.map((input) => {
+      console.log("input" , input);
+     
+      if (input.value != true) {
+        inputsList.push(input.key.replace('Checker', ''))
+        requestStatus = 'CompleteEntry';
+      }else{
+         clearList.push(input.key.replace('Checker', ''));
+      }
+    });
+    if(clearList.length > 0)
+    this.operationsApiService.clearInputField(this.requestId, clearList);
+    this.UpdateStatusRequest(requestStatus,inputsList)
+     ///
+    
+     //this.UpdateStatusRequest();
+      return 
+    }else if(this.formType=='edit' || this.formType== 'add'){
+        this.convertingFormsToRequestObj();
+    }
+  }
+  UpdateStatusRequest(status , inputsList) {
+      
+    this.operationsApiService
+    .updateRequestStatus(this.requestId, status)
+    .subscribe((response) => {});
+    if(inputsList.length > 0){
+    this.operationsApiService.submitInputField(this.requestId, inputsList).subscribe((response) => {
+          });
+        }
+          this.toastr.success('Status Submitted Successfully');
+    this.router.navigateByUrl('operations/requestsSubmitted');
+
   }
 }

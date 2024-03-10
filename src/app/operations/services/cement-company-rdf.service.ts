@@ -62,7 +62,7 @@ initForm(data , formType, rdf) {
       },
 
       date: {
-        isDisabled:data?data.status!='CompleteEntry' && data.status !='Created'?true:data.requester:false,
+        isDisabled:data?data.status!='CompleteEntry' && data.status !='Created'?true:false:false,
         type: 'date',
         value: this.utilService.convertDate(rdf?.createdDate),
         col: 'col-md-3',
@@ -72,7 +72,7 @@ initForm(data , formType, rdf) {
         },
       },
       providerName: {
-        isDisabled:data?data.status!='CompleteEntry' && data.status !='Created':false,
+        isDisabled:data?data.status!='CompleteEntry' && data.status !='Created'?true:false:false,
         type: 'string',
         value: rdf?.providerName,
         col: 'col-md-3',

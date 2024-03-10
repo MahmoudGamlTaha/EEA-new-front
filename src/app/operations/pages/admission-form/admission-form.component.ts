@@ -344,8 +344,10 @@ export class AdmissionFormComponent {
       if(clearList.length > 0)
           this.operationsApiService.clearInputField(this.requestId, clearList);
     }
-      if(formType == 'check')
+    
+      if(formType == 'check'){
       this.submitReviewForm(requestStatus , inputsList , isRdf)
+      }
       else{
         this.feeService.setCustomerRequest(this.customerRequestData);
         console.log(this.feeService.customerRequest);
@@ -355,11 +357,13 @@ export class AdmissionFormComponent {
     }
 
     submitReviewForm(status , inputsList , isRdf) {
+     
       if(isRdf){
         this.admissionFormService.nextPage.next({
           nextPage: true,
           requestId: this.requestId,
         });
+        console.log("zeft");
         console.log('return RDF');
         return;
       }

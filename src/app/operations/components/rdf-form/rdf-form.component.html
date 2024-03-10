@@ -11,9 +11,9 @@
         ></app-add-button>
       </div>
     </div>
-    <app-dynamic-form #invoiceDetails [isReviewing]="isReviewing" [model]="formModel"></app-dynamic-form>
+    <app-dynamic-form  [checkerForm]="isCheckerForm" #invoiceDetails [isReviewing]="isReviewing" [model]="formModel"></app-dynamic-form>
     <!-- Total purchases -->
-    <app-dynamic-form #totalRdfForm [model]="totalRdf"></app-dynamic-form>
+    <app-dynamic-form  [checkerForm]="isCheckerForm" #totalRdfForm [model]="totalRdf"></app-dynamic-form>
     <!-- Waste Percentage -->
     <app-dynamic-form [isInlineInput]="true" #wastePercentage [model]="wastePercentageFormModel" [checkerForm]="isCheckerForm"></app-dynamic-form>
   </div>

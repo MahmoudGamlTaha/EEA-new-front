@@ -20,5 +20,7 @@ export class DynamicLabelComponent {
   @Input() index: any;
 
   ngOnInit() {
+   // console.log(this.field);
+    //console.log(this.checkerForm);
   }
 }

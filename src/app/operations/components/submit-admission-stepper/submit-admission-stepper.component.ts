@@ -37,6 +37,7 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
   requestId;
   nextSubscription:Subscription;
   countSteps = 0;
+  formType;
 
   constructor(
     private dialog: MatDialog,
@@ -52,6 +53,7 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
         console.log(res);
         this.selectedCompanyId = res;
       });
+      
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -77,37 +79,32 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
     });
   }
 
+  
   onSubmitAdmissionFormData(stepper: MatStepper) {
+    this.isCementCompany = true
     this.scroll();
     this.admissionForm.onSubmit();
-   
-    this.nextSubscription = this.admissionFormService.nextPage.subscribe((res) => {
-      if (res) {
-           console.log(this.selectedCompanyId);
-           console.log(this.admissionForm.companies);
-        let selectedCompany = this.admissionForm.companies.filter(
-          (company) => {
-            return company.id == this.selectedCompanyId;
-          }
-        )[0];
-        //check if the company is a cement company
-        console.log(selectedCompany?.activity.code);
-        if (selectedCompany?.activity.code === 'RDF-Cement') {
-          this.isCementCompany = true;
+    console.log(this.isCementCompany);
+    this.formType = this.admissionForm.formType;
+  //  this.nextSubscription = this.admissionFormService.nextPage.subscribe((res) => {
+      //console.log(res);
+    //  if (res.nextPage) {
+      let selectedCompany = this.admissionForm.companies.filter(
+        (company) => {
+          return company.id == this.selectedCompanyId;
         }
-        this.requestId = res.requestId;
-        if (res.nextPage) {
-          stepper.next();
-          this.countSteps+=1;
-          console.log('step counter from stepper form' , this.countSteps)
-          this.nextSubscription.unsubscribe();
-          
-          console.log(stepper)
-          this.admissionFormService.nextPage.next({nextPage: false ,requestId: null})
-        }
+      )[0];
+      //check if the company is a cement company
+      if (selectedCompany?.activity.code === 'RDF-Cement') {
+        this.isCementCompany = true;
       }
-    });
-  }
+      //this.requestId = res.requestId;
+    //  stepper.next();
+      
+    }
+   // console.log(this.isCementCompany);
+//    });
+  //}
   backToAdmissionForm(){
     this.scroll();
     this.admissionFormMappingService.count.next(0);
@@ -116,7 +113,7 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
     this.admissionFormMappingService.requestDetailForApi.next([])
     this.admissionFormService.nextPage.next({
       nextPage: false,
-      requestId: null,
+      requestId: this.requestId,
     });
   }
   onSubmitRdfFormData(stepper: MatStepper) {
