@@ -16,7 +16,7 @@
   <!-- Rdf Form -->
   <mat-step *ngIf="isCementCompany">
     <ng-template matStepLabel>RDF</ng-template>
-    <app-rdf-form #rdfForm [requestId]="requestId" [formType]="formType" [isReviewing]="formType=='check'" [isCheckerForm]="formType =='check'"></app-rdf-form>
+    <app-rdf-form #rdfForm [requestStatus]="requestStatus" [requestId]="requestId" [formType]="formType" [isReviewing]="formType=='check'" [isCheckerForm]="formType =='check'"></app-rdf-form>
     <div class="row align-items-start justify-content-between">
       <button
         class="col-2 btn gradient"
@@ -31,7 +31,7 @@
     </div>
   </mat-step>
   <!-- Digital Sealing form -->
-  <mat-step >
+  <mat-step *ngIf="formType=='add'" >
     <ng-template matStepLabel >Digital Sealing</ng-template>
     <app-digital-sealing-submition></app-digital-sealing-submition>
     <div class="row align-items-start justify-content-between">

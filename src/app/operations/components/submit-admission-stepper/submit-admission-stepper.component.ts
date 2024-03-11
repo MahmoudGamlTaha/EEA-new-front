@@ -1,6 +1,6 @@
 import { AdmissionFormMappingService } from './../../services/admission-form/admission-form-mapping.service';
 import { AdmissionFormApiService } from './../../services/admission-form/admission-form-api.service';
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdmissionFormComponent } from '@operations/pages/admission-form/admission-form.component';
 import { DigitalSealingSubmitionComponent } from '@operations/pages/digital-sealing-submition/digital-sealing-submition.component';
@@ -38,13 +38,15 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
   nextSubscription:Subscription;
   countSteps = 0;
   formType;
+  requestStatus;
 
   constructor(
     private dialog: MatDialog,
     private router: Router,
     private admissionFormService: AdmissionFormService,
     private admissionFormApiService: AdmissionFormApiService,
-    private admissionFormMappingService:AdmissionFormMappingService
+    private admissionFormMappingService:AdmissionFormMappingService,
+    private cdRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -81,8 +83,11 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
 
   
   onSubmitAdmissionFormData(stepper: MatStepper) {
+    
     this.isCementCompany = true
     this.scroll();
+    this.requestId = this.admissionForm.requestId
+    this.requestStatus = this.admissionForm.customerRequestData?.status;
     this.admissionForm.onSubmit();
     console.log(this.isCementCompany);
     this.formType = this.admissionForm.formType;
@@ -100,7 +105,10 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
       }
       //this.requestId = res.requestId;
     //  stepper.next();
-      
+    this.cdRef.detectChanges();
+    if(!(this.formType == 'add')){
+      stepper.next();
+    }
     }
    // console.log(this.isCementCompany);
 //    });

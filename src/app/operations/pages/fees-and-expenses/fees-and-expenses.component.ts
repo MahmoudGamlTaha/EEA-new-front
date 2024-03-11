@@ -1,5 +1,5 @@
 import { FeesAndExpensesService } from '@operations/services/fees-and-expenses.service';
-import { Component, ElementRef, Injectable, ViewChild } from '@angular/core';
+import { Component, ElementRef, Injectable, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
@@ -20,7 +20,7 @@ import { OperationsApiService } from '@operations/services/operations.api.servic
   templateUrl: './fees-and-expenses.component.html',
   styleUrl: './fees-and-expenses.component.scss',
 })
-export class FeesAndExpensesComponent {
+export class FeesAndExpensesComponent implements OnInit {
   @ViewChild('paymentForm') paymentForm!: ElementRef;
   @ViewChild('reviewerForm') reviewerForm!: ReviewerFormComponent;
   feesForm;
@@ -49,21 +49,24 @@ export class FeesAndExpensesComponent {
       this.route.params.subscribe((params) => {
         this.requestId = params['requestId'];
       });
-    this.initCustomerRequest(this.requestId);
     this.isCustomer = this.auth.userRole.includes('customer') && this.auth.userRole.length == 1;
     
-    this.totalForm = this.feesAndExpensesService.totalForm;
+   /*this.totalForm = this.feesAndExpensesService.totalForm;
     this.reviewersList = this.feesAndExpensesService.reviewersList;
     this.statusArr = this.feesAndExpensesService.statusArr;
     this.statusNote = this.feesAndExpensesService.statusNote;
-    this.reviewer = this.auth.user.username
+    this.reviewer = this.auth.user.username*/
     this.manualOrAutomatic = this.feesAndExpensesService.manualOrVisa;
-    this.getCurrency()
   }
-  initCustomerRequest(requestId){
-     this.feesAndExpensesApi.getFees(requestId).subscribe(response=>{
-            this.feesModel = response['content'];
-      });
+  ngOnInit(): void {
+      this.initCustomerRequest();
+      this.getCurrency();
+  }
+  initCustomerRequest(){
+    console.log(this.requestId);
+    this.feesAndExpensesApi.calculateCharge(this.requestId, 1).subscribe((reso=>{
+      this.feesModel = reso['content'];
+    }));
    }
 
   calculateTotalFees(paymentForm){
@@ -86,7 +89,7 @@ export class FeesAndExpensesComponent {
       this.feesAndExpensesApi.getRequestById(this.requestId).subscribe(res =>{
         this.customerRequest = res['content'];
         this.requestStatus = this.customerRequest.status; 
-        console.log(this.customerRequest);
+       
         this.feesForm = this.feesAndExpensesService.initForm(this.feesModel, this.customerRequest, this.auth.userRole.includes('customer'));
         this.manualOrAutomatic = this.feesAndExpensesService.manualOrVisa;
         console.log(this.manualOrAutomatic);

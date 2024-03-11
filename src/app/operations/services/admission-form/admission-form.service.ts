@@ -33,6 +33,22 @@ export class AdmissionFormService {
     }
     return checkerInputs;
   }
+  checkFormDimmed(forms){
+    for (const formKey in forms) {
+      if (Object.prototype.hasOwnProperty.call(forms, formKey)) {
+        const currentForm = forms[formKey]; //get forms with values
+        Object.entries(currentForm)
+          .filter(([key, value]) => key.toLowerCase().includes('checker'))
+          .forEach(([key, value]) => {
+            // Check if the key is a checkbox
+            
+              console.log(currentForm[key]);
+              currentForm[key].value = true; // Set the checkbox value to true
+            
+          });
+      }
+    }
+  }
 
   // Customer can not move to other page without check on all digital sealing endorsement
   checkDigitalSealingFields(digitalSealingForm): boolean {

@@ -4,12 +4,12 @@
   <app-dynamic-form
   #paymentForm 
   [model]="feesForm"
-  [isInlineInput]="false"
+  [isInlineInput]="true"
 ></app-dynamic-form>
 <div class="row my-5 align-items-center">
   <div class="col-4">
     <app-submit-button
-      [hidden]="true"
+      *ngIf="false"
       (click)="calculateTotalFees(paymentForm.dynamicFormGroup.value)"
       [buttonName]="'customer.calculateTotalFees'"
       [class]="'filterButton'"

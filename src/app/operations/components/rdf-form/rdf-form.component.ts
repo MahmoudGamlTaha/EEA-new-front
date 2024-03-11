@@ -38,6 +38,7 @@ export class RdfFormComponent {
   @Input() isCheckerForm: boolean;
   @Input() isEditForm: boolean;
   @Input() formType:string;
+  @Input() requestStatus:string
   formModel;
   totalRdf;
   wastePercentageFormModel;
@@ -103,10 +104,12 @@ export class RdfFormComponent {
     // return reqObj;
   }
   onSubmit() {
-    if(this.isReviewing){
-      let invoiceDetails = this.invoiceDetails['dynamicFormGroup'].value;
+    console.log(this.requestStatus)
+    let invoiceDetails = this.invoiceDetails['dynamicFormGroup'].value;
       let totalRdf = this.totalRdfForm['dynamicFormGroup'].value;
       let wastePercentage = this.wastePercentage['dynamicFormGroup'].value;
+    if(this.isReviewing && (this.requestStatus == 'Created' || this.requestStatus == 'CompleteEntry')){
+    
      let checkerInputs = this.admissionFormService.checkerForm( {invoiceDetails , totalRdf , wastePercentage});
      
      let inputsList = [];
@@ -131,13 +134,19 @@ export class RdfFormComponent {
       return 
     }else if(this.formType=='edit' || this.formType== 'add'){
         this.convertingFormsToRequestObj();
+    }else if(this.requestStatus == 'AcceptRDF'){
+    
+   //   this.admissionFormService.checkFormDimmed( {invoiceDetails , totalRdf , wastePercentage});
+      this.UpdateStatusRequest('Accept',[]);
     }
   }
   UpdateStatusRequest(status , inputsList) {
       
     this.operationsApiService
     .updateRequestStatus(this.requestId, status)
-    .subscribe((response) => {});
+    .subscribe((response) => {
+     
+    });
     if(inputsList.length > 0){
     this.operationsApiService.submitInputField(this.requestId, inputsList).subscribe((response) => {
           });

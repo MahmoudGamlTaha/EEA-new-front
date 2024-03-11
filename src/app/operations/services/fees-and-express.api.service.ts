@@ -25,6 +25,10 @@ export class FeesAndExpensesApiService {
     const url = `${environment.apiUrl}/portal/customer-request/${requestId}`;
     return this.httpClient.get(url);
 }
+  calculateCharge(requestId, currencyRate){
+    const url = `${environment.apiUrl}/portal/customer-request/calculate-charge?requestId=${requestId}&&currencyRate=${currencyRate}`;
+    return this.httpClient.get(url);
+  }
 
 
 }
