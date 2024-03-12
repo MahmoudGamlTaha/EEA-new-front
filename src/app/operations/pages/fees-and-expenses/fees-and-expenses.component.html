@@ -6,10 +6,10 @@
   [model]="feesForm"
   [isInlineInput]="true"
 ></app-dynamic-form>
-<div class="row my-5 align-items-center">
+<div class="row my-6 align-items-center">
   <div class="col-4">
     <app-submit-button
-      *ngIf="false"
+      *ngIf="!isCustomer"
       (click)="calculateTotalFees(paymentForm.dynamicFormGroup.value)"
       [buttonName]="'customer.calculateTotalFees'"
       [class]="'filterButton'"

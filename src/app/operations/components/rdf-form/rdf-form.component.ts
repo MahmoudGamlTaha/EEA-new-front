@@ -1,6 +1,6 @@
 import { UtilitiesApiService } from './../../../shared/services/utilities.api.service';
 import { RdfApisService } from './../../services/rdf-apis.service';
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 import { AddButtonComponent } from '@shared/components/buttons/add-button/add-button.component';
@@ -12,6 +12,8 @@ import { OperationsApiService } from '@operations/services/operations.api.servic
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AdmissionFormService } from '@operations/services/admission-form/admission-form.service';
+import { AdmissionFormMappingService } from '@operations/services/admission-form/admission-form-mapping.service';
+import { FeesAndExpensesService } from '@operations/services/fees-and-expenses.service';
 
 @Component({
   selector: 'app-rdf-form',
@@ -51,7 +53,10 @@ export class RdfFormComponent {
     private operationsApiService:OperationsApiService,
     private toastr: ToastrService,
     private router: Router,
-    private admissionFormService:AdmissionFormService
+    private admissionFormService:AdmissionFormService,
+    private admissionFormMappingService:AdmissionFormMappingService,
+    private cdRef: ChangeDetectorRef,
+    private feeService:FeesAndExpensesService
   ) {
 //     var date = new Date(1942615200 * 1000);
 // console. log(date. toUTCString());
@@ -138,6 +143,11 @@ export class RdfFormComponent {
     
    //   this.admissionFormService.checkFormDimmed( {invoiceDetails , totalRdf , wastePercentage});
       this.UpdateStatusRequest('Accept',[]);
+    } else if(this.formType == 'view-only'){
+      this.feeService.setCustomerRequest(this.admissionFormService.customerRequest);
+      console.log(this.feeService.customerRequest);
+      this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
+      
     }
   }
   UpdateStatusRequest(status , inputsList) {

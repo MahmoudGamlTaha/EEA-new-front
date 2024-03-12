@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { AdmissionFormService } from '@operations/services/admission-form/admission-form.service';
+import { FeesAndExpensesService } from '@operations/services/fees-and-expenses.service';
 
 @Component({
   selector: 'app-submit-admission-stepper',
@@ -46,7 +47,8 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
     private admissionFormService: AdmissionFormService,
     private admissionFormApiService: AdmissionFormApiService,
     private admissionFormMappingService:AdmissionFormMappingService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    private feeService:FeesAndExpensesService
   ) {}
 
   ngOnInit(): void {
@@ -89,7 +91,7 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
     this.requestId = this.admissionForm.requestId
     this.requestStatus = this.admissionForm.customerRequestData?.status;
     this.admissionForm.onSubmit();
-    console.log(this.isCementCompany);
+ 
     this.formType = this.admissionForm.formType;
   //  this.nextSubscription = this.admissionFormService.nextPage.subscribe((res) => {
       //console.log(res);
@@ -105,9 +107,16 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
       }
       //this.requestId = res.requestId;
     //  stepper.next();
+    console.log(this.formType)
     this.cdRef.detectChanges();
     if(!(this.formType == 'add')){
       stepper.next();
+    }
+    else if(this.formType == 'view-only'){ // useless code may be removed 
+      this.feeService.setCustomerRequest(this.admissionForm.customerRequestData);
+      console.log(this.feeService.customerRequest);
+      this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
+      
     }
     }
    // console.log(this.isCementCompany);

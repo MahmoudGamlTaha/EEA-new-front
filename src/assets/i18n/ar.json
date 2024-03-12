@@ -361,7 +361,8 @@
     "CorrectEntry":"استكمال بيانات",
     "CompleteEntry":"استكمال بيانات",
     "AcceptRDF":"مقبول مخلفات",
-    "CustomerPAID":"تم دفع العميل"
+    "CustomerPAID":"تم دفع العميل",
+    "ConfirmPaymentEEA":"تم تاكيد الدفع"
   },
   "customer": {
     "paymentSuccess":"تم دفع الرسوم الخاصة بهذا الطلب بنجاح",
@@ -396,6 +397,7 @@
     "paymentOfFees": "دفع الرسوم",
     "requestToUnloadShipmentOfCoal": "طلب تفريغ شحنة من الفحم الحجرى",
     "feeValue": "قيمة الرسوم",
+    "rdfValue": "قيمة المخلفات",
     "informationAboutPaymentMethods": "معلومات عن طرق الدفع",
     "completePayment": "استكمال الدفع",
     "pleaseEnterElectronicStamp": "يرجى ادخال الختم الالكترونى الخاص بك لتأكيد تفعيل الحساب",

@@ -348,12 +348,12 @@ export class AdmissionFormComponent {
       if(formType == 'check'){
       this.submitReviewForm(requestStatus , inputsList , isRdf)
       }
-      else{
+    /*  else{
         this.feeService.setCustomerRequest(this.customerRequestData);
         console.log(this.feeService.customerRequest);
         this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
         
-      }
+      }*/
     }
 
     submitReviewForm(status , inputsList , isRdf) {

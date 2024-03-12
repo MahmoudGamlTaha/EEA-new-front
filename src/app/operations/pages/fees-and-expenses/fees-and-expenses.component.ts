@@ -12,6 +12,7 @@ import { FeesAndExpensesApiService } from '@operations/services/fees-and-express
 import { AuthService } from 'app/core/services/auth.service';
 import { AdmissionFormUtilitiesService } from '@operations/services/admission-form/admission-form-utilities.service';
 import { OperationsApiService } from '@operations/services/operations.api.service';
+import { AdmissionFormService } from '@operations/services/admission-form/admission-form.service';
 
 @Component({
   selector: 'app-fees-and-expenses',
@@ -41,6 +42,7 @@ export class FeesAndExpensesComponent implements OnInit {
     private route: ActivatedRoute , 
     private admissionFormUtilitiesService:AdmissionFormUtilitiesService,
     private feesAndExpensesApi : FeesAndExpensesApiService,
+    private admissionFormService:AdmissionFormService,
     private router: Router,
     private auth: AuthService,
     private operation:OperationsApiService
@@ -59,23 +61,33 @@ export class FeesAndExpensesComponent implements OnInit {
     this.manualOrAutomatic = this.feesAndExpensesService.manualOrVisa;
   }
   ngOnInit(): void {
-      this.initCustomerRequest();
+      this.initCustomerRequest(1);
       this.getCurrency();
   }
-  initCustomerRequest(){
+  initCustomerRequest(rate){
     console.log(this.requestId);
-    this.feesAndExpensesApi.calculateCharge(this.requestId, 1).subscribe((reso=>{
+    this.feesAndExpensesApi.calculateCharge(this.requestId, rate).subscribe((reso=>{
       this.feesModel = reso['content'];
     }));
    }
 
   calculateTotalFees(paymentForm){
-    let rdf = (paymentForm.administrativeFees.TotalShipmentWeightInTons * 0.1) ;// paymentForm.totalShipmentWeight;
-    let price = rdf * paymentForm.administrativeFees.pricePerTon ;//* paymentForm.totalShipmentWeight
-    paymentForm.totalFees = paymentForm.administrativeExpensesInEgyptianPounds + (price);
-    this.feesForm.totalFees = paymentForm.totalFees;
-    this.feesForm = this.feesForm;
-    console.log(paymentForm)
+  //  let rdf = (paymentForm.administrativeFees.TotalShipmentWeightInTons * 0.1) ;// paymentForm.totalShipmentWeight;
+   // let price = rdf * paymentForm.administrativeFees.pricePerTon ;//* paymentForm.totalShipmentWeight
+   // paymentForm.totalFees = paymentForm.administrativeExpensesInEgyptianPounds + (price);
+   // this.feesForm.totalFees = paymentForm.totalFees;
+    //this.feesForm = this.feesForm;
+    //console.log(paymentForm)
+    console.log(paymentForm);
+    let rate =  paymentForm.administrativeFees.todayCurrencyValue;
+    this.feesAndExpensesApi.calculateCharge(this.requestId, rate).subscribe((reso=>{
+      this.feesModel = reso['content'];
+      console.log(this.feesModel);
+      paymentForm.administrativeFees.totalRequest = this.feesModel.totalFee;
+      paymentForm.administrativeFees.totalRdf = this.feesModel.rdfTotal
+      this.feesModel.rate = rate;
+      this.feesForm = this.feesAndExpensesService.initForm(this.feesModel, this.customerRequest, this.auth.userRole.includes('customer'));
+    }));
 
   }
   changeRadio(event){
@@ -121,8 +133,12 @@ export class FeesAndExpensesComponent implements OnInit {
     }
       if(!this.isCustomer){ 
     this.feesAndExpensesApi.submitExpenses(expenses).subscribe(response => {
-      this.reviewerForm.submitReviewerStatus()
-      this.router.navigate(['/operations/requestsSubmitted'])
+  //    this.reviewerForm.submitReviewerStatus()
+  if(response){
+  this.operation.updateRequestStatus(this.requestId,'AcceptProtectEEA').subscribe(respose=>{
+    this.router.navigate(['/operations/requestsSubmitted'])
+  });
+}
     })
   }else{
     this.operation.updateRequestStatus(this.requestId,'CustomerPAID').subscribe(respose=>{

@@ -186,9 +186,31 @@ setCustomerRequest(request){
           },
           todayCurrencyValue: {
             type: 'number',
-            value: '',
+            value: requestFees?requestFees.rate?requestFees.rate:1:1,
             col: this.currentLang === 'ar' ? 'col-6 mb-3 ps-0' : 'col-12 pe-0',
             label: 'customer.todayCurrencyValue',
+            labelStyle: 'normalFormLabel',
+            labelCol: 'col-auto',
+            rules: {
+              required: true,
+            },
+          },
+          rdfTotal: {
+            type: 'number',
+            value: requestFees?requestFees.rdfTotal:0,
+            col: this.currentLang === 'ar' ? 'col-6 mb-3 ps-0' : 'col-12 pe-0',
+            label: 'customer.rdfValue',
+            labelStyle: 'normalFormLabel',
+            labelCol: 'col-auto',
+            rules: {
+              required: true,
+            },
+          },
+          totalRequest: {
+            type: 'number',
+            value:  requestFees?requestFees.totalFee:0,
+            col: this.currentLang === 'ar' ? 'col-6 mb-3 ps-0' : 'col-12 pe-0',
+            label: 'customer.feeValue',
             labelStyle: 'normalFormLabel',
             labelCol: 'col-auto',
             rules: {

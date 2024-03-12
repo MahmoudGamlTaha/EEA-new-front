@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormGroup } from '@angular/forms';
 import { DynamicCheckerComponent } from '../dynamic-field/components/dynamic-checker/dynamic-checker.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { AdmissionFormService } from '@operations/services/admission-form/admission-form.service';
 
 @Component({
   selector: 'app-dynamic-label',
@@ -18,9 +19,10 @@ export class DynamicLabelComponent {
   @Input() isSubModel:boolean
   @Input() checkerForm:boolean
   @Input() index: any;
+  constructor(){
 
+  }
   ngOnInit() {
-   // console.log(this.field);
-    //console.log(this.checkerForm);
+ 
   }
 }
