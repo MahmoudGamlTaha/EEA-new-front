@@ -17,6 +17,7 @@ import { SharedModule } from '@shared/shared.module';
 })
 export class NewImportBoxComponent implements OnInit {
 
+  report = 1
   constructor(
     private formBuilder: FormBuilder,
   ){
@@ -25,5 +26,8 @@ export class NewImportBoxComponent implements OnInit {
   ngOnInit(
   ) {
   }
-
+  
+  chooseReport(event){
+    this.report = event
+  }
 }

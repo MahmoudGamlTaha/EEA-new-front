@@ -1,9 +1,32 @@
-<!-- <app-subtitle>{{ "routingHeader.importBox" | translate }}</app-subtitle>
-<h6 class="fw-bold text-center pb-2">
-  {{ "importBox.consentform" | translate}}
-</h6> -->
 
 
-<!-- <app-import-box-temp1></app-import-box-temp1> -->
-<!-- <app-import-box-temp2></app-import-box-temp2> -->
-<app-import-box-receipt></app-import-box-receipt>
+<div class="row gap-3 pb-5">
+  <button class=" col btn gradient px-5" (click)="chooseReport(1)">
+    report 1
+  </button>
+  <button class=" col btn gradient px-5" (click)="chooseReport(2)">
+    report 2
+  </button>
+  <button class=" col btn gradient px-5" (click)="chooseReport(3)">
+    report 3
+  </button>
+</div>
+
+<div [ngSwitch]="report">
+  <div *ngSwitchCase="1">
+    <app-subtitle>{{ "routingHeader.importBox" | translate }}</app-subtitle>
+    <h6 class="fw-bold text-center pb-2">
+      {{ "importBox.consentform" | translate}}
+    </h6>
+    <app-import-box-temp1 ></app-import-box-temp1>
+  </div>
+  <div *ngSwitchCase="2">
+    <app-subtitle>{{ "routingHeader.importBox" | translate }}</app-subtitle>
+    <h6 class="fw-bold text-center pb-2">
+      {{ "importBox.consentform" | translate}}
+    </h6>
+    <app-import-box-temp2></app-import-box-temp2>
+  </div>
+
+  <app-import-box-receipt *ngSwitchCase="3"></app-import-box-receipt>
+</div>
