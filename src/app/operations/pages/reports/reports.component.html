@@ -4,10 +4,10 @@
   <button class=" col btn gradient px-5" (click)="chooseReport(1)">
     report 1
   </button>
-  <button class=" col btn gradient px-5">
+  <button class=" col btn gradient px-5" (click)="chooseReport(2)">
     report 2
   </button>
-  <button class=" col btn gradient px-5">
+  <button class=" col btn gradient px-5" (click)="chooseReport(3)">
     report 3
   </button>
   <button class=" col btn gradient px-5">
@@ -25,5 +25,6 @@
   <app-shipping-and-unloading-companies-sea-river-ports *ngSwitchCase="1">
   </app-shipping-and-unloading-companies-sea-river-ports>
 
-
+  <app-Land-transportation-companies-coal-and-petroleum *ngSwitchCase="2">
+  </app-Land-transportation-companies-coal-and-petroleum>
 </div>
