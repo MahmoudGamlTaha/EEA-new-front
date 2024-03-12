@@ -16,6 +16,8 @@ import { DynamicDownloadComponent } from '@shared/components/dynamic-form/compon
 import { NewImportBoxComponent } from './pages/new-import-box/new-import-box.component';
 import { ImportBoxTemp2Component } from './components/import-box-temp2/import-box-temp2.component';
 import { ImportBoxReceiptComponent } from './components/import-box-receipt/import-box-receipt.component';
+import { ReportsComponent } from './pages/reports/reports.component';
+import { ShippingAndUnloadingCompaniesSeaRiverPortsComponent } from './components/shipping-and-unloading-companies-sea-river-ports/shipping-and-unloading-companies-sea-river-ports.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ImportBoxReceiptComponent } from './components/import-box-receipt/impor
     ImportBoxTemp1Component,
     NewImportBoxComponent,
     ImportBoxTemp2Component,
-    ImportBoxReceiptComponent
+    ImportBoxReceiptComponent,
+    ReportsComponent,
+    ShippingAndUnloadingCompaniesSeaRiverPortsComponent
   ],
   imports: [
     CommonModule,

@@ -7,14 +7,15 @@ import { SidebarItem } from '@shared/model/sidebar-item';
 export class OperationsService {
   customerSidebarItems: SidebarItem[];
 
-  constructor() { 
+  constructor() {
     this.customerSidebarItems = [
       { name: 'routingHeader.statistics', url: '/operations/statistics' },
       { name: 'routingHeader.requestsSubmitted', url: '/operations/requestsSubmitted' },
       { name: 'routingHeader.importBox', url: '/operations/importBox' },
       { name: 'routingHeader.paymentOfFees', url: '/operations/paymentOfFees' },
       { name: 'routingHeader.serviceEvaluation', url: '/operations/serviceEvaluation' },
-      { name: 'routingHeader.complains', url: '/operations/complains' }
+      { name: 'routingHeader.complains', url: '/operations/complains' },
+      { name: 'routingHeader.reports', url: '/operations/reports' }
     ];
   }
 
