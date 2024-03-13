@@ -29,6 +29,8 @@
 (formValuesEmitter)="changeRadio($event)"
 >
 </app-dynamic-form>
+
+
 <app-submit-button
 *ngIf="requestStatus == 'CustomerPAID' && !isCustomer"
 (click)="submitConfirmExpenses(paymentForm.dynamicFormGroup.value)"
@@ -39,6 +41,12 @@
 *ngIf="requestStatus != 'CustomerPAID'"
 (click)="submitExpenses(paymentForm.dynamicFormGroup.value)"
 [buttonName]="isCustomer==true?'customer.payExpense':'customer.sendExpenses'"
+[class]="'filterButton'"
+></app-submit-button>
+<app-submit-button
+*ngIf="requestStatus == 'ConfirmPaymentEEA'"
+(click)="NavigateToTemplate()"
+[buttonName]="'next'"
 [class]="'filterButton'"
 ></app-submit-button>
 </ng-container>

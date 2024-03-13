@@ -56,9 +56,9 @@ export class DynamicFormComponent implements OnInit, OnChanges {
     this.createForm();
     //Subscribing to value changes and pass it inside event emiiter
     this.subscription = this.dynamicFormGroup.valueChanges.subscribe((value) => {
-      if (this.dynamicFormGroup.valid) {
+     // if (this.dynamicFormGroup.valid) {
         this.formValuesEmitter.emit(this.dynamicFormGroup.value);
-      }
+      //}
     });
     
   }

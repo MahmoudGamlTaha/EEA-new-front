@@ -98,6 +98,11 @@ export class RequestsSubmittedComponent {
             }
           break;
           case 'customer':
+              if(event.row['status'].indexOf("Accept") != -1 ||
+               event.row['status'].indexOf("Confirm") != -1 ||
+                event.row['status'].indexOf("Rejected") != -1 || event.row['status'].indexOf("CustomerPAID") != -1){
+                this.formType = 'view-only'
+              }else
                this.formType = 'edit'
           break;
       }

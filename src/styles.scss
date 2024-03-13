@@ -100,8 +100,10 @@ input[type='checkbox'] {
 }
 .form-control,
 .form-select {
-  border-radius: 13px;
+  border-radius: 8px;
   border: 1px solid #ced4da;
+  height: 27px !important;
+  box-shadow: 10px 8px 25px -10px rgba(0,0,0,0.33);
 }
 .form-select:focus,
 .form-control:focus {

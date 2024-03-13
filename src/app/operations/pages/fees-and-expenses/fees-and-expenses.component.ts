@@ -90,7 +90,7 @@ export class FeesAndExpensesComponent implements OnInit {
     }));
 
   }
-  changeRadio(event){
+  changeRadio($event){
     alert(2222);
   }
   getCurrency() {
@@ -116,12 +116,16 @@ export class FeesAndExpensesComponent implements OnInit {
       this.router.navigate(['/operations/requestsSubmitted'])
     });
   }
+  NavigateToTemplate(){
+    //  this.router.navigate(); 
+     }
   submitExpenses(paymentForm) {
     let currencyRate: CurrencyRate = {
       currencyId: paymentForm['administrativeFees'].currencyId,
       date: paymentForm['administrativeFees'].date,
       rate: paymentForm['administrativeFees'].todayCurrencyValue
     }
+    
     let expenses: ExpensesRequest = {
       edaraFees :  paymentForm['administrativeFees'].administrativeFeePercentage,
       currencyId: paymentForm['administrativeFees'].currencyId,
@@ -147,4 +151,5 @@ export class FeesAndExpensesComponent implements OnInit {
   }
   
   }
-}
+}import { DynamicCheckboxComponent } from '@shared/components/dynamic-form/components/dynamic-field/components/dynamic-checkbox/dynamic-checkbox.component';
+

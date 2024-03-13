@@ -29,7 +29,7 @@ export class FeesAndExpensesService {
    }
   
 setCustomerRequest(request){
-  //this.customerRequest = request;
+  this.customerRequest = request;
   //his.initForm(this.customerRequest);
 }
   InitTotalAndReviewForm(requestFees, customerRequest, Iscustomer){

@@ -171,6 +171,30 @@ const routes: Routes = [
           ),
         data: { breadcrumb: 'paymentSuccess' , sideMenu: false },
       },
+      {
+        path: 'acceptInvoiceForm/:requestId',
+        loadComponent: () =>
+          import('@operations/pages/accept-payment-form/accept-payment-form.component').then(
+            (m) => m.AcceptPaymentFormComponent
+          ),
+        data: { breadcrumb: 'acceptForm' , sideMenu: false },
+      },
+      {
+        path: 'acceptFormTemplate/:requestId',
+        loadComponent: () =>
+          import('@operations/pages/accept-template-form/accept-template-form.component').then(
+            (m) => m.AcceptTemplateFormComponent
+          ),
+        data: { breadcrumb: 'acceptForm' , sideMenu: true },
+      },{
+        
+        path: 'trasport-companies-performance/:companyId',
+        loadComponent: () =>
+          import('@operations/pages/performace-reports/trasport-companies/trasport-companies.component').then(
+            (m) => m.TrasportCompaniesComponent
+          ),
+        data: { breadcrumb: 'transport-company' , sideMenu: true },
+      }
     ],
   },
 ];
