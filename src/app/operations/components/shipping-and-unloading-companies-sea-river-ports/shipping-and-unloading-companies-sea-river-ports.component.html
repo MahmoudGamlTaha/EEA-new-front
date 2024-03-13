@@ -1093,12 +1093,14 @@
         <tbody>
           <tr>
             <td>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="area"
-                required
-              />
+              <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white)'"
+                [color]="'var(--black)'"
+              ></app-btn-dropdown>
             </td>
             <td>
               <input
@@ -1109,12 +1111,14 @@
               />
             </td>
             <td>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="area"
-                required
-              />
+              <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white)'"
+                [color]="'var(--black)'"
+              ></app-btn-dropdown>
             </td>
         </tbody>
       </table>

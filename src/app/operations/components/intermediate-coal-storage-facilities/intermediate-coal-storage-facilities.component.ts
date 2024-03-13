@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { DropdownType } from '@operations/enums/dropdown-type.enum';
 
 @Component({
-  selector: 'app-Land-transportation-companies-coal-and-petroleum',
-  templateUrl: './Land-transportation-companies-coal-and-petroleum.component.html',
-  styleUrls: ['./Land-transportation-companies-coal-and-petroleum.component.scss']
+  selector: 'app-intermediate-coal-storage-facilities',
+  templateUrl: './intermediate-coal-storage-facilities.component.html',
+  styleUrls: ['./intermediate-coal-storage-facilities.component.scss']
 })
-export class LandTransportationCompaniesCoalAndPetroleumComponent implements OnInit {
+export class IntermediateCoalStorageFacilitiesComponent implements OnInit {
   form:FormGroup
   page = 1
+
   dropDownList = [
     {
       type:DropdownType.reportYear,
@@ -44,5 +45,6 @@ export class LandTransportationCompaniesCoalAndPetroleumComponent implements OnI
 
   getDropDownItem(event) {
     console.log(event);
+
   }
 }

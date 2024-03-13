@@ -1,0 +1,1520 @@
+<h6 class="fw-bold text-center py-4">
+  {{ "report3.forIntermediateCoalStorageFacilities" | translate}}
+</h6>
+
+<div class="row justify-content-end pb-3">
+  <div class="col-auto">
+    <button class="btn gradient px-5">
+      {{ "admissionForm.print" | translate }}
+    </button>
+  </div>
+</div>
+
+
+<div [formGroup]="form" [ngSwitch]="page">
+  <ng-container *ngSwitchCase="1">
+    <div class="card px-4 py-5">
+      <div class="d-flex gap-4">
+        <div class="d-flex gap-1">
+          <span>{{ "report1.reportYear" | translate }}</span>
+          <app-btn-dropdown
+            [btnText]="'customer.serviceName'"
+            [menuList]="dropDownList"
+            [buttonWidth]="'w-25 mb-5'"
+            (onBtnClick)="getDropDownItem($event)"
+          ></app-btn-dropdown>
+        </div>
+        <div class="d-flex gap-3">
+          <span>{{ "report1.aboutPeriod" | translate }}</span>
+          <div class="d-flex gap-2">
+            <span>{{ "report1.from" | translate }}</span>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+            <span>{{ "report1.to" | translate }}</span>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="fw-bold text-decoration-underline">
+          1- {{ "report1.generalInformation" | translate }}
+        </span>
+      </div>
+
+      <div>
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.establishmentName" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.address" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.chairmanOfTheBoard" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.responsiblePerson" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.storageAreaManager" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.totalWorkforce" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.totalArea" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.storageArea" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.establishmentDate" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <div class="d-flex gap-2">
+              <div>
+                <label class="mt-2 control-label" for="username">{{
+                  "report1.environmentalApprovalNumber" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div>
+                <label class="mt-2 control-label" for="username">{{
+                  "report1.approvalDate" | translate
+                }}</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div>
+                <label class="mt-2 control-label" for="username">{{
+                  "report1.attachFile" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report3.creationDate" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <div class="d-flex gap-2">
+              <div>
+                <div class="control-label mb-3">
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.licenseNumber" | translate}}
+                  </label>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-2">
+                <label class="mt-2 control-label" for="username">{{
+                  "report1.from" | translate
+                }}</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-2">
+                <label class="mt-2 control-label" for="username">{{
+                  "report1.to" | translate
+                }}</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div>
+                <label class="mt-2 control-label" for="username">{{
+                  "report1.attachFile" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-5">
+        <span class="fw-bold text-decoration-underline">
+          {{ "report1.contactInformation" | translate }}
+        </span>
+      </div>
+
+      <div>
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.establishmentPhoneNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.faxNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.email" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.website" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.contactPerson" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.position" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.phoneNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.email" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 2">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="2">
+    <div class="card px-4 py-5">
+      <div>
+        <span class="fw-bold">
+          2- {{ "report3.coalRelatedProcedures" | translate }}
+        </span>
+      </div>
+
+      <div class="mt-2">
+        <span class="fw-bold">
+          1-2 {{ "report3.storage" | translate }}
+        </span>
+        <span>{{ "report3.attachData" | translate }}</span>
+      </div>
+
+      <div class="mt-5">
+        <span class="fw-bold text-decoration-underline">
+          {{ "report3.openStorage" | translate }}
+        </span>
+      </div>
+
+      <div>
+        <div class="row gap-5 align-items-end">
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.coalPileHeightInOpenLoadingArea" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.estimatedQuantityOfStoredCoal" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row gap-5 align-items-end">
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.stockpilingEquipment" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.windBreakersHeight" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row gap-5 align-items-end">
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-12">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.ambientAirDustEmissionsMeasurementsResultsOutsideFacilityBoundaries" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.warehouseFloorTypeAndWaterCollectionSystem" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row gap-5 align-items-end">
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-12">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.ambientAirDustEmissionsMeasurementsResultsWithinFacilityBoundaries" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.fireFightingEquipmentAvailability" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <span class="fw-bold text-decoration-underline">
+          {{ "report3.closedStorage" | translate }}
+        </span>
+      </div>
+
+      <div>
+        <div class="row gap-5 align-items-end">
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.estimatedQuantityOfStoredCoalClosed" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.stockpilingEquipmentClosed" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row gap-5 align-items-end">
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-12">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.carbonMonoxideMeasurementDevicesAvailability" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-12">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.fireFightingEquipmentAvailabilityClosed" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gap-5 align-items-end">
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-12">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.warehouseVentilationSystem" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="d-flex align-items-end">
+              <div class="col-12">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.bagFiltersAvailability" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gap-5 align-items-end">
+          <div class="col-6">
+            <div class="d-flex align-items-end">
+              <div class="col-8 ">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.warehouseFloorTypeAndWaterCollectionSystemClosed" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+              <div class="col-4">
+                <label class="mt-2 control-label" for="username">{{
+                  "report3.attachFiles" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 mb-2">
+        <span class="fw-bold text-decoration-underline">
+          2-2 {{ "report3.coalQuantitiesInLoadingYards" | translate }}
+        </span>
+        <span>
+          {{ "report3.pleaseAttachDocumentsSupportedByContractsAndReceipts" | translate }}
+        </span>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>
+              <span>
+                {{ "report3.shipmentDate" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report3.coalQuantityInTons" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report3.coalOwningCompanyName" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report3.transportationCompanyUsedName" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report3.attachFiles" | translate }}
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white)'"
+                [color]="'var(--black)'"
+              ></app-btn-dropdown>
+            </td>
+            <td>
+              <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white)'"
+                [color]="'var(--black)'"
+              ></app-btn-dropdown>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+        </tbody>
+      </table>
+
+      <div class="mt-5 mb-2">
+        <span class="fw-bold text-decoration-underline">
+          3-2 {{ "report3.coalQuantitiesTradedDuringReportPeriod" | translate }}
+        </span>
+        <span>
+          {{ "report3.pleaseAttachDocumentsSupportedByContractsAndReceipts" | translate }}
+        </span>
+      </div>
+
+
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>
+              <span>
+                {{ "report3.shipmentDate" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report3.coalQuantityInTons" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report3.coalOwningCompanyName" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report3.transportationCompanyUsedName" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report3.attachFiles" | translate }}
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white)'"
+                [color]="'var(--black)'"
+              ></app-btn-dropdown>
+            </td>
+            <td>
+              <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white)'"
+                [color]="'var(--black)'"
+              ></app-btn-dropdown>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+        </tbody>
+      </table>
+
+
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 3">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 1">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="3">
+    <div class="card px-4 py-5">
+      <div>
+        <span class="fw-bold">
+          3- {{ "report3.implementationOfFacilityEnvironmentalRegulations" | translate }}
+        </span>
+      </div>
+
+      <div class="mt-5 d-flex flex-column">
+        <span class="fw-bold text-decoration-underline">
+          1-3 {{ "report3.truckUnloadingEquipment" | translate }}
+        </span>
+        <span>
+          {{ "report3.reportMustContainDescriptionOfCoalTruckUnloadingProcessEnhancedWithImagesAttachedToListOfEquipmentUsedInLoadingAndUnloadingTrucksAndTheirSpecifications" | translate }}
+        </span>
+      </div>
+
+      <div class="row gap-5 align-items-end">
+        <div class="col-6">
+          <div class="d-flex align-items-end">
+            <div class="col-8 ">
+              <label class="mt-2 control-label" for="username">{{
+                "report3.descriptionOfUnloadingStorageAndTransportationProcess" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col-4">
+              <label class="mt-2 control-label" for="username">{{
+                "report3.attachFiles" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <table class="table mt-4">
+        <thead class="thead-light">
+          <tr>
+            <th>
+              <span>
+                {{ "report3.descriptionOfUnloadingStorageAndTransportationProcessAccordingToTheStudy" | translate }}
+              </span>
+            </th>
+            <th>{{ "report2.item2" | translate }}</th>
+            <th>{{ "report2.item3" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span>
+                {{ "report3.stockpilingMachines" | translate }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex flex-column">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.available" | translate}}
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.notAvailable" | translate}}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                {{ "report3.hopper" | translate }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex flex-column">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.available" | translate}}
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.notAvailable" | translate}}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                {{ "report3.dustSuctionMachine" | translate }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex flex-column">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.available" | translate}}
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.notAvailable" | translate}}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="mt-5 mb-2">
+        <span class="fw-bold text-decoration-underline">
+          2-3 {{ "report3.pollutionControlMeasures" | translate }}
+        </span>
+      </div>
+
+      <table class="table mt-4">
+        <thead class="thead-light">
+          <tr>
+            <th>
+              <span>
+                {{ "report3.pollutionControlMeasures" | translate }}
+              </span>
+            </th>
+            <th>{{ "report2.item2" | translate }}</th>
+            <th>{{ "report2.item3" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span>
+                {{ "report3.coalConveyingDuringHandlingToPreventCoalDustEmissions" | translate }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex flex-column">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.available" | translate}}
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.notAvailable" | translate}}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                {{ "report3.coalConveyingOnTrucksToPreventHotSpotsFormation" | translate }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex flex-column">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.available" | translate}}
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.notAvailable" | translate}}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                {{ "report3.floorCleaningAfterHandlingToPreventCoalDustEmissions" | translate }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex flex-column">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.available" | translate}}
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.notAvailable" | translate}}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                {{ "report3.directUnloadingOnTrucksAndConveyorBeltsToReduceAirEmissions" | translate }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex flex-column">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.available" | translate}}
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.notAvailable" | translate}}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>
+                {{ "report3.coalConveyingInStorageYardsToPreventHotSpotsFormation" | translate }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex flex-column">
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.available" | translate}}
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                  <label class="form-check-label" for="licenseNumber">
+                    {{"report1.notAvailable" | translate}}
+                  </label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="mt-2 mb-2 d-flex flex-column">
+        <span class="fw-bold text-decoration-underline">
+          3-3 {{ "report3.penaltiesAndViolations" | translate }}
+        </span>
+        <span>
+          {{ "report3.theCompanyIsRequiredToReportViolationsRecordedDuringInspectionsConductedByTheEnvironmentalAffairsAgencyAndTheFinesPaidAsWellAsNon-ComplianceIssuesAndCorrectiveActionsTaken" | translate }}
+        </span>
+      </div>
+
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>
+              <span>
+                {{ "report1.item22" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report1.item23" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report1.item24" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report1.item25" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report1.item26" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report1.item27" | translate }}
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+        </tbody>
+      </table>
+
+
+      <div class="mt-2 mb-2 d-flex flex-column">
+        <span class="fw-bold text-decoration-underline">
+          4-3 {{ "report3.truckTransportation" | translate }}
+        </span>
+        <span>
+          {{ "report3.truckTransportCompaniesMustObtainEnvironmentalApprovalForCoalTransportationAndTheShippingAndUnloadingCompanyMustEnsureThatTheLandTransportCompanyHasAnEnvironmentalApproval" | translate }}
+        </span>
+      </div>
+
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>
+              <span>
+                {{ "report1.item28" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report1.item29" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report1.item30" | translate }}
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white)'"
+                [color]="'var(--black)'"
+              ></app-btn-dropdown>
+            </td>
+            <td>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+        </tbody>
+      </table>
+
+
+      <span class="fw-bold text-decoration-underline mb-2">
+        4- {{ "report1.subTitle5" | translate }}
+      </span>
+
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>
+              <span>
+                {{ "report1.item31" | translate }}
+              </span>
+            </th>
+            <th>
+              <span>
+                {{ "report1.item32" | translate }}
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </td>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5">
+          {{ "report1.send" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 2">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>

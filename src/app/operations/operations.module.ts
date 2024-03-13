@@ -19,6 +19,7 @@ import { ImportBoxReceiptComponent } from './components/import-box-receipt/impor
 import { ReportsComponent } from './pages/reports/reports.component';
 import { ShippingAndUnloadingCompaniesSeaRiverPortsComponent } from './components/shipping-and-unloading-companies-sea-river-ports/shipping-and-unloading-companies-sea-river-ports.component';
 import { LandTransportationCompaniesCoalAndPetroleumComponent } from './components/Land-transportation-companies-coal-and-petroleum/Land-transportation-companies-coal-and-petroleum.component';
+import { IntermediateCoalStorageFacilitiesComponent } from './components/intermediate-coal-storage-facilities/intermediate-coal-storage-facilities.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LandTransportationCompaniesCoalAndPetroleumComponent } from './componen
     ImportBoxReceiptComponent,
     ReportsComponent,
     ShippingAndUnloadingCompaniesSeaRiverPortsComponent,
-    LandTransportationCompaniesCoalAndPetroleumComponent
+    LandTransportationCompaniesCoalAndPetroleumComponent,
+    IntermediateCoalStorageFacilitiesComponent
   ],
   imports: [
     CommonModule,
