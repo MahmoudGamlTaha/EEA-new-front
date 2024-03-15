@@ -9,7 +9,7 @@
 <div class="row my-6 align-items-center">
   <div class="col-4">
     <app-submit-button
-      *ngIf="!isCustomer"
+      *ngIf="!isCustomer && requestStatus != 'CustomerPAID' && requestStatus != 'ConfirmPaymentEEA' &&requestStatus != 'AcceptForm'"
       (click)="calculateTotalFees(paymentForm.dynamicFormGroup.value)"
       [buttonName]="'customer.calculateTotalFees'"
       [class]="'filterButton'"
@@ -38,15 +38,15 @@
 [class]="'filterButton'"
 ></app-submit-button>
 <app-submit-button
-*ngIf="requestStatus != 'CustomerPAID'"
+*ngIf="requestStatus != 'CustomerPAID' && requestStatus != 'ConfirmPaymentEEA' && requestStatus != 'AcceptForm'"
 (click)="submitExpenses(paymentForm.dynamicFormGroup.value)"
 [buttonName]="isCustomer==true?'customer.payExpense':'customer.sendExpenses'"
 [class]="'filterButton'"
 ></app-submit-button>
 <app-submit-button
-*ngIf="requestStatus == 'ConfirmPaymentEEA'"
+*ngIf="requestStatus == 'ConfirmPaymentEEA' || requestStatus == 'AcceptForm'"
 (click)="NavigateToTemplate()"
-[buttonName]="'next'"
+[buttonName]="'admissionForm.form33'"
 [class]="'filterButton'"
 ></app-submit-button>
 </ng-container>

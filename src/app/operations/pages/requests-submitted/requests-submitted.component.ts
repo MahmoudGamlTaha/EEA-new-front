@@ -15,6 +15,7 @@ import { FilterComponent } from '@operations/components/filter/filter.component'
 import { SearchComponent } from '@operations/components/search/search.component';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/core/services/auth.service';
+import { RequestCoreService } from 'app/core/services/RequestCore.service';
 
 @Component({
   selector: 'app-requests-submitted',
@@ -45,7 +46,10 @@ export class RequestsSubmittedComponent {
   dynamicTableWrapper: DynamicTableComponent;
   headers;
   tableData: any[];
-  constructor(private requestSubmittedService: RequestSubmittedService , private router: Router  , private auth : AuthService) {
+  constructor(private requestSubmittedService: RequestSubmittedService
+    ,private router: Router  
+    , private auth : AuthService,
+    private requestCoreService :RequestCoreService) {
     this.serviceNameDropDownList =
       this.requestSubmittedService.serviceNameDropDownList;
     this.statusDropDownList = this.requestSubmittedService.statusDropDownList;
@@ -53,6 +57,7 @@ export class RequestsSubmittedComponent {
     this.headers = this.requestSubmittedService.tableHeader;
     // this.tableData = this.requestSubmittedService.tableData;
     // console.log(this.tableData);
+   
   }
 
   ngOnInit() {
@@ -84,15 +89,16 @@ export class RequestsSubmittedComponent {
  {
   this.dynamicTableWrapper.buttonClick.subscribe((event) => {
     
-    
-    console.log(event);
+    let check = event.row['status'] == 'Created' || event.row['status'] == 'CompleteEntry';
+    this.requestCoreService.customerRequestId = event.row['orderNumber'];
+    this.requestCoreService.setCustomerRequestStatus(event.row['status']);
     if(event['key'] == 'details') {
       switch(this.auth.userRole[0]) {
           case 'department_supervisor':
              
-            if(this.auth.user.sub.administrativeId == 8 || this.auth.user.sub.administrativeId == 11) {
+            if((this.auth.user.sub.administrativeId == 8 || this.auth.user.sub.administrativeId == 11) && check) {
               this.formType ="check";
-            }else if (this.auth.user.sub.administrativeId == 12) {
+            }else {//if (this.auth.user.sub.administrativeId == 12) {
               this.formType = 'view-only';
              // this.router.navigateByUrl('operations/feesAndExpenses/'+ event.row['orderNumber'])
             }

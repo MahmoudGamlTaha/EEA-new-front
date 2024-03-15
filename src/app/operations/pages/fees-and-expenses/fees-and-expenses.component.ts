@@ -105,6 +105,7 @@ export class FeesAndExpensesComponent implements OnInit {
         this.feesForm = this.feesAndExpensesService.initForm(this.feesModel, this.customerRequest, this.auth.userRole.includes('customer'));
         this.manualOrAutomatic = this.feesAndExpensesService.manualOrVisa;
         console.log(this.manualOrAutomatic);
+        console.log(this.requestStatus);
       })
       
         
@@ -113,12 +114,15 @@ export class FeesAndExpensesComponent implements OnInit {
   }
   submitConfirmExpenses(paymentForm){
     this.operation.updateRequestStatus(this.requestId,'ConfirmPaymentEEA').subscribe(respose=>{
-      this.router.navigate(['/operations/requestsSubmitted'])
+      this.router.navigate([`/operations/acceptInvoiceForm/${this.requestId}`])
     });
   }
   NavigateToTemplate(){
-    //  this.router.navigate(); 
-     }
+    console.log(this.requestStatus);
+    if(this.requestStatus == 'ConfirmPaymentEEA' || this.requestStatus == 'AcceptForm'){
+      this.router.navigate([`/operations/acceptInvoiceForm/${this.requestId}`]); 
+    }
+  }
   submitExpenses(paymentForm) {
     let currencyRate: CurrencyRate = {
       currencyId: paymentForm['administrativeFees'].currencyId,
@@ -134,6 +138,8 @@ export class FeesAndExpensesComponent implements OnInit {
       tonPrice: paymentForm['administrativeFees'].pricePerTon,
       totalTon: paymentForm['administrativeFees'].TotalShipmentWeightInTons,
       currencyRate: currencyRate,
+      rdfTotal:paymentForm['administrativeFees'].rdfTotal,
+      totalFee:paymentForm['administrativeFees'].totalRequest
     }
       if(!this.isCustomer){ 
     this.feesAndExpensesApi.submitExpenses(expenses).subscribe(response => {

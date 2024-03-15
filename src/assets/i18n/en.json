@@ -75,7 +75,8 @@
     "clientServices":"Client services",
     "paymentSuccess":"Payment successful",
     "transport-company":"performance report for transport",
-    "environmentalPerformanceReports":"performance Report"
+    "environmentalPerformanceReports":"performance Report",
+    "acceptForm":"digital form 33"
   },
   "footer": {
     "copyright": "Copyright 2023 by Ministry of Environment"
@@ -308,7 +309,8 @@
     "company": "Company",
     "downLoadCompanyAcceptance": "DownLoad Company Acceptance",
     "downLoadAttachment":"DownLoad Attachment",
-    "download":"Download"
+    "download":"Download",
+    "form33":"digital form 33"
   },
   "addForm": {
     "name": "Name",
@@ -354,7 +356,8 @@
     "CorrectEntry":"Correct Entry",
     "CompleteEntry":"Correct Entry",
     "CustomerPAID":"Customer Paid",
-    "ConfirmPaymentEEA":"payment confirmed from EEA"
+    "ConfirmPaymentEEA":"payment confirmed from EEA",
+    "AcceptForm":"invoice 33 generated"
   },
   "customer": {
     "paymentSuccess":"The fees for this application have been paid successfully.",

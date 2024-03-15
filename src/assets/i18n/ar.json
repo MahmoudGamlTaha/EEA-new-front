@@ -76,8 +76,7 @@
     "paymentSuccess":"الدفع ناجح",
     "transport-company":"تقرير الاداء البيئ للنقل",
     "environmentalPerformanceReports":"تقارير الأداء البيئي",
-    "trasport-companies-performance":"s"
-
+    "acceptForm":"نموذج 33 مميكن"
   },
   "footer": {
     "copyright": "حقوق النشر © 2023 وزارة البيئة - جميع الحقوق محفوظة"
@@ -316,7 +315,8 @@
     "company": "الشركة",
     "downLoadCompanyAcceptance": "تنزيل قبول الشركة",
     "downLoadAttachment":"تنزيل المرفقات",
-    "download":"تنزيل الملف"
+    "download":"تنزيل الملف",
+    "form33":"نموذج 33 ممكين"
   },
   "addForm": {
     "name": "الاسم",
@@ -366,7 +366,8 @@
     "CompleteEntry":"استكمال بيانات",
     "AcceptRDF":"مقبول مخلفات",
     "CustomerPAID":"تم دفع العميل",
-    "ConfirmPaymentEEA":"تم تاكيد الدفع"
+    "ConfirmPaymentEEA":"تم تاكيد الدفع",
+    "AcceptForm":"تم استخراح نموذج 33"
   },
   "importBoxTemp1":{
     "consentform":"نموذج الموافقة",

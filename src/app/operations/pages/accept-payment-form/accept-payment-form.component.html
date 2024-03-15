@@ -1,11 +1,10 @@
 <div class="row justify-content-end pb-3">
     <div class="col-auto">
-      <button class="btn gradient px-5">
+      <button class="btn gradient px-5" (click)="print()">
         {{ "admissionForm.print" | translate }}
       </button>
     </div>
   </div>
-  
   <div class="card px-4 py-5 logo-card">
     <img class="bg-card" src="assets/images/logo-footer.png">
     <span class="row justify-content-end mx-4">{{"importBoxReceipt.receiptNumber"| translate}}</span>
@@ -19,17 +18,17 @@
         </div>
   
   
-        <div class="col-4">
+        <div class="col-4" formControlName>
           <span>{{"importBoxReceipt.date"| translate}}</span>
           :
-          29/08/2022
+        {{invoiceOfRequest?.createdDate}}
         </div>
       </div>
   
       <div class="col-12">
         <span>{{"importBoxReceipt.code"| translate}}</span>
         :
-        12900202
+        {{invoiceOfRequest?.establishCode}}
       </div>
   
       <div class="row mx-1 align-items-start">
@@ -37,24 +36,24 @@
         :
         <span class="col-auto">
           <span>
-            مؤمن ربيع محمد عثمان
+            {{invoiceOfRequest?.requesterName}}
           </span>
           <br>
           <span>
-            كينج ستون للفحم-2224100053
+            {{invoiceOfRequest?.companyName}}-{{invoiceOfRequest?.companyNumber}}
           </span>
         </span>
       </div>
       <div class="col-12">
         <span>{{"importBoxReceipt.payWay"| translate}}</span>
         :
-        دفع اليكترونى
+      {{invoiceOfRequest?.paymentType}}
       </div>
     </div>
   
     <span class="row justify-content-center mx-5">
       {{"importBoxReceipt.receipt"| translate}}
-      0000000004
+      {{invoiceOfRequest?.invoiceNumber}}
     </span>
   
     <table class="table table-bordered my-2">
@@ -70,13 +69,14 @@
             <span>{{ "importBoxReceipt.amount" | translate}}</span>
           </td>
         </tr>
-        <tr>
+ 
+        <tr *ngFor="let detail of invoiceOfRequest?.requestFeesInvoiceDetailDtoList;  index as i ">
           <td class="p-1">
-            <span>1</span>
+            <span>{{i+1}}</span>
           </td>
           <td class="p-1">
             <span>
-              اصدار خطاب عدم ممانعة شحنات الفحم (حجري-بترولي)
+             {{detail.service}}
               <br>
               من 29/8/2022 الي 29/8/2022
               <br>
@@ -84,7 +84,7 @@
             </span>
           </td>
           <td class="p-1">
-            <span>6270.0 {{ "importBoxReceipt.eg" | translate}} </span>
+            <span>{{detail.amount}} {{ "importBoxReceipt.eg" | translate}} </span>
           </td>
         </tr>
         <tr>
@@ -93,26 +93,36 @@
             <span>{{ "importBoxReceipt.total" | translate}}</span>
           </td>
           <td class="p-1">
-            <span>6270.0 {{ "importBoxReceipt.eg" | translate}} </span>
+            <span>{{totalInvoice}} {{ "importBoxReceipt.eg" | translate}} </span>
           </td>
         </tr>
       </tbody>
     </table>
   
     <span class="text-center mt-5">
-      فقط ستة آلاف و مئتان و سبعون جنيه مصري لا غير
+      {{invoiceOfRequest?.feesInArabic }} فقط
     </span>
   
     <hr style="background-color: black;">
   
     <span>ماقبله 0  {{ "importBoxReceipt.eg" | translate}}</span>
-    <span>{{ "importBoxReceipt.total" | translate}} 6270.0 {{ "importBoxReceipt.eg" | translate}} </span>
+    <span>{{ "importBoxReceipt.total" | translate}} {{totalInvoice}} {{ "importBoxReceipt.eg" | translate}} </span>
   </div>
   
   <div class="row justify-content-center pb-3">
     <div class="col-auto">
-      <button class="btn gradient px-5 mt-4">
-        {{ "importBoxReceipt.send" | translate }}
+      <button class="btn gradient px-5 mt-4" (click)="backToexpense()">
+        {{ "admissionForm.back" | translate }}
+      </button>
+    </div>
+    <div class="col-auto">
+      <button class="btn gradient px-5 mt-4" (click)="sendToCoalAdministration()" *ngIf="requestStatus == 'ConfirmPaymentEEA' ">
+        {{"importBoxReceipt.send" | translate }}
+      </button>
+    </div>
+    <div class="col-auto">
+      <button class="btn gradient px-5 mt-4" (click)="NavigateToAcceptTemplateForm()" *ngIf="requestStatus == 'AcceptForm' ">
+        {{"importBoxTemp1.consentform" | translate }}
       </button>
     </div>
   </div>

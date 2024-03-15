@@ -5,7 +5,9 @@ export interface ExpensesRequest {
   currencyId:number;
   ratioEdaraFee:number;
   requestId:number;
-  currencyRate?: CurrencyRate
+  currencyRate?: CurrencyRate,
+  rdfTotal:number,
+  totalFee:number
 }
 
 export interface CurrencyRate {
