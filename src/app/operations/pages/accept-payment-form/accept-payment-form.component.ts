@@ -105,13 +105,5 @@ export class AcceptPaymentFormComponent implements OnInit {
     NavigateToAcceptTemplateForm(){
       this.router.navigateByUrl(`operations/acceptFormTemplate/${this.requestId}`);
     }
-    sendToEEAManager(){
-      this.requestCoreService.getCustomerRequestStatus()
-      this.operationsApiService.updateRequestStatus(this.requestId,"AcceptForm").subscribe((res)=>{
-        this.toastr.success('Status Submitted Successfully');
-         this.router.navigateByUrl('operations/requestsSubmitted');
-
-      });
-    }
 
 }

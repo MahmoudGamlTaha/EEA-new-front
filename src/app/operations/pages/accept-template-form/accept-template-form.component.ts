@@ -7,10 +7,13 @@ import { DigitalSealingFormComponent } from '@operations/components/digital-seal
 import { RdfFormComponent } from '@operations/components/rdf-form/rdf-form.component';
 import { ReviewerFormComponent } from '@operations/components/reviewer-form/reviewer-form.component';
 import { FeesAndExpensesApiService } from '@operations/services/fees-and-express.api.service';
+import { OperationsApiService } from '@operations/services/operations.api.service';
 import { SubmitButtonComponent } from '@shared/components/buttons/submit-button/submit-button.component';
 import { DynamicFormComponent } from '@shared/components/dynamic-form/dynamic-form.component';
 import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
 import { SharedModule } from '@shared/shared.module';
+import { RequestCoreService } from 'app/core/services/RequestCore.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-accept-template-form',
@@ -34,25 +37,67 @@ import { SharedModule } from '@shared/shared.module';
 export class AcceptTemplateFormComponent implements OnInit {
   @Input() form: FormGroup;
   requestId;
-  invoiceOfRequest;
+  templateForm;
   constructor( private formBuilder: FormBuilder, private router:Router,
-    private route: ActivatedRoute, private fees:FeesAndExpensesApiService ){
+    private route: ActivatedRoute, private fees:FeesAndExpensesApiService, private requestCoreService:RequestCoreService,
+    private operationsApiService:OperationsApiService,
+    private toastr:ToastrService ){
       this.route.params.subscribe((params) => {
         this.requestId = params['requestId'];
       });
       console.log(this.requestId);
   }
   ngOnInit() :void {
-      this.fees.getPaidInovice(this.requestId).subscribe( val=>{
-         this.invoiceOfRequest = val['content'];
-         console.log(this.invoiceOfRequest);
+    window.addEventListener("afterprint", (event) => {
+     this.doAfterPrint();
+     });
+      this.fees.getAcceptTemplateForm(this.requestId).subscribe( val=>{
+         this.templateForm = val['content'];
+         console.log(  this.templateForm);
          this.initForm();
       });
     
     }
     initForm(){
       this.form = this.formBuilder.group({
-        area: [],
+        area: ['xx'],
+        name:[this.templateForm?.name],
+        companyName:[this.templateForm?.companyDto.name],
+        createdDate:[this.templateForm?.createdDate],
+        coalType:[this.templateForm?.coalType],
+        unloadWayName:[this.templateForm?.unloadWayName],
+        arrivedDate:[this.templateForm?.arrivedDate],
+        shipmentStages:[this.templateForm?.shipmentStages],
+        arrivedHarbor:[this.templateForm?.landingHarbor.name],
+        importHarbor:[this.templateForm?.importHarbor.name],
+        produceCompany:['produceCompany'],
+        shipDate:[this.templateForm?.shipDate],
+        weightInTon:[this.templateForm?.weightInTon],
+        typeAndPurpose:[this.templateForm?.coalType]
+        
       })
+      console.log(this.form);
+    }
+    sendToEEAManager(){
+      this.requestCoreService.getCustomerRequestStatus()
+      this.operationsApiService.updateRequestStatus(this.requestId,"AcceptForm").subscribe((res)=>{
+        this.toastr.success('Status Submitted Successfully');
+         this.router.navigateByUrl('operations/requestsSubmitted');
+
+      });
+    }
+    print(elem){
+      
+     window.print()
+    
+      return true;
+    }
+    doAfterPrint(){
+      this.operationsApiService.updateRequestStatus(this.requestId,"AcceptForm").subscribe((res)=>{
+        this.toastr.success('Status Submitted Successfully');
+         this.router.navigateByUrl('operations/requestsSubmitted');
+
+      });
     }
 }
+

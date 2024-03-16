@@ -33,6 +33,10 @@ export class FeesAndExpensesApiService {
     const url = `${environment.apiUrl}/portal-data/request-fees/paidFeesInvoice?requestId=${requestId}`;
     return this.httpClient.get(url);
   }  //33 invoice
+  getAcceptTemplateForm(requestId:number){
+    const url = `${environment.apiUrl}/portal/customer-request/request-model/${requestId}`;
+    return this.httpClient.get(url);
+  }
 
 
 }
