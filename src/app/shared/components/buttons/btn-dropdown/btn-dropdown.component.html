@@ -1,6 +1,7 @@
 <div
-  class="btn-group"
+  class="btn-group w-100"
   [ngClass]="buttonWidth"
+  [ngClass]="{'border': border}"
 >
     <button
     [class]="'btn dropdown-toggle d-flex align-items-center justify-content-between ' + additionalCss"
@@ -25,7 +26,7 @@
         <ng-container *ngIf="!isRouting">
           <button class="dropdown-item" (click)="onBtnClickEmitt(menuItem)">{{menuItem.name  | translate}}</button>
         </ng-container>
-  
+
       </li>
     </ul>
 </div>

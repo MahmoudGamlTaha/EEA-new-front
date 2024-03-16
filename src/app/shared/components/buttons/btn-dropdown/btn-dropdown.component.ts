@@ -31,6 +31,7 @@ export class BtnDropdownComponent implements OnInit {
   @Input() background;
   @Input() btnIcon;
   @Input() isRouting;
+  @Input() border;
 
   hover: boolean;
   //Event Emitters

@@ -1,0 +1,3396 @@
+<h6 class="fw-bold text-center py-4">
+  {{ "report4.coalCompaniesUsedAsOneOfTheInputsForTheIndustrialProcess" | translate}}
+</h6>
+
+<div class="row justify-content-end pb-3">
+  <div class="col-auto">
+    <button class="btn gradient px-5">
+      {{ "admissionForm.print" | translate }}
+    </button>
+  </div>
+</div>
+
+
+<div [formGroup]="form" [ngSwitch]="page">
+  <ng-container *ngSwitchCase="1">
+    <div class="card px-4 py-5">
+      <div class="d-flex gap-4">
+        <div class="d-flex gap-1">
+          <span>{{ "report1.reportYear" | translate }}</span>
+          <app-btn-dropdown
+            [btnText]="'customer.serviceName'"
+            [menuList]="dropDownList"
+            [buttonWidth]="'w-25 mb-5'"
+            (onBtnClick)="getDropDownItem($event)"
+          ></app-btn-dropdown>
+        </div>
+        <div class="d-flex gap-3">
+          <span>{{ "report1.aboutPeriod" | translate }}</span>
+          <div class="d-flex gap-2">
+            <span>{{ "report1.from" | translate }}</span>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+            <span>{{ "report1.to" | translate }}</span>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="pb-2 pt-3">
+          <span class="fw-bold">
+            1- {{ "report4.descriptionOfTheIndustrialProcess" | translate }}
+          </span>
+        </div>
+
+        <textarea class="form-control " [placeholder]="'report4.descriptionOfTheIndustrialProcess' | translate" id="exampleFormControlTextarea1"></textarea>
+      </div>
+
+      <div class="pb-2 pt-3">
+        <span class="fw-bold">
+          2- {{ "report4.generalInformationAboutTheFacility" | translate }}
+        </span>
+      </div>
+
+      <div>
+        <div class="pb-2 pt-3">
+          <span class="fw-bold text-decoration-underline">
+            2- {{ "report4.facilityData" | translate }}
+          </span>
+        </div>
+
+        <div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.facilityName" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.address" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col d-flex flex-column w-100">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.province" | translate
+              }}</label>
+              <app-btn-dropdown
+                  [btnText]="'customer.serviceName'"
+                  [menuList]="dropDownList"
+                  (onBtnClick)="getDropDownItem($event)"
+                  [buttonWidth]="'w-100'"
+                  [background]="'var(--white-100)'"
+                  [color]="'var(--black)'"
+                  [border]="true"
+                ></app-btn-dropdown>
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.chairmanOfTheBoard" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.facilityManager" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.totalWorkforce" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.industrialSector" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.workingHours" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.facilityDesignCapacity" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.industrialSiteAreaInSquareMeters" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.surroundingAreaArea" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.establishmentYear" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5 align-items-start">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.coalUsageStartDate" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <div class="d-flex flex-column gap-2">
+                <div class="d-flex gap-2">
+                  <div>
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.environmentalApprovalNumber" | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.approvalDate" | translate
+                    }}</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.attachFile" | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <div>
+                    <div class="control-label mb-3">
+                      <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                      <label class="form-check-label" for="licenseNumber">
+                        {{"report1.licenseNumber" | translate}}
+                      </label>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div class="col-2">
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.from" | translate
+                    }}</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div class="col-2">
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.to" | translate
+                    }}</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.attachFile" | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-3">
+        <div>
+          <span class="fw-bold text-decoration-underline">
+            {{ "report1.contactInformation" | translate }}
+          </span>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.establishmentPhoneNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.faxNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.email" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.website" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.contactPerson" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.position" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.phoneNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.email" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 2">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="2">
+    <div class="card px-4 py-5">
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold">
+            3- {{ "report4.inputsAndOutputs" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.rawMaterials" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.currentConsumption" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.petroleumCoal" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.bituminousCoal" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.cokeCoal" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.typeOfCoalUsed" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.packed" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.unpacked" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.facilities" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.facilities" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.use" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.consumptionInCubicMetersPerYear" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.source" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"  rowspan="3">
+                <span>
+                  {{ "report4.water" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.local" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.cooling" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report4.operations" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.fuel" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.fuel" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.type" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.annualConsumption" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"  rowspan="3">
+                <span>
+                  {{ "report4.primaryFuel" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.fuelOil" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.diesel" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report4.naturalGas" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.electricity" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.facilities" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.source" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.consumption" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"  rowspan="3">
+                <span>
+                  {{ "report4.electricity" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.nationalGrid" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.selfGenerated" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.products" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.products" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.averageActualProduction" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 3">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 1">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="3">
+    <div class="card px-4 py-5">
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.serviceUnitsDescription" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>
+                <span>
+                  {{ "report4.item" | translate }}
+                </span>
+              </th>
+              <th style="width: 120px;">
+                <span>
+                  {{ "report4.execution" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.notes" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td>
+                <span>
+                  {{ "report4.coalApprovals" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.environmentalImpactAssessmentStudyForCoalUse" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column" >
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.coalStorageOnSite" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>
+                <span>
+                  {{ "report4.item" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.execution" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.notes" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"  rowspan="3">
+                <span>
+                  {{ "report4.storageType" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.enclosedAreasSilos" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report4.openAreas" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report4.windBarriersForOpenStorageAreas" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <span>
+                  {{ "report4.ventilationOptionsForEnclosedStorageAreas" | translate }}
+                </span>
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control w-75"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column mr-2" style="width: 80px;">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td align="center"  rowspan="2">
+                <span>
+                  {{ "report4.earlyWarningSystemsUsed" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.infraredCameras" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report4.alarmSirens" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td align="center"  rowspan="2">
+                <span>
+                  {{ "report4.pileHeight" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.compacted" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report4.uncompacted" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            5- {{ "report4.coalHandling" | translate }}
+          </span>
+        </div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.coalUsed" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>
+                <span>
+                  {{ "report4.item" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.execution" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.notes" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.handlingMethodsForPackedCoal" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.handlingMethodsForUnpackedCoal" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2"></td>
+              <td>
+                <span>
+                  {{ "report4.isConveyorFullyCovered" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.isSpraySystemInstalledForCoal" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.coalGrinding" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>
+                <span>
+                  {{ "report4.item" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.execution" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.notes" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2"></td>
+              <td>
+                <span>
+                  {{ "report4.isCoalGrindingAndScreeningDoneInClosedAreas" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.airPollutionControlDevice" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.monitoring" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>
+                <span>
+                  {{ "report4.item" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.execution" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.notes" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2"></td>
+              <td>
+                <span>
+                  {{ "report4.continuousDustMonitoringDevicesAtPerimeterFences" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.airPollutionControlDevices" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.transportationAndShipping" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>
+                <span>
+                  {{ "report4.item" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.execution" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.notes" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2"></td>
+              <td>
+                <span>
+                  {{ "report4.statusOfShippingAndUnloadingCompanyWithEnvironmentalApproval" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.statusOfTransportationCompanyWithEnvironmentalApproval" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.yes" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.no" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 4">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 2">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="4">
+    <div class="card px-4 py-5">
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold">
+            6- {{ "report4.transportationAndShipping" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.item" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.comments" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.waterCollectionSystemInCoalStorageAreas" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.waterproofingOfStorageFacilities" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.waterCollectionSystemInCoalHandlingAndTruckUnloadingAreas" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.qualityOfCollectedSewageWater" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.sewageWaterTreatmentRecycling" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold">
+            7- {{ "report4.requirementsRelatedToCoalHandling" | translate }}
+          </span>
+        </div>
+
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.storage" | translate }}
+          </span>
+          <span>
+            {{ "report4.attachIllustrativePhotos" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr><td colspan="4">
+              {{ "report4.enclosedStorageFacilities" | translate }}
+            </td></tr>
+            <tr class="thead-light">
+              <th colspan="2">
+                <span>
+                  {{ "report4.storeDescription" | translate }}
+                </span>
+              </th>
+              <th colspan="2">
+                <span>
+                  {{ "report4.description" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2" style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.closedConcrete" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.silos" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.undergroundStorage" | translate}}
+                    </label>
+                  </div>
+                  </div>
+              </td>
+              <td  colspan="2" >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.quantity" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.area" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.roofAndWallSpecifications" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.floorSpecifications" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.storageCapacity" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.equipmentUsedInLoading" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.monitoringDevices" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.sprinklerSystems" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.pileHeight" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.curtainsOnWarehouseDoor" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                {{ "report4.openStorageFacilities" | translate }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.quantity" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.area" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.storageCapacity" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.equipmentUsedInLoading" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.monitoringDevicesOpenStorage" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.sprinklerSystemsOpenStorage" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.windbreakerSpecifications" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <span>
+                  {{ "report4.pileHeight" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.emissionReductionMethodsDuringUnloading" | translate }}
+                </span>
+              </td>
+              <td colspan="3">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.storageInOperatingAreaNearTheFurnace" | translate }}
+          </span>
+        </div>
+
+        <div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.storageTypeDailyUsageStoragePeriod" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.installationOfCoalTemperatureMonitoringSystemsPortableFixed" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.coalDustControlEquipment" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.carbonMonoxideGasMonitoringDevices" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="pb-2 pt-3">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.handlingAndUseDuringOperation" | translate }}
+          </span>
+        </div>
+
+        <div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.transportFromOpenYardToOperatingArea" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.closedConveyorBeltsMadeOfFireResistantMaterial" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.loadingAndUnloadingEquipment" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.typeOfGasUsedInPneumaticConveyingPressureTypeOfControl" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 5">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 3">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="5">
+    <div class="card px-4 py-5">
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.occupationalSafetyAndHealthRequirements" | translate }}
+          </span>
+
+          <div>
+            <span>
+              {{ "report4.issuesToBeReportedAndInspectedAnnually" | translate }}
+            </span>
+            <span>
+              {{ "report4.attachPhotos" | translate }}
+            </span>
+          </div>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.safetyRelatedIssues" | translate }}
+                </span>
+              </th>
+              <th style="width: 350px;">
+                <span>
+                  {{ "report4.comments" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.safetySignsInDesignatedAreas" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.accessToFireFightingEquipmentAndEmergencyVehicles" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.availabilityOfSafetyDataForCoalPetroleum" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.strictProceduresForCoalHandling" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.markingOfHazardousAreasOnSite" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.designatedHazardousAreasCovered" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.equipmentComplianceWithHazardousAreaClassificationStandards" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.appropriateEngineeringMeasuresForHandlingAccumulatedFlammableDustLayers" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.regularCleaningOfSiteIfPreventionIsNotFeasible" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.installationOfFlameOrExplosionSuppressionSystems" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.appropriateEngineeringMeasuresToPreventOrDisperseStaticElectricityCharges" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.installationOfLeakDetectionOutletsInCaseOfExplosion" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.installationOfFireDetectionAndAlarmSystems" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.appropriatenessOfFireDetectionSystemForHandlingTasks" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.allFireDetectionDevicesConnectedToReliablePowerSource" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.silosEquippedWithAppropriateFireExtinguishingSuppressionSystems" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.areSilosEquippedWithCarbonMonoxideDetectionSystem" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.doCoalPetroleumDevicesHaveVaporInjectionSystem" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.isThereAnAppropriateFireFightingSystem" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.areFireRiskConsiderationsTakenDuringMaintenanceOperations" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 6">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 4">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="6">
+    <div class="card px-4 py-5">
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold">
+            8- {{ "report4.monitoringMethods" | translate }}
+          </span>
+          <span>{{"report4.attachFile" | translate }}</span>
+          <div>
+            <span>
+              {{ "report4.tableDescription" | translate }}
+            </span>
+          </div>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.tableFillInstructions" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.number" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.specifications" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.status" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.reasonIfNotAvailable" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.funnelFeeder" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.liftingCranes" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.disinfectionMachines" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.funnelFeeder" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.dustCollectionUnit" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.pollutionControlMeasures" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.item" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.status" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.useOfPersonalProtectionEquipment" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.useOfDustExtractionMachines" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.useOfDisinfectionMachines" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.floorCleaningAfterService" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.directUnloadingIntoTrucksOrConveyorBelts" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.useOfWaterDisinfectionMachines" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.useOfCoveredConveyorBelts" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.monitoringMeasurementAndCorrectiveActions" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.firstConveyorBeltRoom" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.available" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.notAvailable" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="mt-2 mb-2 d-flex flex-column">
+          <span class="fw-bold text-decoration-underline">
+            9 {{ "report4.violationsAndPenalties" | translate }}
+          </span>
+          <span>
+            {{ "report4.reportingViolations" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report1.item22" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item23" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item24" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item25" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item26" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item27" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="d-flex flex-column">
+          <span class="fw-bold text-decoration-underline mb-2">
+            {{ "report4.statementOfCoalShipments" | translate }}
+          </span>
+          <span class="mb-2">{{ "report4.environmentalApprovalForTruckingCompanies" | translate }}</span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report1.item28" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item29" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item30" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <app-btn-dropdown
+                  [btnText]="'customer.serviceName'"
+                  [menuList]="dropDownList"
+                  (onBtnClick)="getDropDownItem($event)"
+                  [buttonWidth]="'w-100'"
+                  [background]="'var(--white)'"
+                  [color]="'var(--black)'"
+                  [border]="true"
+                ></app-btn-dropdown>
+              </td>
+              <td>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <app-btn-dropdown
+                  [btnText]="'customer.serviceName'"
+                  [menuList]="dropDownList"
+                  (onBtnClick)="getDropDownItem($event)"
+                  [buttonWidth]="'w-100'"
+                  [background]="'var(--white)'"
+                  [color]="'var(--black)'"
+                  [border]="true"
+
+                ></app-btn-dropdown>
+              </td>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <span class="fw-bold text-decoration-underline mb-2">
+          10- {{ "report1.subTitle5" | translate }}
+        </span>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report1.item31" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item32" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5">
+          {{ "report1.send" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 5">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>

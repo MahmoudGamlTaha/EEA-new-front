@@ -10,7 +10,7 @@
   <button class=" col btn gradient px-5" (click)="chooseReport(3)">
     report 3
   </button>
-  <button class=" col btn gradient px-5">
+  <button class=" col btn gradient px-5" (click)="chooseReport(4)">
     report 4
   </button>
   <button class=" col btn gradient px-5">
@@ -29,6 +29,8 @@
   </app-Land-transportation-companies-coal-and-petroleum>
 
   <app-intermediate-coal-storage-facilities *ngSwitchCase="3">
-
   </app-intermediate-coal-storage-facilities>
+
+  <app-companies-using-coal-as-an-input *ngSwitchCase="4">
+  </app-companies-using-coal-as-an-input>
 </div>

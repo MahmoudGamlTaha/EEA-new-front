@@ -20,6 +20,7 @@ import { ReportsComponent } from './pages/reports/reports.component';
 import { ShippingAndUnloadingCompaniesSeaRiverPortsComponent } from './components/shipping-and-unloading-companies-sea-river-ports/shipping-and-unloading-companies-sea-river-ports.component';
 import { LandTransportationCompaniesCoalAndPetroleumComponent } from './components/Land-transportation-companies-coal-and-petroleum/Land-transportation-companies-coal-and-petroleum.component';
 import { IntermediateCoalStorageFacilitiesComponent } from './components/intermediate-coal-storage-facilities/intermediate-coal-storage-facilities.component';
+import { CompaniesUsingCoalAsAnInputComponent } from './components/companies-using-coal-as-an-input/companies-using-coal-as-an-input.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { IntermediateCoalStorageFacilitiesComponent } from './components/interme
     ReportsComponent,
     ShippingAndUnloadingCompaniesSeaRiverPortsComponent,
     LandTransportationCompaniesCoalAndPetroleumComponent,
-    IntermediateCoalStorageFacilitiesComponent
+    IntermediateCoalStorageFacilitiesComponent,
+    CompaniesUsingCoalAsAnInputComponent
   ],
   imports: [
     CommonModule,
