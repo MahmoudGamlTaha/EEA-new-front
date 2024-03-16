@@ -21,6 +21,7 @@ import { ShippingAndUnloadingCompaniesSeaRiverPortsComponent } from './component
 import { LandTransportationCompaniesCoalAndPetroleumComponent } from './components/Land-transportation-companies-coal-and-petroleum/Land-transportation-companies-coal-and-petroleum.component';
 import { IntermediateCoalStorageFacilitiesComponent } from './components/intermediate-coal-storage-facilities/intermediate-coal-storage-facilities.component';
 import { CompaniesUsingCoalAsAnInputComponent } from './components/companies-using-coal-as-an-input/companies-using-coal-as-an-input.component';
+import { CementFactoriesComponent } from './components/cement-factories/cement-factories.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CompaniesUsingCoalAsAnInputComponent } from './components/companies-usi
     ShippingAndUnloadingCompaniesSeaRiverPortsComponent,
     LandTransportationCompaniesCoalAndPetroleumComponent,
     IntermediateCoalStorageFacilitiesComponent,
-    CompaniesUsingCoalAsAnInputComponent
+    CompaniesUsingCoalAsAnInputComponent,
+    CementFactoriesComponent
   ],
   imports: [
     CommonModule,

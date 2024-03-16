@@ -1,0 +1,3549 @@
+<h6 class="fw-bold text-center py-4">
+  {{ "report5.majorCompaniesUsingCoalCementFactories" | translate}}
+</h6>
+
+<div class="row justify-content-end pb-3">
+  <div class="col-auto">
+    <button class="btn gradient px-5">
+      {{ "admissionForm.print" | translate }}
+    </button>
+  </div>
+</div>
+
+
+<div [formGroup]="form" [ngSwitch]="page">
+  <ng-container *ngSwitchCase="1">
+    <div class="card px-4 py-5">
+      <div class="d-flex gap-4">
+        <div class="d-flex gap-1">
+          <span>{{ "report1.reportYear" | translate }}</span>
+          <app-btn-dropdown
+            [btnText]="'customer.serviceName'"
+            [menuList]="dropDownList"
+            [buttonWidth]="'w-25 mb-5'"
+            (onBtnClick)="getDropDownItem($event)"
+          ></app-btn-dropdown>
+        </div>
+        <div class="d-flex gap-3">
+          <span>{{ "report1.aboutPeriod" | translate }}</span>
+          <div class="d-flex gap-2">
+            <span>{{ "report1.from" | translate }}</span>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+            <span>{{ "report1.to" | translate }}</span>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="pb-2 pt-3 d-flex flex-column">
+        <span class="fw-bold">
+          1- {{ "report4.generalInformationAboutTheFacility" | translate }}
+        </span>
+        <span>
+          {{ "report5.reportShouldStartWithGeneralInformation" | translate }}
+        </span>
+      </div>
+
+      <div>
+        <div class="pb-2 pt-3">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.facilityData" | translate }}
+          </span>
+        </div>
+
+        <div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.facilityName" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.address" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col d-flex flex-column w-100">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.province" | translate
+              }}</label>
+              <app-btn-dropdown
+                  [btnText]="'customer.serviceName'"
+                  [menuList]="dropDownList"
+                  (onBtnClick)="getDropDownItem($event)"
+                  [buttonWidth]="'w-100'"
+                  [background]="'var(--white-100)'"
+                  [color]="'var(--black)'"
+                  [border]="true"
+                ></app-btn-dropdown>
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.chairmanOfTheBoard" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.facilityManager" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.totalWorkforce" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.industrialSector" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.workingHours" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.facilityDesignCapacity" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.industrialSiteAreaInSquareMeters" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.surroundingAreaArea" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.establishmentYear" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+          <div class="row gap-5 align-items-start">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report4.coalUsageStartDate" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <div class="d-flex flex-column gap-2">
+                <div class="d-flex gap-2">
+                  <div>
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.environmentalApprovalNumber" | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.approvalDate" | translate
+                    }}</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.attachFile" | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <div>
+                    <div class="control-label mb-3">
+                      <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                      <label class="form-check-label" for="licenseNumber">
+                        {{"report1.licenseNumber" | translate}}
+                      </label>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div class="col-2">
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.from" | translate
+                    }}</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div class="col-2">
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.to" | translate
+                    }}</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="mt-2 control-label" for="username">{{
+                      "report1.attachFile" | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="area"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-3">
+        <div>
+          <span class="fw-bold text-decoration-underline">
+            {{ "report1.contactInformation" | translate }}
+          </span>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.establishmentPhoneNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.faxNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.email" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.website" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.contactPerson" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.position" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row gap-5">
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.phoneNumber" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+          <div class="col">
+            <label class="mt-2 control-label" for="username">{{
+              "report1.email" | translate
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 2">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="2">
+    <div class="card px-4 py-5">
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold">
+            2- {{ "report4.inputsAndOutputs" | translate }}
+          </span>
+        </div>
+
+        <div class="d-flex flex-column pb-2">
+          <span>
+            {{ "report5.useInputsAndOutputsToVerifySpecificEnergyConsumptionPerTonOfClinker" | translate }}
+          </span>
+          <span>
+            {{ "report5.calculateRawMaterialsWaterAndDustFromKilnCompareWithInternationalStandards" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.rawMaterials" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.currentConsumption" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.facilities" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.facilities" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.use" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.consumptionInCubicMetersPerYear" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.source" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"  rowspan="3">
+                <span>
+                  {{ "report4.water" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.local" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.cooling" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report4.operations" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.fuel" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.fuel" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.type" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.annualConsumption" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"  rowspan="5">
+                <span>
+                  {{ "report4.primaryFuel" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.fuelOil" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.diesel" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report4.naturalGas" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report5.bituminousCoal" | translate }}
+                </span>
+                <span>
+                  {{ "report5.attachAnalysis" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td >
+                <span>
+                  {{ "report5.petroleumCoal" | translate }}
+                </span>
+                <span>
+                  {{ "report5.attachAnalysis" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report4.electricity" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.facilities" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.source" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.consumption" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"  rowspan="3">
+                <span>
+                  {{ "report4.electricity" | translate }}
+                </span>
+              </td>
+              <td >
+                <span>
+                  {{ "report4.nationalGrid" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.selfGenerated" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report5.productsWaste" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.products" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report4.averageActualProduction" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.clinker" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.cement" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.kilnDust" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.kilnDustFromKiln" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold ">
+            {{ "report5.emissionsAndCompliance" | translate }}
+          </span>
+        </div>
+        <div class="pb-2">
+          <span>
+            {{ "report5.fillEmissionsAndComplianceForm" | translate }}
+            <span class="text-primary">
+              {{ "report5.uploadFile" | translate }}
+            </span>
+          </span>
+        </div>
+        <div class="pb-2">
+          <span >
+            {{ "report5.afterFillingEmissionsAndComplianceFormUploadFile" | translate }}
+            <span class="text-primary">
+              {{ "report5.uploadFileButton" | translate }}
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 3">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 1">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="3">
+    <div class="card px-4 py-5">
+      <div>
+        <div class="pb-3">
+          <span class="fw-bold">
+            4- {{ "report5.requirementsForHandlingCoal" | translate }}
+          </span>
+        </div>
+
+        <div class="d-flex flex-column pb-3">
+          <span  class="fw-bold">
+            1-4 {{ "report5.storage" | translate }}
+          </span>
+          <span>
+            {{ "report5.notifyAboutTheFollowingIssuesAttachDetailedPhotos" | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="pb-3">
+        <div>
+          <span class="fw-bold text-decoration-underline">
+            {{ "report5.openStorageYard" | translate }}
+          </span>
+
+          <span class="text-primary">
+            {{ "report5.attachPhotos" | translate }}
+          </span>
+        </div>
+
+        <div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.pileHeightInOpenStorageYard" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.monitoringDevices" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.waterSprayingEquipment" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.windBreakerHeight" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pb-3">
+        <div>
+          <span class="fw-bold text-decoration-underline">
+            {{ "report5.storageInOperationAreaNextToKiln" | translate }}
+          </span>
+
+          <span class="text-primary">
+            {{ "report5.attachPhotos" | translate }}
+          </span>
+        </div>
+
+        <div class="pb-3">
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.closedStorageType" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.dustControlEquipment" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.carbonMonoxideMonitoringInCoalSilos" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <div class="d-flex gap-5 align-items-center">
+                <span>
+                  {{ "report5.storageDurationNotExceed15Days" | translate }}
+                </span>
+                <div class="d-flex flex-column">
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.packed" | translate}}
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                    <label class="form-check-label" for="licenseNumber">
+                      {{"report4.unpacked" | translate}}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pb-3">
+        <div>
+          <span class="fw-bold text-decoration-underline">
+            2-4 {{ "report5.handlingAndUsage" | translate }}
+          </span>
+        </div>
+
+        <div>
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.transportFromOpenYardToOperatingArea" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.closedConveyorBelts" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row gap-5">
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.loadingAndUnloadingEquipment" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col">
+              <label class="mt-2 control-label" for="username">{{
+                "report5.typeOfGasUsedForPneumaticTransportation" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <div class="d-flex">
+              <div class="col-10">
+                <label class="mt-2 control-label" for="username">{{
+                  "report5.useOfCertifiedEquipment" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+
+              <div class="col-2">
+                <label class="mt-2 control-label" for="username">{{
+                  "report5.attachFile" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pb-3">
+        <div>
+          <span class="fw-bold text-decoration-underline">
+            3-4 {{ "report5.shippingAndTruckingCompanies" | translate }}
+          </span>
+        </div>
+
+        <span>
+          {{ "report5.cementCompaniesResponsibilityForCoalTransportation" | translate }}
+        </span>
+
+        <ul>
+          <li>
+            <span>
+              {{ "report5.shippingAndTruckingCompaniesWithCivilDefenseApproval" | translate }}
+            </span>
+          </li>
+          <li>
+            <span>
+              {{ "report5.truckingCompaniesWithEnvironmentalApproval" | translate }}
+            </span>
+          </li>
+        </ul>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report5.arrivalDate" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.amountOfBituminousCoalInTons" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.shippingAndUnloadingCompanyName" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.truckingCompanyName" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white-100)'"
+                [color]="'var(--black)'"
+                [border]="true"
+              ></app-btn-dropdown>
+              </td>
+              <td>
+                <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white-100)'"
+                [color]="'var(--black)'"
+                [border]="true"
+              ></app-btn-dropdown>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 4">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 2">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="4">
+    <div class="card px-4 py-5">
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            4-4 {{ "report5.safetyIssues" | translate }}
+          </span>
+
+          <span>
+            {{ "report5.attachIllustrativePhotos" | translate }}
+          </span>
+
+          <div>
+            <span>
+              {{ "report5.attachEmergencyPlan" | translate }}
+            </span>
+            <span class="text-primary">
+              {{ "report5.attachFile" | translate }}
+            </span>
+            <span>
+              {{ "report5.attachRiskAssessmentPlan" | translate }}
+            </span>
+            <span class="text-primary">
+              {{ "report5.attachFile" | translate }}
+            </span>
+            <span>
+              {{ "report5.attachCivilDefenseApproval" | translate }}
+            </span>
+            <span class="text-primary">
+              {{ "report5.attachFile" | translate }}
+            </span>
+
+          </div>
+
+          <div class="mt-3">
+            <span>
+              {{ "report5.reportSafetyIssuesAndConductInspectionAnnually" | translate }}
+            </span>
+            <span class="text-primary">
+              {{ "report5.attachPhotos" | translate }}
+            </span>
+          </div>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report4.safetyRelatedIssues" | translate }}
+                </span>
+              </th>
+              <th style="width: 350px;">
+                <span>
+                  {{ "report4.comments" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.safetySignsInDesignatedAreas" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.accessToFireFightingEquipmentAndEmergencyVehicles" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.availabilityOfSafetyDataForCoalPetroleum" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.strictProceduresForCoalHandling" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.markingOfHazardousAreasOnSite" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.designatedHazardousAreasCovered" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.equipmentComplianceWithHazardousAreaClassificationStandards" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.appropriateEngineeringMeasuresForHandlingAccumulatedFlammableDustLayers" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.regularCleaningOfSiteIfPreventionIsNotFeasible" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.installationOfFlameOrExplosionSuppressionSystems" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.appropriateEngineeringMeasuresToPreventOrDisperseStaticElectricityCharges" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.installationOfLeakDetectionOutletsInCaseOfExplosion" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.installationOfFireDetectionAndAlarmSystems" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.appropriatenessOfFireDetectionSystemForHandlingTasks" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.allFireDetectionDevicesConnectedToReliablePowerSource" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.silosEquippedWithAppropriateFireExtinguishingSuppressionSystems" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.areSilosEquippedWithCarbonMonoxideDetectionSystem" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.doCoalPetroleumDevicesHaveVaporInjectionSystem" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.isThereAnAppropriateFireFightingSystem" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report4.areFireRiskConsiderationsTakenDuringMaintenanceOperations" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 5">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 3">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="5">
+    <div class="card px-4 py-5">
+      <div class="pb-2 d-flex flex-column">
+        <span class="fw-bold">
+          5- {{ "report5.coalAndAlternativeFuelInventory" | translate }}
+        </span>
+
+        <span>
+          {{ "report5.sinceTheCabinetDecision" | translate }}
+        </span>
+      </div>
+
+      <div>
+        <div class="pb-2 d-flex flex-column">
+          <span class="fw-bold">
+            1-5 {{ "report5.fuelMix" | translate }}
+          </span>
+
+          <span>
+            {{ "report5.manyCementCompaniesHaveLicensesToBurnHazardousWaste" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report5.fuelType" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.calorificValue" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.thermalEnergy" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.percentageOfTotalRequiredEnergy" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.bituminousCoal" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.petroleumCoal" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.fuelOil" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.diesel" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.wasteDerivedFuel" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.sewageSludge" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.usedOil" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.agriculturalWaste" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.hazardousWaste" | translate }}
+                </span>
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td style="padding-right: 31px;">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2 d-flex flex-column">
+          <span class="fw-bold">
+            2-5 {{ "report5.amountOfCoalAndWasteDerivedFuel" | translate }}
+          </span>
+
+          <span>
+            {{ "report5.endOfYearInventory" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+
+          <thead>
+            <tr>
+              <td colspan="5">
+                <span class="fw-bold">
+                  {{ "report5.coalShipments" | translate }}
+                </span>
+              </td>
+            </tr>
+            <tr class="thead-light">
+              <th colspan="2">
+                <span>
+                  {{ "report5.shippingDate" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.shipmentAmountInTons" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.shippingAndUnloadingCompanyName" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.truckingCompanyName" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <app-btn-dropdown
+                  [btnText]="'customer.serviceName'"
+                  [menuList]="dropDownList"
+                  (onBtnClick)="getDropDownItem($event)"
+                  [buttonWidth]="'w-100'"
+                  [background]="'var(--white)'"
+                  [color]="'var(--black)'"
+                  [border]="true"
+                ></app-btn-dropdown>
+              </td>
+              <td>
+                <app-btn-dropdown
+                  [btnText]="'customer.serviceName'"
+                  [menuList]="dropDownList"
+                  (onBtnClick)="getDropDownItem($event)"
+                  [buttonWidth]="'w-100'"
+                  [background]="'var(--white)'"
+                  [color]="'var(--black)'"
+                  [border]="true"
+                ></app-btn-dropdown>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <span>
+                  {{ "report5.total" | translate }}
+                </span>
+              </td>
+              <td s>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                <span class="fw-bold">
+                  {{ "report5.inventory" | translate }}
+                </span>
+              </td>
+            </tr>
+            <tr class="thead-light">
+              <th colspan="2">
+                <span>
+                  {{ "report5.duration" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.consumedCoalInTons" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.coalStoredInStorageAreaInTons" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.coalStoredInOperatingAreaInTons" | translate }}
+                </span>
+              </th>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <span>
+                  {{ "report5.afterFirstYear" | translate }}
+                </span>
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <span>
+                  {{ "report5.afterSecondYear" | translate }}
+                </span>
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+
+            </tr>
+            <tr>
+              <td colspan="5">
+                <span class="fw-bold">
+                  {{ "report5.coalTradeExchange" | translate }}
+                </span>
+              </td>
+            </tr>
+            <tr class="thead-light">
+              <th colspan="2">
+                <span>
+                  {{ "report5.amountOfCoalInTons" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.soldPurchased" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.date" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.relatedCompany" | translate }}
+                </span>
+              </th>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <app-btn-dropdown
+                [btnText]="'customer.serviceName'"
+                [menuList]="dropDownList"
+                (onBtnClick)="getDropDownItem($event)"
+                [buttonWidth]="'w-100'"
+                [background]="'var(--white)'"
+                [color]="'var(--black)'"
+                [border]="true"
+              ></app-btn-dropdown>
+              </td>
+
+            </tr>
+            <tr>
+              <td colspan="5">
+                <span class="fw-bold">
+                  {{ "report5.standardCriteria" | translate }}
+                </span>
+              </td>
+            </tr>
+            <tr class="thead-light">
+              <th>
+                <span>
+                  {{ "report5.duration" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.consumedCoalPerTonClinker" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.otherFuelConsumedPerTonClinker" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.wasteDerivedFuelConsumedPerTonClinker" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.totalThermalEnergyConsumedPerTonClinker" | translate }}
+                </span>
+              </th>
+            </tr>
+            <tr>
+              <td align="center">
+                <span>
+                  {{ "report5.afterFirstYear" | translate }}
+                </span>
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+
+            </tr>
+            <tr>
+              <td align="center">
+                <span>
+                  {{ "report5.afterSecondYear" | translate }}
+                </span>
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2 d-flex flex-column">
+          <span class="fw-bold">
+            3-5 {{ "report5.useOfAlternativeFuelOrRawMaterialFromHazardousOrNonHazardousWaste" | translate }}
+          </span>
+
+          <span>
+            {{ "report5.wasteAsAlternativeFuelOrRawMaterialDescription" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report5.wasteType" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.quantityInTons" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report5.approvalDateForEnvironmentalImpactAssessment" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div>
+          <span class="fw-bold">
+            {{ "report5.companyMustAttachQualityAssuranceOrQualityControlProceduresInReport" | translate }}
+          </span>
+
+          <span class="text-primary">
+            {{ "report5.attachedFiles" | translate }}
+          </span>
+        </div>
+
+        <ul>
+          <li>
+            <span>
+              {{ "report5.fuelCompoundDerivedFromWasteForTypeOfWaste" | translate }}
+            </span>
+          </li>
+          <li>
+            <span>
+              {{ "report5.calorificValueOfFuelDerivedFromWaste" | translate }}
+            </span>
+          </li>
+          <li>
+            <span>
+              {{ "report5.percentageOfRejectedFuelDerivedFromWasteOutOfSpecifications" | translate }}
+            </span>
+          </li>
+          <li>
+            <span>
+              {{ "report5.compositionOfHazardousAndNonHazardousWasteRegardingMajorPollutantsSuchAsSulfurAndChloride" | translate }}
+            </span>
+          </li>
+          <li>
+            <span>
+              {{ "report5.samplingProtocolUsed" | translate }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 6">
+          {{ "admissionForm.next" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 4">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="6">
+    <div class="card px-4 py-5">
+      <div class="pb-2 d-flex flex-column">
+        <span class="fw-bold">
+          6- {{ "report5.carbonDioxideEmissions" | translate }}
+        </span>
+      </div>
+
+      <div>
+        <div class="pb-2 d-flex flex-column">
+          <span class="fw-bold">
+            1-6 {{ "report5.increaseInCarbonDioxideEmissionsFromExistingFactories" | translate }}
+          </span>
+
+          <div>
+            <span>
+              {{ "report5.selectedCarbonDioxideEmissionsFromBurningDieselAsBasisForCalculatingIncrease" | translate }}
+            </span>
+            <span class="text-primary">
+              {{ "report5.moreDetails" | translate }}
+            </span>
+          </div>
+
+          <span>
+            {{ "report5.calculationBasedOnEmissionFactorsFromTheIntergovernmentalPanelOnClimateChange" | translate }}
+          </span>
+
+          <table class="table table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th>
+                  <span>
+                    {{ "report5.fuelUsed" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.emissionFactor" | translate }}
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span>
+                    {{ "report5.diesel" | translate }}
+                  </span>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="area"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>
+                    {{ "report5.coal" | translate }}
+                  </span>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="area"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>
+                    {{ "report5.petroleumCoke" | translate }}
+                  </span>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="area"
+                    required
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report5.carbonDioxideEmissions" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+              <tr>
+                <th>
+                  <span>
+                    {{ "report5.clinkerProductionQuantity" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.thermalEnergyRequired" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.totalThermalEnergy" | translate }}
+                  </span>
+                </th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report5.fuelTypes" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+              <tr>
+                <th>
+                  <span>
+                    {{ "report5.fuelTypes" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.quantityConsumed" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.thermalEnergy" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.percentageOfTotalEnergyRequired" | translate }}
+                  </span>
+                </th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.ligniteCoal" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.petroleumCoal" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.RDF" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.diesel2" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.TDF" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.usedOil" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.AFMix" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.agriculturalWasteFlaxStraw" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.agriculturalWasteTreeTrimming" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.bioMass" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.naturalGas" | translate }}
+                </span>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="pb-2">
+          <span class="fw-bold text-decoration-underline">
+            {{ "report5.emissionCalculation" | translate }}
+          </span>
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+              <tr>
+                <th></th>
+                <th>
+                  <span>
+                    {{ "report5.fuelTypes" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.percentageOfTotalEnergyRequired" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.thermalEnergy" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.carbonDioxideEmissionFactor" | translate }}
+                  </span>
+                </th>
+                <th>
+                  <span>
+                    {{ "report5.carbonDioxideEmissions" | translate }}
+                  </span>
+                </th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 120px;" rowspan="11"></td>
+              <td>
+                <span>
+                  {{ "report5.ligniteCoal" | translate }}
+                </span>
+              </td>
+             <td></td>
+             <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.petroleumCoal" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.RDF" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td></td>
+               <td>
+                 <input
+                   type="text"
+                   class="form-control"
+                   formControlName="area"
+                   required
+                 />
+               </td>
+               <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.diesel2" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td></td>
+               <td>
+                 <input
+                   type="text"
+                   class="form-control"
+                   formControlName="area"
+                   required
+                 />
+               </td>
+               <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.TDF" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td></td>
+               <td>
+                 <input
+                   type="text"
+                   class="form-control"
+                   formControlName="area"
+                   required
+                 />
+               </td>
+               <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.usedOil" | translate }}
+                </span>
+              </td>
+              <td></td>
+             <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.AFMix" | translate }}
+                </span>
+              </td>
+              <td></td>
+             <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.agriculturalWasteFlaxStraw" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td></td>
+               <td>
+                 <input
+                   type="text"
+                   class="form-control"
+                   formControlName="area"
+                   required
+                 />
+               </td>
+               <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.agriculturalWasteTreeTrimming" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td></td>
+               <td>
+                 <input
+                   type="text"
+                   class="form-control"
+                   formControlName="area"
+                   required
+                 />
+               </td>
+               <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.bioMass" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td></td>
+               <td>
+                 <input
+                   type="text"
+                   class="form-control"
+                   formControlName="area"
+                   required
+                 />
+               </td>
+               <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span>
+                  {{ "report5.naturalGas" | translate }}
+                </span>
+              </td>
+              <td></td>
+             <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <span>
+                  {{ "report5.total" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <span>
+                  {{ "report5.dieselP" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <span>
+                  {{ "report5.totalEmissionsDifferencedescription" | translate }}
+                </span>
+              </td>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pb-2 d-flex flex-column g-3">
+        <span class="fw-bold">
+          7- {{ "report5.emissionReductionMeasures" | translate }}
+        </span>
+        <div>
+          <span class="py-3">
+            {{ "report5.reduceCarbonDioxideModel" | translate }}
+          </span>
+          <span class="text-primary">
+            {{ "report5.viewFile" | translate }}
+          </span>
+        </div>
+        <div>
+          <span class="py-3">
+            {{ "report5.attachFileTitle" | translate }}
+          </span>
+          <span class="text-primary">
+            {{ "report5.viewFile" | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="pb-2 d-flex flex-column g-3">
+        <span class="fw-bold">
+          8- {{ "report5.monitoringMethods" | translate }}
+        </span>
+        <div>
+          <span class="py-3">
+            {{ "report5.viewMonitoringFile" | translate }}
+          </span>
+          <span class="text-primary">
+            {{ "report5.viewFile" | translate }}
+          </span>
+        </div>
+        <div>
+          <span class="py-3">
+            {{ "report5.attachMonitoringFile" | translate }}
+          </span>
+          <span class="text-primary">
+            {{ "report5.viewFile" | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <div class="d-flex flex-column">
+          <span class="fw-bold text-decoration-underline mb-2">
+            9- {{ "report1.subTitle3" | translate }}
+          </span>
+          <span class="mb-2">{{ "report1.subTitle3Text" | translate }}</span>
+        </div>
+
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report1.item22" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item23" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item24" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item25" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item26" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item27" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <span class="fw-bold text-decoration-underline mb-2">
+          10- {{ "report1.subTitle5" | translate }}
+        </span>
+
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>
+                <span>
+                  {{ "report1.item31" | translate }}
+                </span>
+              </th>
+              <th>
+                <span>
+                  {{ "report1.item32" | translate }}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="area"
+                  required
+                />
+              </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row justify-content-between pt-5">
+      <div class="col-auto">
+        <button class="btn gradient px-5">
+          {{ "report1.send" | translate }}
+        </button>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn gradient px-5" (click)="page = 5">
+          {{ "report1.previous" | translate }}
+        </button>
+      </div>
+    </div>
+
+  </ng-container>
+</div>
