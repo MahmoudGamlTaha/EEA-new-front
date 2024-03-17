@@ -1,23 +1,41 @@
 <app-subtitle>{{ "routingHeader.environmentalPerformanceReports" | translate }}</app-subtitle>
 
-<div class="row gap-3">
-  <button class=" col btn gradient px-5" (click)="chooseReport(1)">
+<div class="row gap-2 w-100">
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(1)">
     report 1
   </button>
-  <button class=" col btn gradient px-5" (click)="chooseReport(2)">
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(2)">
     report 2
   </button>
-  <button class=" col btn gradient px-5" (click)="chooseReport(3)">
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(3)">
     report 3
   </button>
-  <button class=" col btn gradient px-5" (click)="chooseReport(4)">
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(4)">
     report 4
   </button>
-  <button class=" col btn gradient px-5" (click)="chooseReport(5)">
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(5)">
     report 5
   </button>
-  <button class=" col btn gradient px-5">
-    report 6
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(6)">
+    paid report
+  </button>
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(7)">
+    paid report
+  </button>
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(8)">
+    paid report
+  </button>
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(9)">
+    paid report
+  </button>
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(10)">
+    paid report
+  </button>
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(11)">
+    paid report
+  </button>
+  <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(12)">
+    paid report
   </button>
 </div>
 
@@ -36,4 +54,8 @@
 
   <app-cement-factories *ngSwitchCase="5">
   </app-cement-factories>
+
+  <app-fees-charges-paid *ngSwitchCase="6">
+
+  </app-fees-charges-paid>
 </div>

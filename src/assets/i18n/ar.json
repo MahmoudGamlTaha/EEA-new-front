@@ -1213,5 +1213,20 @@
     "attachMonitoringFile": "بعد الانتهاء من اعداد التقرير الخاص بأساليب المراقبة يرجى ارفاق الملف",
     "violationsAndPenalties": "المخالفات والعقوبات",
     "reportingViolations": "في هذا الشأن، الشركة مطالبة بالإبلاغ عن المخالفات التي تم رصدها خلال عمليات التفتيش التي يقوم بها جهاز شئون البيئة والغرامات التي تم دفعها وكذلك أيضا مسائل عدم التوافق وعمليات تصحيحها"
+  },
+  "chargesPaidSuccessfully":{
+    "paymentSuccessMessage": "تم دفع الرسوم/المصروفات الخاصة بهذا الطلب بنجاح",
+    "establishmentName": "اسم المنشأة",
+    "requestNumber": "رقم الطلب",
+    "requestDate": "تاريخ الطلب",
+    "paymentDate": "تاريخ السداد",
+    "eFinanceNumber": "رقم e-finance",
+    "serviceName": "اسم الخدمة",
+    "feeAmount": "قيمة الرسوم/المصروفات",
+    "eg": "جنيه مصرى",
+    "receiptNumber": "رقم الايصال",
+    "receiptDate": "تاريخ الايصال",
+    "receiptImage": "صورة الايصال",
+    "approvalAndSend": "موافقة وارسال"
   }
 }
