@@ -1,0 +1,513 @@
+<div class="card px-4 py-5 my-3">
+
+  <div [formGroup]="form">
+    <div class="row gap-5 my-3">
+      <div class="col-4">
+        <div class="mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+          <label class="form-check-label" for="licenseNumber">
+            {{"establishmentRegistration.establishmentName" | translate}}
+          </label>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="area"
+          required
+        />
+      </div>
+      <div class="col-7">
+        <div class="mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+          <label class="form-check-label" for="licenseNumber">
+            {{"establishmentRegistration.responsibleManagerName" | translate}}
+          </label>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="area"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row gap-5 my-3 align-items-end">
+      <div class="col-4">
+        <div class="mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+          <label class="form-check-label" for="licenseNumber">
+            {{"establishmentRegistration.establishmentType" | translate}}
+          </label>
+        </div>
+        <app-btn-dropdown
+          [btnText]="'customer.serviceName'"
+          [menuList]="dropDownList"
+          (onBtnClick)="getDropDownItem($event)"
+          [buttonWidth]="'w-100'"
+          [background]="'var(--white)'"
+          [color]="'var(--black)'"
+          [border]="true">
+        </app-btn-dropdown>
+      </div>
+      <div class="col-7">
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex gap-2 align-items-end">
+            <div>
+              <div class="mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                <label class="form-check-label" for="licenseNumber">
+                  {{"establishmentRegistration.commercialRegisterNumber" | translate}}
+                </label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div>
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.attachFile" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <span class="text-nowrap">
+              {{
+                "establishmentRegistration.expiryDate" | translate
+              }}
+            </span>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.from" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.to" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-5 my-3 align-items-end">
+      <div class="col-4">
+        <div class="mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+          <label class="form-check-label" for="licenseNumber">
+            {{"establishmentRegistration.activityType" | translate}}
+          </label>
+        </div>
+        <app-btn-dropdown
+          [btnText]="'customer.serviceName'"
+          [menuList]="dropDownList"
+          (onBtnClick)="getDropDownItem($event)"
+          [buttonWidth]="'w-100'"
+          [background]="'var(--white)'"
+          [color]="'var(--black)'"
+          [border]="true">
+        </app-btn-dropdown>
+      </div>
+      <div class="col-7">
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex gap-2 align-items-end">
+            <div>
+              <div class="mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                <label class="form-check-label" for="licenseNumber">
+                  {{"establishmentRegistration.taxCardNumber" | translate}}
+                </label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div>
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.attachFile" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <span class="text-nowrap">
+              {{
+                "establishmentRegistration.expiryDate" | translate
+              }}
+            </span>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.from" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.to" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-5 my-3 align-items-end">
+      <div class="col-4">
+        <div class="mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+          <label class="form-check-label" for="licenseNumber">
+            {{"establishmentRegistration.purposeOfUse" | translate}}
+          </label>
+        </div>
+         <input
+          type="text"
+          class="form-control"
+          formControlName="area"
+          required
+        />
+      </div>
+      <div class="col-7">
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex gap-2 align-items-end">
+            <div>
+              <div class="mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                <label class="form-check-label" for="licenseNumber">
+                  {{"establishmentRegistration.industrialRegisterNumber" | translate}}
+                </label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div>
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.attachFile" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <span class="text-nowrap">
+              {{
+                "establishmentRegistration.expiryDate" | translate
+              }}
+            </span>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.from" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.to" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-5 my-3 align-items-end">
+      <div class="col-4 p-0">
+        <div class="d-flex gap-1">
+          <div class="col-7">
+            <div class="mb-2">
+              <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+              <label class="form-check-label" for="licenseNumber">
+                {{"establishmentRegistration.address" | translate}}
+              </label>
+            </div>
+             <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+
+          <div class="col-5">
+            <label class="form-check-label mb-2" for="licenseNumber">
+              {{"establishmentRegistration.governorate" | translate}}
+            </label>
+            <app-btn-dropdown
+              [btnText]="'customer.serviceName'"
+              [menuList]="dropDownList"
+              (onBtnClick)="getDropDownItem($event)"
+              [buttonWidth]="'w-100'"
+              [background]="'var(--white)'"
+              [color]="'var(--black)'"
+              [border]="true">
+            </app-btn-dropdown>
+          </div>
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex gap-2 align-items-end">
+            <div>
+              <div class="mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                <label class="form-check-label" for="licenseNumber">
+                  {{"establishmentRegistration.environmentalApprovalNumber" | translate}}
+                </label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <span class="text-nowrap">
+              {{
+                "establishmentRegistration.expiryDate" | translate
+              }}
+            </span>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.from" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.to" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div>
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.attachFile" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-5 my-3 align-items-end">
+      <div class="col-4 p-0">
+        <div class="d-flex gap-1">
+          <div class="col-7">
+            <div class="mb-2">
+              <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+              <label class="form-check-label" for="licenseNumber">
+                {{"establishmentRegistration.establishmentPhone" | translate}}
+              </label>
+            </div>
+             <input
+              type="text"
+              class="form-control"
+              formControlName="area"
+              required
+            />
+          </div>
+
+          <div class="col-5">
+            <input
+            type="text"
+            class="form-control mt-4"
+            formControlName="area"
+            value="+02"
+            required
+          />
+          </div>
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex gap-2 align-items-end">
+            <div>
+              <div class="mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                <label class="form-check-label" for="licenseNumber">
+                  {{"establishmentRegistration.renewalStatus" | translate}}
+                </label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <span class="text-nowrap">
+              {{
+                "establishmentRegistration.expiryDate" | translate
+              }}
+            </span>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.from" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col-2">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.to" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div>
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.attachFile" | translate
+              }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gap-5 my-3 align-items-end">
+      <div class="col-4">
+        <div class="mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+          <label class="form-check-label" for="licenseNumber">
+            {{"establishmentRegistration.primaryEmail" | translate}}
+          </label>
+        </div>
+         <input
+          type="text"
+          class="form-control"
+          formControlName="area"
+          required
+        />
+      </div>
+      <div class="col-7">
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex gap-2 align-items-end">
+            <div>
+              <div class="mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="licenseNumber">
+                <label class="form-check-label" for="licenseNumber">
+                  {{"establishmentRegistration.quota" | translate}}
+                </label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <span class="text-nowrap">
+              {{
+                "establishmentRegistration.expiryDate" | translate
+              }}
+            </span>
+            <div class="col-3">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.from" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+            <div class="col-3">
+              <label class="mt-2 control-label" for="username">{{
+                "establishmentRegistration.to" | translate
+              }}</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="area"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

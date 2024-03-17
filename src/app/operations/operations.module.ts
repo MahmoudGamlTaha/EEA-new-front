@@ -23,6 +23,7 @@ import { IntermediateCoalStorageFacilitiesComponent } from './components/interme
 import { CompaniesUsingCoalAsAnInputComponent } from './components/companies-using-coal-as-an-input/companies-using-coal-as-an-input.component';
 import { CementFactoriesComponent } from './components/cement-factories/cement-factories.component';
 import { FeesChargesPaidComponent } from './components/fees-charges-paid/fees-charges-paid.component';
+import { EstablishmentRegistrationComponent } from './components/establishment-registration/establishment-registration.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FeesChargesPaidComponent } from './components/fees-charges-paid/fees-ch
     IntermediateCoalStorageFacilitiesComponent,
     CompaniesUsingCoalAsAnInputComponent,
     CementFactoriesComponent,
-    FeesChargesPaidComponent
+    FeesChargesPaidComponent,
+    EstablishmentRegistrationComponent
   ],
   imports: [
     CommonModule,

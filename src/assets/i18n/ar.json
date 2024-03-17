@@ -1228,5 +1228,27 @@
     "receiptDate": "تاريخ الايصال",
     "receiptImage": "صورة الايصال",
     "approvalAndSend": "موافقة وارسال"
+  },
+  "establishmentRegistration":{
+    "establishmentName": "اسم المنشأة",
+    "responsibleManagerName": "اسم المدير المسئول حسب السجل التجارى",
+    "establishmentType": "نوع المنشأة",
+    "commercialRegisterNumber": "رقم السجل التجارى",
+    "attachFile": "ارفاق الملف",
+    "expiryDate": "الصلاحية",
+    "from": "من",
+    "to": "الى",
+    "activityType": "نوع النشاط",
+    "taxCardNumber": "رقم البطاقة الضريبية",
+    "purposeOfUse": "الغرض من الاستخدام",
+    "industrialRegisterNumber": "رقم السجل الصناعى",
+    "address": "العنوان",
+    "governorate": "المحافظة",
+    "environmentalApprovalNumber": "رقم الموافقة البيئية",
+    "attachFiles": "ارفاق الملفات",
+    "establishmentPhone": "هاتف المنشأة",
+    "renewalStatus": "موقف تجديد التصريح",
+    "primaryEmail": "البريد الالكترونى الرئيسى",
+    "quota": "الكوتة"
   }
 }

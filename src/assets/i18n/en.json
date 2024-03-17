@@ -1153,5 +1153,42 @@
     "attachMonitoringFile": "After preparing the Monitoring Methods Report, please attach the file",
     "violationsAndPenalties": "Violations and Penalties",
     "reportingViolations": "In this regard, the company is required to report the violations detected during the inspections conducted by the Environmental Affairs Department and the fines paid, as well as any non-compliance issues and corrective actions taken"
+  },
+  "chargesPaidSuccessfully": {
+    "paymentSuccessMessage": "Charges paid successfully for this request",
+    "establishmentName": "Establishment Name",
+    "requestNumber": "Request Number",
+    "requestDate": "Request Date",
+    "paymentDate": "Payment Date",
+    "eFinanceNumber": "e-Finance Number",
+    "serviceName": "Service Name",
+    "feeAmount": "Fee Amount",
+    "eg": "EGP",
+    "receiptNumber": "Receipt Number",
+    "receiptDate": "Receipt Date",
+    "receiptImage": "Receipt Image",
+    "approvalAndSend": "Approval and Send"
+  },
+  "establishmentRegistration": {
+    "establishmentName": "Establishment Name",
+    "responsibleManagerName": "Responsible Manager Name as per the Commercial Register",
+    "establishmentType": "Establishment Type",
+    "commercialRegisterNumber": "Commercial Register Number",
+    "attachFile": "Attach File",
+    "expiryDate": "Expiry Date",
+    "from": "From",
+    "to": "To",
+    "activityType": "Activity Type",
+    "taxCardNumber": "Tax Card Number",
+    "purposeOfUse": "Purpose of Use",
+    "industrialRegisterNumber": "Industrial Register Number",
+    "address": "Address",
+    "governorate": "Governorate",
+    "environmentalApprovalNumber": "Environmental Approval Number",
+    "attachFiles": "Attach Files",
+    "establishmentPhone": "Establishment Phone",
+    "renewalStatus": "Renewal Status",
+    "primaryEmail": "Primary Email",
+    "quota": "Quota"
   }
 }
