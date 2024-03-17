@@ -40,7 +40,7 @@ initForm(data , formType, rdf) {
     },
     subModel: {
       weightInTon: {
-        isDisabled:true ,
+        isDisabled:formType=='check' || formType =='view-only'?true:false ,
         type: 'number',
         value: rdf?.weightInTon,
         col: 'col-md-3',

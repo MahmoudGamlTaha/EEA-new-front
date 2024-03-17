@@ -72,4 +72,9 @@ export class AdmissionFormApiService {
     const url = `${this.baseUrl}/portal/customer-request/${requestId}`;
     return this.http.put<ApiResponse>(url, initform);
   }
+
+  getRequestLog(requestId:number){
+     const url = `${this.baseUrl}/portal-data/logger/request-log/${requestId}`;
+     return this.http.get<ApiResponse>(url);
+  }
 }

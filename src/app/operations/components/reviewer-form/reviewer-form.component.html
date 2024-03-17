@@ -2,11 +2,20 @@
 <div *ngIf="mainNote">
 <app-dynamic-form [model]="mainNote"></app-dynamic-form>
 </div>
-<!-- Reviewer -->
+<div *ngIf="loggerList">
+  
+  <span *ngFor="let log of loggerList ; let i = index">
+  {{i+1}} - قام الموظف {{log?.employeeName}} في ادراة {{log?.administrativeName}} {{"logStatus."+log?.action | translate}}  بتاريخ {{log.createdDate}} 
+  <br/>
+</span>
+     
+</div>
+<!-- Reviewer 
 <h6 *ngIf="reviewer">
   {{ "customer.applicationWasReviewedBy" | translate }}
   <span class="fw-bold">{{ reviewer }}</span>
 </h6>
+-->
 <div *ngIf="reviewersList">
 <app-btn-dropdown
   [btnText]="'customer.redirection'"

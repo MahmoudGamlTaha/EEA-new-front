@@ -98,6 +98,8 @@ export class RequestsSubmittedComponent {
              
             if((this.auth.user.sub.administrativeId == 8 || this.auth.user.sub.administrativeId == 11) && check) {
               this.formType ="check";
+            }else if(this.auth.user.sub.administrativeId == 8 &&  event.row['status'] == 'AcceptRDF'){
+              this.formType ="check";
             }else {//if (this.auth.user.sub.administrativeId == 12) {
               this.formType = 'view-only';
              // this.router.navigateByUrl('operations/feesAndExpenses/'+ event.row['orderNumber'])

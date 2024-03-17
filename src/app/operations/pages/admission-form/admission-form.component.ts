@@ -32,6 +32,7 @@ import { RdfApisService } from '@operations/services/rdf-apis.service';
 import { ToastrService } from 'ngx-toastr';
 import { ReviewerFormComponent } from '@operations/components/reviewer-form/reviewer-form.component';
 import { FeesAndExpensesService } from '@operations/services/fees-and-expenses.service';
+import { RequestCoreService } from 'app/core/services/RequestCore.service';
 
 @Component({
   selector: 'app-admission-form',
@@ -89,6 +90,7 @@ export class AdmissionFormComponent {
   mainNote;
   reviewersList;
   isCementCompany;
+  loggerList ;
   reviewer: string = 'مصطفى محمد';
 
   count = 0;
@@ -109,7 +111,8 @@ export class AdmissionFormComponent {
     private cementRdfService : CementCompanyRdfService,
     private operationsService : OperationsService,
     private toastr: ToastrService,
-    private feeService:FeesAndExpensesService
+    private feeService:FeesAndExpensesService,
+    private requestCoreService:RequestCoreService
   ) {
     this.statusArr = this.admissionFormModelsService.statusArr;
     this.statusNote = this.admissionFormModelsService.statusNote;
@@ -147,6 +150,7 @@ export class AdmissionFormComponent {
       this.requestId = params['id'];
       this.mainModelArrays = {};
       this.mainModel = null;
+      
       this.getCurrencyArr();
 
       // if user  is rdf department supervisor
@@ -216,7 +220,7 @@ export class AdmissionFormComponent {
         this.getInputFieldsToBeEditted(this.requestId);
       } else {
         this.mainModel = this.admissionFormModelsService.getMainModel(
-          this.mainModelArrays
+          this.mainModelArrays,undefined,undefined,this.auth.userRole
         );
       }
     });
@@ -258,7 +262,9 @@ export class AdmissionFormComponent {
         if(request['content'].status == 'AcceptProtectEEA' ){
               this.formType = 'view-only'
         }
+     
       });
+      
   }
 
   getInputFieldsToBeEditted(id) {
@@ -379,10 +385,10 @@ export class AdmissionFormComponent {
       this.router.navigateByUrl('operations/requestsSubmitted');
 
     }
-
+  
   submitForm(isEditForm) {
  
-      console.log(this.submitSubscription);
+    console.log(this.submitSubscription);
     let cardForm = this.cardForm['dynamicFormGroup'];
     let documentForm = this.documentForm['formGroup'];
     let caseForm = this.caseForm['formGroup'];
@@ -430,6 +436,7 @@ export class AdmissionFormComponent {
                   nextPage: true,
                   requestId: res.content['id'],
                 });
+                this.requestCoreService.setCustomerRequestStatus(res.content['status']);
                 this.countSubscription.unsubscribe();
                 this.submitSubscription.unsubscribe();
                 this.attachmentSubscription.unsubscribe();
@@ -457,11 +464,13 @@ export class AdmissionFormComponent {
                   nextPage: true,
                   requestId: res.content['id'],
                 });
-                this.countSubscription.unsubscribe();
+                this.requestCoreService.setCustomerRequestStatus(res['status']);
+                return;
+              /*  this.countSubscription.unsubscribe();
                 this.submitSubscription.unsubscribe();
                 this.attachmentSubscription.unsubscribe();
                 this.invoiceSubscription.unsubscribe();
-                this.requestDetailSubscription.unsubscribe();
+                this.requestDetailSubscription.unsubscribe();*/
               },
               (error) => {
                 this.translationService.toastrTranslation(

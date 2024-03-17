@@ -334,7 +334,7 @@ return this.digitalSealingModel;
             id: 'customerAdmissionFormInvoice',
             label: 'admissionForm.attachInvoice',
             rules: {
-              required: true,
+              required: request?.invoice==null || request?.invoice==undefined,
             },
           },
         },
@@ -554,9 +554,9 @@ return this.digitalSealingModel;
           value: false,
         },
         rules: {
-          required: true,
+          required: req?.INSURANCE_POLICY==null || req?.INSURANCE_POLICY==undefined,
         },
-      },
+      },  
       COMPANY_CONTRACT_COAL: {
         type: req !== undefined ? 'download' : 'file',
         value: req?.COMPANY_CONTRACT_COAL?.url,
@@ -574,7 +574,7 @@ return this.digitalSealingModel;
           value: false,
         },
         rules: {
-          required: true,
+          required: req?.COMPANY_CONTRACT_COAL?.url==null ||req?.COMPANY_CONTRACT_COAL?.url==undefined,
         },
       },
       SHIP_REGISTRY: {
@@ -592,7 +592,7 @@ return this.digitalSealingModel;
           value: false,
         },
         rules: {
-          required: true,
+          required: req?.SHIP_REGISTRY==null || req?.SHIP_REGISTRY==undefined,
         },
       },
     };
@@ -619,7 +619,7 @@ return this.digitalSealingModel;
           value: false,
         },
         rules: {
-          required: true,
+          required: req?.HOOK_ACCEPT_PAPER==null || req?.HOOK_ACCEPT_PAPER==undefined,
         },
       },
     };

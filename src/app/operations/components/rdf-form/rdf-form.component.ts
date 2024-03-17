@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { AdmissionFormService } from '@operations/services/admission-form/admission-form.service';
 import { AdmissionFormMappingService } from '@operations/services/admission-form/admission-form-mapping.service';
 import { FeesAndExpensesService } from '@operations/services/fees-and-expenses.service';
+import { RequestCoreService } from 'app/core/services/RequestCore.service';
 
 @Component({
   selector: 'app-rdf-form',
@@ -56,7 +57,8 @@ export class RdfFormComponent {
     private admissionFormService:AdmissionFormService,
     private admissionFormMappingService:AdmissionFormMappingService,
     private cdRef: ChangeDetectorRef,
-    private feeService:FeesAndExpensesService
+    private feeService:FeesAndExpensesService,
+    private requestCoreService:RequestCoreService
   ) {
 //     var date = new Date(1942615200 * 1000);
 // console. log(date. toUTCString());
@@ -80,8 +82,9 @@ export class RdfFormComponent {
     let totalRdf = this.totalRdfForm['dynamicFormGroup'].value;
     let wastePercentage = this.wastePercentage['dynamicFormGroup'].value;
     let digitalSealForm = this.digitalSealForm['formGroup'].value;
-    console.log(invoiceDetails , totalRdf , wastePercentage , digitalSealForm);
     
+    console.log(invoiceDetails , totalRdf , wastePercentage , digitalSealForm);
+    this.requestId = Number.parseInt( this.requestCoreService.getCurrentCustomerRequestId());
     let formData = new FormData();
     if(invoiceDetails.invoices.invoices) {
       formData.append(
@@ -96,8 +99,8 @@ export class RdfFormComponent {
       let reqObj = {
         totalWeightInTon: totalRdf.totalWeightInTon,
         ...invoiceDetails.invoices,
-        companySituationUsed:wastePercentage.wastePercentage === 'greaterThanOrEqual', // true above or equal 10%
-        includeEnergyReject:wastePercentage.wastePercentage !== 'greaterThanOrEqual', // true above 10%,
+        companySituationUsed:wastePercentage.wastePercentage !== 'greaterThanOrEqual', // true above or equal 10%
+        includeEnergyReject:wastePercentage.wastePercentage === 'greaterThanOrEqual', // true above 10%,
         companyConfirm: digitalSealForm.companyConfirm,
       };
       this.rdfApisService
@@ -155,14 +158,16 @@ export class RdfFormComponent {
     this.operationsApiService
     .updateRequestStatus(this.requestId, status)
     .subscribe((response) => {
-     
+      this.toastr.success('Status Submitted Successfully');
+      this.router.navigateByUrl('operations/requestsSubmitted');
     });
     if(inputsList.length > 0){
     this.operationsApiService.submitInputField(this.requestId, inputsList).subscribe((response) => {
+      this.toastr.success('Status Submitted Successfully');
+      this.router.navigateByUrl('operations/requestsSubmitted');
           });
         }
-          this.toastr.success('Status Submitted Successfully');
-    this.router.navigateByUrl('operations/requestsSubmitted');
+        
 
   }
 }

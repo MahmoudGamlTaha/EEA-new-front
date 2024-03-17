@@ -369,6 +369,21 @@
     "ConfirmPaymentEEA":"تم تاكيد الدفع",
     "AcceptForm":"تم استخراح نموذج 33"
   },
+  "logStatus": {
+    "Created": "تم الطلب",
+    "Accepted": "بقبول الطلب",
+    "Accept":"مقبول ادارة فحم",
+    "UnderReview": "تحت المعاينة",
+    "Rejected": "مرفوضة",
+    "AcceptProtectEEA": "بتحويل الطلب جاهز للدفع",
+    "AcceptManager": "موافقة رئيس الجهاز",
+    "CorrectEntry":"بتحويل الطلب لاستكمال بيانات",
+    "CompleteEntry":"بتحويل الطلب لاستكمال بيانات",
+    "AcceptRDF":"بقبول المخلفات",
+    "CustomerPAID":"تم دفع العميل",
+    "ConfirmPaymentEEA":"بتأكيد الدفع",
+    "AcceptForm":"تم استخراح نموذج 33"
+  },
   "importBoxTemp1":{
     "consentform":"نموذج الموافقة",
     "title":"السيد اللواء / رئيس مجلس إدارة الهيئة العامة للمنطقة الحرة",
