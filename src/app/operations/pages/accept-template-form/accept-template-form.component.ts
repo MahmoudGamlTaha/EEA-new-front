@@ -44,18 +44,20 @@ export class AcceptTemplateFormComponent implements OnInit {
     private toastr:ToastrService ){
       this.route.params.subscribe((params) => {
         this.requestId = params['requestId'];
+        this.fees.getAcceptTemplateForm(this.requestId).subscribe( val=>{
+          this.templateForm = val['content'];
+          console.log(  this.templateForm);
+          this.initForm();
+       });
       });
-      console.log(this.requestId);
+    
   }
   ngOnInit() :void {
-    window.addEventListener("afterprint", (event) => {
-     this.doAfterPrint();
-     });
-      this.fees.getAcceptTemplateForm(this.requestId).subscribe( val=>{
-         this.templateForm = val['content'];
-         console.log(  this.templateForm);
-         this.initForm();
-      });
+    console.log(this.requestId);
+      
+      window.addEventListener("afterprint", (event) => {
+        this.doAfterPrint();
+        });
     
     }
     initForm(){
@@ -93,7 +95,7 @@ export class AcceptTemplateFormComponent implements OnInit {
       return true;
     }
     doAfterPrint(){
-      this.operationsApiService.updateRequestStatus(this.requestId,"AcceptForm").subscribe((res)=>{
+      this.operationsApiService.updateRequestStatus(this.requestId,"AcceptFormT").subscribe((res)=>{
         this.toastr.success('Status Submitted Successfully');
          this.router.navigateByUrl('operations/requestsSubmitted');
 

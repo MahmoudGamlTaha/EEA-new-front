@@ -41,6 +41,7 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
   countSteps = 0;
   formType;
   requestStatus;
+  userCompanies;
 
   constructor(
     private dialog: MatDialog,
@@ -59,7 +60,10 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
         console.log(res);
         this.selectedCompanyId = res;
       });
-      
+      this.requestCoreService.getOwnerCompanies().subscribe(res=>{
+        this.userCompanies = res.content;
+        console.log(res.content)
+    })
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -88,29 +92,42 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
   
   onSubmitAdmissionFormData(stepper: MatStepper) {
     
-    this.isCementCompany = true
+    this.isCementCompany = false;
     this.scroll();
-  
+   let companies = this.admissionForm.ownerCompaniesArr;
     this.requestStatus = this.admissionForm.customerRequestData?.status;
     this.admissionForm.onSubmit();
     this.requestId = this.admissionForm.requestId
     this.formType = this.admissionForm.formType;
+   
+    console.log(companies);
+    if(companies == undefined || companies == null){
+     
+    companies = this.userCompanies;
+    }
+   
   //  this.nextSubscription = this.admissionFormService.nextPage.subscribe((res) => {
       //console.log(res);
     //  if (res.nextPage) {
-      let selectedCompany = this.admissionForm.companies.filter(
+      console.log( this.admissionForm.ownerCompaniesArr);
+      let selectedCompany = companies.filter(
         (company) => {
+
           return company.id == this.selectedCompanyId;
         }
       )[0];
+     console.log(selectedCompany);
       //check if the company is a cement company
+    
       if (selectedCompany?.activity.code === 'RDF-Cement') {
+         
         this.isCementCompany = true;
       }
       //this.requestId = res.requestId;
     //  stepper.next();
-    console.log(this.formType)
     this.cdRef.detectChanges();
+    console.log(this.formType)
+   
     this.requestCoreService.setCurrentCustomerRequestId(this.requestId);
     if(!(this.formType == 'add')){
       
@@ -121,11 +138,13 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
       console.log(this.feeService.customerRequest);
       this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
       
-    }else {
+    }else if(this.formType =='check'){
+      stepper.next();
+    }
+    else {
       this.admissionFormService.nextPage.subscribe(res =>{
           if(res.nextPage){
             this.requestCoreService.setCurrentCustomerRequestId(res.requestId);
-         
              stepper.next();
           }
       })

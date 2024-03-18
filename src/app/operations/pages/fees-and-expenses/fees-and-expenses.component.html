@@ -9,7 +9,7 @@
 <div class="row my-6 align-items-center">
   <div class="col-4">
     <app-submit-button
-      *ngIf="!isCustomer && requestStatus != 'CustomerPAID' && requestStatus != 'ConfirmPaymentEEA' &&requestStatus != 'AcceptForm'"
+      *ngIf="!isCustomer && requestStatus != 'CustomerPAID' && requestStatus != 'ConfirmPaymentEEA' &&requestStatus != 'AcceptForm' && requestStatus !='AcceptFormT' && requestStatus !='AcceptFormI'"
       (click)="calculateTotalFees(paymentForm.dynamicFormGroup.value)"
       [buttonName]="'customer.calculateTotalFees'"
       [class]="'filterButton'"
@@ -38,13 +38,13 @@
 [class]="'filterButton'"
 ></app-submit-button>
 <app-submit-button
-*ngIf="requestStatus != 'CustomerPAID' && requestStatus != 'ConfirmPaymentEEA' && requestStatus != 'AcceptForm'"
+*ngIf="requestStatus != 'CustomerPAID' && requestStatus != 'ConfirmPaymentEEA' && requestStatus != 'AcceptForm' &&   requestStatus !='AcceptFormT' && requestStatus !='AcceptFormI'"
 (click)="submitExpenses(paymentForm.dynamicFormGroup.value)"
 [buttonName]="isCustomer==true?'customer.payExpense':'customer.sendExpenses'"
 [class]="'filterButton'"
 ></app-submit-button>
 <app-submit-button
-*ngIf="requestStatus == 'ConfirmPaymentEEA' || requestStatus == 'AcceptForm'"
+*ngIf="requestStatus == 'ConfirmPaymentEEA' || requestStatus == 'AcceptForm' || requestStatus =='AcceptFormT' || requestStatus =='AcceptFormI'"
 (click)="NavigateToTemplate()"
 [buttonName]="'admissionForm.form33'"
 [class]="'filterButton'"

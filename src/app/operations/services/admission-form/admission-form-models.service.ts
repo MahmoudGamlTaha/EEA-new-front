@@ -554,7 +554,7 @@ return this.digitalSealingModel;
           value: false,
         },
         rules: {
-          required: req?.INSURANCE_POLICY==null || req?.INSURANCE_POLICY==undefined,
+          required: req?.INSURANCE_POLICY==null || req?.INSURANCE_POLICY==undefined || req == null,
         },
       },  
       COMPANY_CONTRACT_COAL: {
@@ -574,7 +574,7 @@ return this.digitalSealingModel;
           value: false,
         },
         rules: {
-          required: req?.COMPANY_CONTRACT_COAL?.url==null ||req?.COMPANY_CONTRACT_COAL?.url==undefined,
+          required: req?.COMPANY_CONTRACT_COAL?.url==null ||req?.COMPANY_CONTRACT_COAL?.url==undefined || req ==null,
         },
       },
       SHIP_REGISTRY: {

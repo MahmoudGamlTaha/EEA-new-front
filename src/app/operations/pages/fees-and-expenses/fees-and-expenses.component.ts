@@ -119,9 +119,9 @@ export class FeesAndExpensesComponent implements OnInit {
   }
   NavigateToTemplate(){
     console.log(this.requestStatus);
-    if(this.requestStatus == 'ConfirmPaymentEEA' || this.requestStatus == 'AcceptForm'){
+    //if(this.requestStatus == 'ConfirmPaymentEEA' || this.requestStatus == 'AcceptForm'){ requestStatus !='AcceptFormT'
       this.router.navigate([`/operations/acceptInvoiceForm/${this.requestId}`]); 
-    }
+    //}
   }
   submitExpenses(paymentForm) {
     let currencyRate: CurrencyRate = {

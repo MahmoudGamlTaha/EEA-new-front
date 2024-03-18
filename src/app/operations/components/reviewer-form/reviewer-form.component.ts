@@ -6,7 +6,8 @@ import { BtnDropdownComponent } from '@shared/components/buttons/btn-dropdown/bt
 import { OperationsApiService } from '@operations/services/operations.api.service';
 import { RequestCoreService } from 'app/core/services/RequestCore.service';
 import { AdmissionFormApiService } from '@operations/services/admission-form/admission-form-api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-reviewer-form',
@@ -32,13 +33,16 @@ export class ReviewerFormComponent implements OnInit{
   selectedStatus;
 
   constructor(private operationApiService: OperationsApiService,private admissionFormApiService:AdmissionFormApiService ,
+    private toastr: ToastrService,
+    private router: Router,
     private requestCoreService:RequestCoreService, private route:ActivatedRoute) {
       this.route.params.subscribe((params) => {
        this.requestId =  params['id'];
-    this.admissionFormApiService.getRequestLog(this.requestId).subscribe(res=>{
-      this.loggerList = res.content;
-    });
-      
+     if(this.requestId != undefined){
+      this.admissionFormApiService.getRequestLog(this.requestId).subscribe(res=>{
+        this.loggerList = res.content;
+       });
+      }
      // this.requestCoreService.setLoggerList(this.loggerList);
    })
    // JSON.parse(this.requestCoreService.getLoggerList()).forEach(item=>{
@@ -58,10 +62,14 @@ ngOnInit(): void {
     }
     const activeButtonElement = document.getElementById(status.name);
     activeButtonElement?.classList.add('active');
+    this.submitReviewerStatus();
   }
 
   submitReviewerStatus() {
-    this.operationApiService.updateRequestStatus(this.requestId, this.selectedStatus).subscribe(response => {
+    this.operationApiService.updateRequestStatus(this.requestId, 'AcceptFormI').subscribe(response => {
+      alert(response);
+      this.toastr.success('Status Submitted Successfully');
+      this.router.navigateByUrl('operations/requestsSubmitted');
     })
   }
 }

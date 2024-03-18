@@ -183,6 +183,7 @@ export class AdmissionFormComponent {
         this.getCountryArr();
       });
   }
+ 
   getCountryArr() {
     this.admissionFormUtilitiesService.getCountry().subscribe((res) => {
       this.mainModelArrays['countryArr'] = res['content'];
@@ -393,6 +394,7 @@ export class AdmissionFormComponent {
     let documentForm = this.documentForm['formGroup'];
     let caseForm = this.caseForm['formGroup'];
     let digitalSealingForm = this.digitalSealingForm['formGroup'].value;
+    this.admissionFormApiService.selectedCompany.next(cardForm?.value.companyId);
     this.admissionFormMappingService.getAttachmentRes({
       cardForm,
       documentForm,

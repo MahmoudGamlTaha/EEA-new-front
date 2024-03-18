@@ -65,6 +65,9 @@ export class AcceptPaymentFormComponent implements OnInit {
          this.requestStatus = this.requestCoreService.getCustomerRequestStatus();
          this.initForm();
          });
+         window.addEventListener("afterprint", (event) => {
+          this.doAfterPrint();
+          });
     }
     initForm(){ //no need
       let invoiceRows:Array<any> = [];
@@ -105,5 +108,11 @@ export class AcceptPaymentFormComponent implements OnInit {
     NavigateToAcceptTemplateForm(){
       this.router.navigateByUrl(`operations/acceptFormTemplate/${this.requestId}`);
     }
+    doAfterPrint(){
+      this.operationsApiService.updateRequestStatus(this.requestId,"AcceptForm").subscribe((res)=>{
+        this.toastr.success('Status Submitted Successfully');
+         this.router.navigateByUrl('operations/requestsSubmitted');
 
+      });
+    }
 }

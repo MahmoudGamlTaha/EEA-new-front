@@ -121,7 +121,7 @@
       </button>
     </div>
     <div class="col-auto">
-      <button class="btn gradient px-5 mt-4" (click)="NavigateToAcceptTemplateForm()" *ngIf="requestStatus == 'AcceptForm' ">
+      <button class="btn gradient px-5 mt-4" (click)="NavigateToAcceptTemplateForm()" *ngIf="requestStatus == 'AcceptForm' || requestStatus =='AcceptFormT' ">
         {{"importBoxTemp1.consentform" | translate }}
       </button>
     </div>

@@ -367,7 +367,8 @@
     "AcceptRDF":"مقبول مخلفات",
     "CustomerPAID":"تم دفع العميل",
     "ConfirmPaymentEEA":"تم تاكيد الدفع",
-    "AcceptForm":"تم استخراح نموذج 33"
+    "AcceptForm":"تم استخراح نموذج 33",
+    "AcceptFormT": "في انتظار الاعتماد"
   },
   "logStatus": {
     "Created": "تم الطلب",
@@ -382,7 +383,8 @@
     "AcceptRDF":"بقبول المخلفات",
     "CustomerPAID":"تم دفع العميل",
     "ConfirmPaymentEEA":"بتأكيد الدفع",
-    "AcceptForm":"تم استخراح نموذج 33"
+    "AcceptForm":"تم استخراح نموذج 33",
+    "AcceptFormT":"باستخراج نموذج الموافقة"
   },
   "importBoxTemp1":{
     "consentform":"نموذج الموافقة",
