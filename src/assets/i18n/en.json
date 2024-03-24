@@ -1190,5 +1190,54 @@
     "renewalStatus": "Renewal Status",
     "primaryEmail": "Primary Email",
     "quota": "Quota"
+  },
+  "conditionalRenewalApproval": {
+    "approvalType": "Conditional Renewal Approval",
+    "technicalUnitForManagingCoalOrPetroleumAffairs": "Technical Unit for Managing Coal or Petroleum Affairs",
+    "date": "Date",
+    "mr": "Mr.",
+    "greeting": "Greetings,",
+    "cooperation": "In the context of close cooperation between",
+    "environmentalAffairsDevice": "and the Environmental Affairs Device, I am pleased to refer to the results of the review and evaluation of environmental performance reports",
+    "introduction": "Introduction from the company",
+    "company": "Governorate",
+    "activity": "for the activity",
+    "renewalApproval": "for the approval of renewal according to Environmental Law No. (4) of 1994 and its executive regulations and amendments, and the ministerial decisions implementing them. In this regard,",
+    "renewalApproval2": "I am pleased to inform you that according to the decisions and recommendations of the Board of Directors of the Environmental Affairs Device,",
+    "approvalDate": "dated",
+    "report": "has approved the (conditional) renewal of the company for a period of two years starting from",
+    "renewalApprovalDetails": "the day following the expiration date of the previous permit",
+    "expiryDate": "and ending on",
+    "companyCommitment": "The company is committed to the requirements of the environmental approval issued by the Environmental Affairs Device",
+    "environmentalRequirements": "In case of non-compliance with these requirements or other requirements of Environmental Law No. (4) of 1994 and its executive regulations, amendments, and ministerial decisions, the Device has the right to cancel the permit permanently or suspend it temporarily, according to Article 2, paragraph (2) of the executive regulations issued by the decision of the Prime Minister No. (618) of 2017",
+    "acceptance": "Please accept my highest regards,",
+    "coalUnitHead": "Head of the Coal Unit",
+    "coalUnitSupervisor": "Supervisor of the Coal Unit",
+    "chiefExecutiveOfficer": "Chief Executive Officer",
+    "send": "Send"
+  },
+  "PermitRenewalApprovalComponent": {
+    "renewalApproval": "Permit Renewal Approval",
+    "renewalDuration": "has approved the renewal of the company for a period of two years starting from"
+  },
+  "renewalRejection": {
+    "renewalRejection": "Permit Renewal Rejection",
+    "renewalDecision": "has decided to reject the renewal for the company",
+    "companyCommitment": "The company is committed not to trade or use coal or petroleum to avoid legal accountability. If the company wishes to renew the permit, it must submit new environmental performance reports accompanied by a status report addressing the observations that led to the rejection of the renewal, pay the required administrative fees, and complete the procedures stipulated in this regard and regulated by Environmental Law No. (4) of 1994 and its executive regulations, amendments, and ministerial decisions",
+    "environmentalAgencyReference": "With reference to the Environmental Affairs Device,"
+  },
+  "approvalToExtendPermit": {
+    "title": "Approval to Extend Permit",
+    "environmentalAgencyReference": "With reference to the Environmental Affairs Device, and regarding the conditional renewal issued with number",
+    "renewalDate": "dated",
+    "companyName": "for the company",
+    "role": "I am pleased to inform you that, following the company's compliance with the implementation of the observations of the conditional renewal, it has been found that the company has addressed the observations recorded in the submitted environmental performance reports and the field visit in this regard, in light of Environmental Law No. (4) of 1994 and its executive regulations concerning environmental protection and amendments, and ministerial decisions implementing them",
+    "Original": "In this regard, please note that the Environmental Affairs Device",
+    "permitExtensionApproval": "has approved the extension of the permit for the company",
+    "permitDuration": "for a period of two years starting from the day following the expiration date of the previous permit",
+    "endingOn": "and ending on",
+    "performanceReportSubmission": "The company must submit an annual environmental performance report at the end of each year from the date of the permit for the company, provided that it complies with all the requirements of the environmental approval",
+    "annualReportRequirement": "and other requirements of Environmental Law No. (4) of 1994 and its executive regulations, amendments, and ministerial decisions",
+    "environmentalLawRequirements": "In case of non-compliance, the Device has the right to cancel the permit permanently or suspend it temporarily, according to Article 2, paragraph (2) of the executive regulations issued by the decision of the Prime Minister No. (618) of 2017"
   }
 }

@@ -24,6 +24,11 @@ import { CompaniesUsingCoalAsAnInputComponent } from './components/companies-usi
 import { CementFactoriesComponent } from './components/cement-factories/cement-factories.component';
 import { FeesChargesPaidComponent } from './components/fees-charges-paid/fees-charges-paid.component';
 import { EstablishmentRegistrationComponent } from './components/establishment-registration/establishment-registration.component';
+import { ConditionalRenewalApprovalComponent } from './components/conditional-renewal-approval/conditional-renewal-approval.component';
+import { PermitRenewalApprovalComponent } from './components/permit-renewal-approval/permit-renewal-approval.component';
+import { RenewalRejectionComponent } from './components/renewal-rejection/renewal-rejection.component';
+import { RefusalToRenewPermitComponent } from './components/refusal-to-renew-permit/refusal-to-renew-permit.component';
+import { ApprovalToExtendPermitComponent } from './components/approval-to-extend-permit/approval-to-extend-permit.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { EstablishmentRegistrationComponent } from './components/establishment-r
     CompaniesUsingCoalAsAnInputComponent,
     CementFactoriesComponent,
     FeesChargesPaidComponent,
-    EstablishmentRegistrationComponent
+    EstablishmentRegistrationComponent,
+    ConditionalRenewalApprovalComponent,
+    PermitRenewalApprovalComponent,
+    RenewalRejectionComponent,
+    RefusalToRenewPermitComponent,
+    ApprovalToExtendPermitComponent
   ],
   imports: [
     CommonModule,

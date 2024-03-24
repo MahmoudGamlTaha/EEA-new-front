@@ -23,19 +23,19 @@
     Establishment registration
   </button>
   <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(8)">
-    paid report
+    Conditional renewal approval
   </button>
   <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(9)">
-    paid report
+    Approval to extend the permit
   </button>
   <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(10)">
-    paid report
+    Permit renewal approval
   </button>
   <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(11)">
-    paid report
+    Renewal Rejection
   </button>
   <button class=" col btn gradient px-5 text-nowrap" (click)="chooseReport(12)">
-    paid report
+    Renewal Rejection
   </button>
 </div>
 
@@ -60,4 +60,19 @@
 
   <app-establishment-registration *ngSwitchCase="7">
   </app-establishment-registration>
+
+  <app-conditional-renewal-approval *ngSwitchCase="8">
+  </app-conditional-renewal-approval>
+
+  <app-approval-to-extend-permit  *ngSwitchCase="9">
+  </app-approval-to-extend-permit>
+
+  <app-permit-renewal-approval *ngSwitchCase="10">
+  </app-permit-renewal-approval>
+
+  <app-renewal-rejection *ngSwitchCase="11">
+  </app-renewal-rejection>
+
+  <app-refusal-to-renew-permit  *ngSwitchCase="12">
+  </app-refusal-to-renew-permit>
 </div>
