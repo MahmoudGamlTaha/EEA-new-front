@@ -899,6 +899,17 @@
     "theCompanyIsRequiredToReportViolationsRecordedDuringInspectionsConductedByTheEnvironmentalAffairsAgencyAndTheFinesPaidAsWellAsNon-ComplianceIssuesAndCorrectiveActionsTaken": "في هذا الشأن، الشركة مطالبة بالإبلاغ عن المخالفات التي تم رصدها خلال عمليات التفتيش التي يقوم بها جهاز شئون البيئة والغرامات التي تم دفعها وكذلك أيضا مسائل عدم التوافق وعمليات تصحيحها",
     "truckTransportation": "النقل بالشاحنات",
     "truckTransportCompaniesMustObtainEnvironmentalApprovalForCoalTransportationAndTheShippingAndUnloadingCompanyMustEnsureThatTheLandTransportCompanyHasAnEnvironmentalApproval": "يتعين على شركات النقل بالشاحنات الحصول على موافقة بيئية بنقل الفحم. ويتوجب على شركة الشحن والتفريغ التأكد من أن شركة النقل البرى بالشاحنات لديها موافقة بيئية"
+  },
+  "plantCoal":{
+     "usedCommercialIndustry":"السجل الصناعى",
+     "arriveHarbor":"ميناء الوصول",
+     "coalType":"نوع الفحم",
+     "exportHarbor":"مواني التصدير",
+     "plantRequest":"طلب الموافقة علي فحم نباتى",
+     "amount":"كمية الفحم النباتية",
+     "send":"ارسال",
+     "attach":"اصل التعاقد المبرم مع الجهة المستوردة",
+     "title":"فحم نباتي"
   }
 
   

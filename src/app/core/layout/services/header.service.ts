@@ -53,6 +53,10 @@ export class HeaderService {
       role: ['customer'],
       menuItems: [
         {
+          name: 'routingHeader.main',
+          path: '/main',
+        },
+        {
           name: 'routingHeader.statistics',
           path: '/operations/statistics',
         },

@@ -389,7 +389,7 @@ export class AdmissionFormComponent {
   
   submitForm(isEditForm) {
  
-    console.log(this.submitSubscription);
+    //console.log(this.submitSubscription);
     let cardForm = this.cardForm['dynamicFormGroup'];
     let documentForm = this.documentForm['formGroup'];
     let caseForm = this.caseForm['formGroup'];

@@ -17,7 +17,7 @@
     [formControlName]="field?.fieldName"
   >
     <option [value]="null" class="placeHolder" disabled selected>{{ field.label | translate }}</option>
-    <option *ngFor="let option of field.options" [value]="option.id" [disabled] ="field.isDisabled" >
+    <option *ngFor="let option of field.options" [ngValue]="option.id" [disabled] ="field.isDisabled" >
       {{ option.name | translate }}
     </option>
     <option *ngIf="field.addCompany" value="" class="addCompany">

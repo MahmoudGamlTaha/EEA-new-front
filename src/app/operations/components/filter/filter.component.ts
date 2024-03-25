@@ -15,7 +15,7 @@ export class FilterComponent {
   serviceNameDropDownList: DropDownItem[];
   statusDropDownList: DropDownItem[];
 
-  constructor(private requestSubmittedService: RequestSubmittedService) {
+  constructor(private requestSubmittedService: RequestSubmittedService ) {
     this.serviceNameDropDownList =
       this.requestSubmittedService.serviceNameDropDownList;
     this.statusDropDownList = this.requestSubmittedService.statusDropDownList;

@@ -42,6 +42,8 @@ export class RequestsSubmittedComponent {
   statusDropDownList: DropDownItem[];
   formModel;
   formType;
+  requestTypes:Map<number,string> = new Map<number,string>();
+
   @ViewChild('dynamicTableWrapper', { static: false })
   dynamicTableWrapper: DynamicTableComponent;
   headers;
@@ -63,9 +65,11 @@ export class RequestsSubmittedComponent {
   ngOnInit() {
     this.requestSubmittedService.getCustomerRequests().subscribe((res) => {
       this.tableData = [];
+         
       for (let request of res['content']) {
+        this.requestTypes.set(request['id'],request['requestType']?.code);
         this.tableData.push({
-          serviceName:request.requestType.name,
+          serviceName:request?.requestType.name,
           orderNumber: request['id'],
           orderDate: request['createdDate'],
           status: request['status'],
@@ -74,11 +78,7 @@ export class RequestsSubmittedComponent {
           details: 'التفاصيل',
           orderTracking: 'tableHeader.orderTracking',
         });
-        /*if(this.auth.userRole[0] != "customer"){
-              this.tableData.push({
-                
-              })
-        }*/
+     
       }
       this.getTable();
     });
@@ -96,7 +96,7 @@ export class RequestsSubmittedComponent {
       switch(this.auth.userRole[0]) {
           case 'department_supervisor':
              
-            if((this.auth.user.sub.administrativeId == 8 || this.auth.user.sub.administrativeId == 11) && check) {
+            if((this.auth.user.sub.administrativeId == 8 || this.auth.user.sub.administrativeId == 11 || this.auth.user.sub.administrativeId == 9) && check) {
               this.formType ="check";
             }else if(this.auth.user.sub.administrativeId == 8 &&  event.row['status'] == 'AcceptRDF'){
               this.formType ="check";
@@ -114,7 +114,13 @@ export class RequestsSubmittedComponent {
                this.formType = 'edit'
           break;
       }
-      this.router.navigateByUrl(`operations/requestForm/${this.formType}/`+ event.row['orderNumber'])
+      let redirectUrl = "operations/requestForm";
+      console.log(event.row['orderNumber']);
+      console.log(this.requestTypes.get(event.row['orderNumber']));
+      if(this.requestTypes.get(event.row['orderNumber']) ==='coal-plant'){
+        redirectUrl = "operations/plant-coal";
+      }
+      this.router.navigateByUrl(`${redirectUrl}/${this.formType}/`+ event.row['orderNumber'])
 
     }
 });

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { DropDownItem } from '@shared/model/dropDown.model';
 import { DynamicTable, TableHeader } from '@shared/model/dynamic-table.model';
 import { environment } from 'environments/environment';
@@ -7,42 +7,16 @@ import { environment } from 'environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class RequestSubmittedService {
+export class RequestSubmittedService implements OnInit {
   serviceNameDropDownList: DropDownItem[];
   statusDropDownList: DropDownItem[];
   date;
   tableHeader;
   tableData;
   constructor(private http: HttpClient) {
-    this.serviceNameDropDownList = [
-      {
-        name: 'Category 1',
-      },
-      {
-        name: 'Category 2',
-      },
-      
-    ];
-    this.statusDropDownList = [
-      {
-        name: 'Category 1',
-      },
-      {
-        name: 'Category 2',
-      },
-      {
-        name: 'Category 3',
-      },
-      {
-        name: 'Category 4',
-      },
-      {
-        name: 'Category 5',
-      },
-      {
-        name: 'Category 6',
-      },
-    ];
+    this.serviceNameDropDownList = [];
+    this.init();
+    this.statusDropDownList = [];
 
     var today = new Date();
     let tomorrow = new Date();
@@ -78,6 +52,26 @@ export class RequestSubmittedService {
       ],
     };
   }
+  init(){
+  this.getRequestTypes().subscribe(result=>{
+    let types = result['content'];
+   // this.serviceNameDropDownList = [];
+    types.forEach((res)=>{
+      this.serviceNameDropDownList.push({name:res.name});
+    });
+  
+  });
+  this.getRequestStatuses().subscribe(result=>{
+    let status = result['content'];
+    console.log(status);
+      status.forEach(element => {
+        this.statusDropDownList.push({name:element});
+      });
+  })
+  }
+  ngOnInit(): void {
+      //alert(88);
+  }
 
   getDateValue(date) {
     var dd = ('0' + date.getDate()).slice(-2);
@@ -93,6 +87,14 @@ export class RequestSubmittedService {
 
   getCustomerRequestById(id) {
     const url = `${environment.apiUrl}/portal/customer-request/${id}`;
+    return this.http.get(url);
+  }
+  getRequestTypes(){
+    const url = `${environment.apiUrl}/basic-data/request-type`;
+    return this.http.get(url);
+  }
+  getRequestStatuses(){
+    const url = `${environment.apiUrl}/portal-data/request-operation/status-request-list`;
     return this.http.get(url);
   }
 }

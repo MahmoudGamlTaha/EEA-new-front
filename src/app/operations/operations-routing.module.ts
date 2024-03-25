@@ -194,6 +194,21 @@ const routes: Routes = [
             (m) => m.TrasportCompaniesComponent
           ),
         data: { breadcrumb: 'transport-company' , sideMenu: true },
+      },{
+        path:'plant-coal',
+        loadComponent:()=>
+         import('@operations/pages/plant-coal/plant-coal.component').then(
+          (m) => m.PlantCoalComponent
+         ),
+         data: { breadcrumb: 'plant-coal' , sideMenu: true }
+      },
+      {
+        path:'plant-coal/:formType/:requestId',
+        loadComponent:()=>
+         import('@operations/pages/plant-coal/plant-coal.component').then(
+          (m) => m.PlantCoalComponent
+         ),
+         data: { breadcrumb: 'plant-coal' , sideMenu: true }
       }
     ],
   },

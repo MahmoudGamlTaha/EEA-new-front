@@ -56,7 +56,7 @@
             <ng-container *ngSwitchCase="'status'">
               <span *ngIf="row[h.key] !== status.AcceptProtectEEA"
                 [ngStyle]="
-                  row[h.key] == status.accepted || row[h.key].includes('Accept')  ||row[h.key] == status.AcceptRDF
+                  row[h.key] == status.accepted || row[h.key]?.includes('Accept')  ||row[h.key] == status.AcceptRDF
                     ? { color: 'var(--light-blue-50)' }
                     : row[h.key] == status.underReview ||  row[h.key] == status.Created
                     ? { color: 'var(--yellow-50)' }

@@ -52,9 +52,8 @@ export class CompanyValidationComponent implements OnInit {
   }
 
   onSubmit(form) {
-    console.log("button clicked")
+  
     let formData : ValidateCompanyRequest
-    console.log(form.valid)
     if(form.valid){
       this.companyAttachmentMappingService.setFormData(form.value);
     this.submitSubscription = this.companyAttachmentMappingService.isDataReady.subscribe(status => {

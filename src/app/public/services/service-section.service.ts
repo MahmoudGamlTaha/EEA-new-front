@@ -26,7 +26,7 @@ export class ServiceSectionService {
       url: '../../../../../assets/images/landing page – 1/clipboard (1).png',
       urlHover:
         '../../../../../assets/images/landing page – 1/clipboard (1).png',
-        path:'login'
+        path:'/operations/plant-coal'
     },
     {
       title: 'services.fourthCard.title',
