@@ -15,6 +15,7 @@ import { RequestDetail } from '@shared/model/RequestDetail.model';
 import { UtilitiesApiService } from '@shared/services/utilities.api.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RequestSubmittedService } from '@operations/services/request-submitted.service';
 
 @Component({
   selector: 'app-plant-coal',
@@ -31,6 +32,7 @@ export class PlantCoalComponent implements OnInit{
   model:{};
   requestId;
   formType;
+  customerRequestData;
   @ViewChild('coalPlantForm') coalPlantForm!: ElementRef;
   constructor(private plantService:PlantCoalServiceService, 
     private admissionFormUtilitiesService:AdmissionFormUtilitiesService,
@@ -40,19 +42,30 @@ export class PlantCoalComponent implements OnInit{
     private router:Router,
     private activeRoute:ActivatedRoute,
     private companyApiService:CompanyApiService,
+    private requestSubmittedService:RequestSubmittedService
     ){
      
-      this.activeRoute.params.subscribe((params) => {
-        this.formType = params?['formType']:undefined;
-        this.requestId = params?['requestId']:undefined;
-      });
-
-  }
+     }
   coalValidationForm(form){
     return form;
   }
+  ngOnInit(): void {
+    this.activeRoute.params.subscribe((params) => {
+      this.formType = params['formType'];
+      this.requestId = params['requestId'];
+    
+      if(this.requestId){
+        
+        this.getRequestById(this.requestId);
+      }else{
+      this.getCoalType();
+      }
+    });
+    
+  }
   getCoalType(){
     this.admissionFormUtilitiesService.getCoalType().subscribe((res) => {
+      console.log(this.model);
       this.model = {
         ...this.model,
         coalTypeList: res['content']
@@ -71,8 +84,22 @@ export class PlantCoalComponent implements OnInit{
   }
   getExportHarbor(){
     this.model = this.plantService.initForm(this.model);  
+    console.log(this.model);
   }
   getIndustrialNumber(){
+    let data : DropDownObj[] = [];
+    
+    if(this.auth.user.sub.administrativeId != null && this.customerRequestData != undefined){
+     
+       this.companyApiService.getCompanyById(this.customerRequestData.companyId).subscribe(res=>{ 
+        let company = res['content'];
+        data.push({name:company.industryNumber,id:company.id});
+      
+        this.model['industryRecords'] = data;
+        this.getExportHarbor();
+
+       })
+    }else{
     this.companyApiService
     .getCompanyByOwnerId(this.auth.user.sub.id).subscribe(res=>{
       let data : DropDownObj[] = [];
@@ -81,15 +108,15 @@ export class PlantCoalComponent implements OnInit{
        
        data.push({name:co.industryNumber,id:co.id});
       })
+      
       this.model['industryRecords'] = data;
       console.log(data);
       this.getExportHarbor();
     })
+  }
   
   }
-  ngOnInit(): void {
-    this.getCoalType();
-  }
+
   onSubmit(){
 
     let formData = this.coalPlantForm['dynamicFormGroup'];
@@ -105,20 +132,47 @@ export class PlantCoalComponent implements OnInit{
       let data = res['content'];
       console.log(data);
       detailList[0].otherAttachment[0].id =  data[0].id;
+      detailList[0].otherAttachment[0].fileField = "Plant_COAL_ORGINAL_CONTRACT";
       let form = {
         coalTypeId:formData.value['requestDetail'].coalTypeId,
         landingHarborId:formData.value['requestDetail'].landingHarborId,
         requestDetail:detailList
       }
-      console.log(form);
+      
       this.plantService.createCoalPlant(form).subscribe(res=>{
         if(res){
-          this.toastr.success('Status Submitted Successfully');
+          this.toastr.success('request Submitted Successfully');
           this.router.navigateByUrl('operations/requestsSubmitted');
         }
       });
     });
   
   
+  }
+  getRequestById(id, inputFieldsList?) {
+    this.requestSubmittedService
+      .getCustomerRequestById(id)
+      .subscribe((request) => {
+        this.customerRequestData = request['content']
+        this.model = this.customerRequestData;
+        this.getCoalType();
+    //     let requestCompnay = this.companies.filter((c)=>{
+      //  return c.id == this.customerRequestData.companyId
+       // })[0];
+    
+        if(request['content'].status == 'AcceptProtectEEA' ){
+              this.formType = 'view-only'
+        }
+     
+      });
+      
+  }
+
+  getInputFieldsToBeEditted(id) {
+/*    this.operationsApiService.getInputField(id).subscribe((response) => {
+      this.inputsList = response.content.map((field) => field.field);
+      this.inputsListIds = response.content.map(field => field.id)
+      this.getRequestById(id, this.inputsList);
+    });*/
   }
 }

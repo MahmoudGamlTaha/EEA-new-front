@@ -16,4 +16,9 @@ export class CompanyApiService {
     let apiUrl =  `${this.baseUrl}/portal-data/company/find-by-owner?ownerId=${id}`
     return this.httpClient.get<ApiResponse>(apiUrl)
   }
+  getCompanyById(id){
+    let apiUrl =  `${this.baseUrl}/portal-data/company/${id}`
+    return this.httpClient.get(apiUrl)
+  }
+
 }

@@ -653,7 +653,7 @@ return this.digitalSealingModel;
       subModel: {
         companyId: {
           label: 'admissionForm.' + companyType,
-          value: request?.requestDetail.find(c => c.companyAcceptance.fileField === companyType).companyId,
+          value: request?.requestDetail.find(c => c.companyAcceptance?.fileField === companyType).companyId,
           addCompany: true,
           col: 'col-md col-6',
           type: 'select',
