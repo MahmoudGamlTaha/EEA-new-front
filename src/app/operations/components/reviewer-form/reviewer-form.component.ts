@@ -30,6 +30,7 @@ export class ReviewerFormComponent implements OnInit{
   @Input() statusNote;
   @Input() requestId;
   @Input() loggerList = [];
+  @Input() customerRequest;
   selectedStatus;
 
   constructor(private operationApiService: OperationsApiService,private admissionFormApiService:AdmissionFormApiService ,
@@ -66,10 +67,21 @@ ngOnInit(): void {
   }
 
   submitReviewerStatus() {
-    this.operationApiService.updateRequestStatus(this.requestId, 'AcceptFormI').subscribe(response => {
+   /* this.operationApiService.updateRequestStatus(this.requestId, 'AcceptFormI').subscribe(response => {
       alert(response);
       this.toastr.success('Status Submitted Successfully');
       this.router.navigateByUrl('operations/requestsSubmitted');
-    })
+    })*/
+    if(this.customerRequest){
+      if(this.customerRequest.status == 'Created' && this.customerRequest.administrativeForwardTo == 9){
+        this.operationApiService.updateRequestStatus(this.requestId, 'AcceptCoalPlant').subscribe(response => {
+          
+          this.toastr.success('Status Submitted Successfully');
+          this.router.navigateByUrl('operations/requestsSubmitted');
+        })
+      }else if(this.customerRequest.status == 'AcceptCoalPlant' && this.customerRequest.administrativeForwardTo == 9){
+
+      }
+    }
   }
 }

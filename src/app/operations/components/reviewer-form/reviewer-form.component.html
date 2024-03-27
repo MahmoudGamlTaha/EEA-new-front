@@ -1,4 +1,5 @@
 <!-- Main Note -->
+
 <div *ngIf="mainNote">
 <app-dynamic-form [model]="mainNote"></app-dynamic-form>
 </div>
@@ -16,6 +17,7 @@
   <span class="fw-bold">{{ reviewer }}</span>
 </h6>
 -->
+<br/>
 <div *ngIf="reviewersList">
 <app-btn-dropdown
   [btnText]="'customer.redirection'"

@@ -129,14 +129,14 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
     console.log(this.formType)
    
     this.requestCoreService.setCurrentCustomerRequestId(this.requestId);
-    if(!(this.formType == 'add')){
-      
-      stepper.next();
-    }
-    else if(this.formType == 'view-only'){ // useless code may be removed 
+    //if(!(this.formType == 'add')){
+     // stepper.next();
+   // }
+     if(this.formType == 'view-only'){ // useless code may be removed 
       this.feeService.setCustomerRequest(this.admissionForm.customerRequestData);
       console.log(this.feeService.customerRequest);
-      this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
+      stepper.next();
+      //this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
       
     }else if(this.formType =='check'){
       stepper.next();

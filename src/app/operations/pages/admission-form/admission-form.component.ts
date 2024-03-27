@@ -350,17 +350,18 @@ export class AdmissionFormComponent {
 
       if(clearList.length > 0)
           this.operationsApiService.clearInputField(this.requestId, clearList);
+          this.feeService.setCustomerRequest(this.customerRequestData);
+          console.log(this.feeService.customerRequest);
+          this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
+          
     }
     
       if(formType == 'check'){
       this.submitReviewForm(requestStatus , inputsList , isRdf)
       }
-    /*  else{
-        this.feeService.setCustomerRequest(this.customerRequestData);
-        console.log(this.feeService.customerRequest);
-        this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
+    //  else{
         
-      }*/
+      //}
     }
 
     submitReviewForm(status , inputsList , isRdf) {
@@ -374,7 +375,7 @@ export class AdmissionFormComponent {
         console.log('return RDF');
         return;
       }
-        
+      
       this.operationsApiService
       .updateRequestStatus(this.requestId, status)
       .subscribe((response) => {});

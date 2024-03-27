@@ -368,7 +368,8 @@
     "CustomerPAID":"تم دفع العميل",
     "ConfirmPaymentEEA":"تم تاكيد الدفع",
     "AcceptForm":"تم استخراح نموذج 33",
-    "AcceptFormT": "في انتظار الاعتماد"
+    "AcceptFormT": "في انتظار الاعتماد",
+    "AcceptCoalPlant":"مقبول ادراة فحم نباتي"
   },
   "logStatus": {
     "Created": "تم الطلب",
@@ -384,7 +385,9 @@
     "CustomerPAID":"تم دفع العميل",
     "ConfirmPaymentEEA":"بتأكيد الدفع",
     "AcceptForm":"تم استخراح نموذج 33",
-    "AcceptFormT":"باستخراج نموذج الموافقة"
+    "AcceptFormT":"باستخراج نموذج الموافقة",
+    "AcceptCoalPlant":"بقبول الطلب"
+   
   },
   "importBoxTemp1":{
     "consentform":"نموذج الموافقة",
@@ -909,7 +912,8 @@
      "amount":"كمية الفحم النباتية",
      "send":"ارسال",
      "attach":"اصل التعاقد المبرم مع الجهة المستوردة",
-     "title":"فحم نباتي"
+     "title":"فحم نباتي",
+     "next":"التالى"
   }
 
   

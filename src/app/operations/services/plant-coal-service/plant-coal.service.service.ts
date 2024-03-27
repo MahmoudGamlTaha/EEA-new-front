@@ -6,10 +6,31 @@ import { environment } from 'environments/environment';
   providedIn: 'root'
 })
 export class PlantCoalServiceService {
-  mainModel
+  mainModel;
+  mainNote;
+  statusArr;
+  constructor(private http:HttpClient) { 
+    this.init();
+  }
+  init(){
+    this.mainNote = {
+      mainNote: {
+        type: 'textArea',
+        value:
+          'بعد المراجعة الفنية لشحنة الفحم المقدم بشأنها الطلب فانه سوف يتم خصم 25طن من الكوتة الخاصة بالشركة',
+        col: 'col-md-8 col-12 my-4',
+        rules: {
+          required: true,
+        },
+      },
+    };
 
-  constructor(private http:HttpClient) { }
-  
+    this.statusArr = [
+      { name: 'customer.review', class: 'col-md-4 col-12' },
+      { name: 'customer.approval', class: 'col-md-4 col-12' },
+      { name: 'customer.rejection', class: 'col-md-4 col-12' },
+    ];
+  }
   initForm(plantForm?) {
     console.log(plantForm);
    
@@ -48,7 +69,7 @@ export class PlantCoalServiceService {
       },
       coalTypeId: {
         label: 'plantCoal.coalType',
-        value: plantForm?plantForm.requestDetail[0]?plantForm.requestDetail[0].coalTypeId:'':'',
+        value: plantForm?plantForm.requestDetail?plantForm.requestDetail[0].coalTypeId:'':'',
         col: 'col-md-5 col-12',
         type: 'select',
         options:plantForm?plantForm.coalTypeList:[],

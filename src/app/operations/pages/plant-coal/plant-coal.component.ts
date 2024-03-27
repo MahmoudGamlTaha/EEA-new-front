@@ -16,6 +16,7 @@ import { UtilitiesApiService } from '@shared/services/utilities.api.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestSubmittedService } from '@operations/services/request-submitted.service';
+import { ReviewerFormComponent } from '@operations/components/reviewer-form/reviewer-form.component';
 
 @Component({
   selector: 'app-plant-coal',
@@ -24,7 +25,8 @@ import { RequestSubmittedService } from '@operations/services/request-submitted.
     SharedModule,
     DynamicFormComponent,
     SubtitleComponent,
-    DigitalSealingSubmitionComponent, TranslateModule ],
+    DigitalSealingSubmitionComponent, TranslateModule,
+    ReviewerFormComponent ],
   templateUrl: './plant-coal.component.html',
   styleUrl: './plant-coal.component.scss'
 })
@@ -33,6 +35,10 @@ export class PlantCoalComponent implements OnInit{
   requestId;
   formType;
   customerRequestData;
+  showReview:boolean = false;
+  reviewerForm;
+  mainNote;
+  statusArr;
   @ViewChild('coalPlantForm') coalPlantForm!: ElementRef;
   constructor(private plantService:PlantCoalServiceService, 
     private admissionFormUtilitiesService:AdmissionFormUtilitiesService,
@@ -44,7 +50,7 @@ export class PlantCoalComponent implements OnInit{
     private companyApiService:CompanyApiService,
     private requestSubmittedService:RequestSubmittedService
     ){
-     
+    
      }
   coalValidationForm(form){
     return form;
@@ -52,15 +58,19 @@ export class PlantCoalComponent implements OnInit{
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params) => {
       this.formType = params['formType'];
-      this.requestId = params['requestId'];
-    
+      this.requestId = params['id'];
+      
+      this.mainNote = this.plantService.mainNote;
+      this.statusArr = this.plantService.statusArr;
       if(this.requestId){
         
         this.getRequestById(this.requestId);
       }else{
-      this.getCoalType();
+        
+         this.getCoalType();
       }
     });
+    this.showReview = this.auth.user.sub?.administrativeId != null;
     
   }
   getCoalType(){
@@ -78,7 +88,6 @@ export class PlantCoalComponent implements OnInit{
     
       this.model['exportHarborList'] = res['content'];
       this.model['arriveHarborList'] = res['content'];
-      console.log(res['content']);
       this.getIndustrialNumber();
     })
   }
@@ -90,7 +99,6 @@ export class PlantCoalComponent implements OnInit{
     let data : DropDownObj[] = [];
     
     if(this.auth.user.sub.administrativeId != null && this.customerRequestData != undefined){
-     
        this.companyApiService.getCompanyById(this.customerRequestData.companyId).subscribe(res=>{ 
         let company = res['content'];
         data.push({name:company.industryNumber,id:company.id});
@@ -101,10 +109,10 @@ export class PlantCoalComponent implements OnInit{
        })
     }else{
     this.companyApiService
-    .getCompanyByOwnerId(this.auth.user.sub.id).subscribe(res=>{
-      let data : DropDownObj[] = [];
+    .getCompanyByOwnerId(this.auth.user?.sub?.id).subscribe(res=>{
+      
       let companies = res['content'];
-      companies.forEach(co =>{
+      companies?.forEach(co =>{
        
        data.push({name:co.industryNumber,id:co.id});
       })
@@ -123,19 +131,19 @@ export class PlantCoalComponent implements OnInit{
     console.log(formData)
     console.log(formData.value['requestDetail']);
     let detailList :RequestDetail[] = [];
-    detailList.push(formData.value['requestDetail']);
-    detailList[0].harborIds = [formData.value['requestDetail'].harborIds];
-    detailList[0].otherAttachment = [formData.value['requestDetail'].otherAttachment];
+    detailList.push(formData.value);
+    detailList[0].harborIds = [formData.value?.harborIds];
+    detailList[0].otherAttachment = [formData.value?.otherAttachment];
     let formFileData = new FormData();
-    formFileData.append('files', formData.value['requestDetail'].otherAttachment[0], formData.value['requestDetail'].otherAttachment.name);
+    formFileData.append('files', formData.value.otherAttachment[0], formData.value.otherAttachment.name);
     this.utilitiesApiService.uploadFile(formFileData).subscribe(res=>{
       let data = res['content'];
       console.log(data);
       detailList[0].otherAttachment[0].id =  data[0].id;
       detailList[0].otherAttachment[0].fileField = "Plant_COAL_ORGINAL_CONTRACT";
       let form = {
-        coalTypeId:formData.value['requestDetail'].coalTypeId,
-        landingHarborId:formData.value['requestDetail'].landingHarborId,
+        coalTypeId:formData.value.coalTypeId,
+        landingHarborId:formData.value.landingHarborId,
         requestDetail:detailList
       }
       
@@ -167,7 +175,10 @@ export class PlantCoalComponent implements OnInit{
       });
       
   }
-
+  navigateToExpense(n:number){
+    if(n == 1)
+        this.router.navigateByUrl('operations/feesAndExpenses/'+ this.requestId);
+  }
   getInputFieldsToBeEditted(id) {
 /*    this.operationsApiService.getInputField(id).subscribe((response) => {
       this.inputsList = response.content.map((field) => field.field);

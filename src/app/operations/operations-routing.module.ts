@@ -203,7 +203,7 @@ const routes: Routes = [
          data: { breadcrumb: 'plant-coal' , sideMenu: true }
       },
       {
-        path:'plant-coal/:formType/:requestId',
+        path:'plant-coal/:formType/:id',
         loadComponent:()=>
          import('@operations/pages/plant-coal/plant-coal.component').then(
           (m) => m.PlantCoalComponent
