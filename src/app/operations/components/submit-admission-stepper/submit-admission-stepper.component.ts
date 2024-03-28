@@ -91,36 +91,30 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
 
   
   onSubmitAdmissionFormData(stepper: MatStepper) {
-    
+    stepper.reset();
     this.isCementCompany = false;
     this.scroll();
-   let companies = this.admissionForm.ownerCompaniesArr;
+   let companies = this.admissionForm.companies;
     this.requestStatus = this.admissionForm.customerRequestData?.status;
     this.admissionForm.onSubmit();
     this.requestId = this.admissionForm.requestId
     this.formType = this.admissionForm.formType;
    
-    console.log(companies);
+    console.log(this.admissionForm.currentCompany);
     if(companies == undefined || companies == null){
      
-    companies = this.userCompanies;
+      companies = this.userCompanies;
     }
    
   //  this.nextSubscription = this.admissionFormService.nextPage.subscribe((res) => {
       //console.log(res);
     //  if (res.nextPage) {
-      console.log( this.admissionForm.ownerCompaniesArr);
-      let selectedCompany = companies.filter(
-        (company) => {
-
-          return company.id == this.selectedCompanyId;
-        }
-      )[0];
+      let selectedCompany = this.admissionForm?.currentCompany[0];
      console.log(selectedCompany);
       //check if the company is a cement company
     
       if (selectedCompany?.activity.code === 'RDF-Cement') {
-         
+         alert("zeft");
         this.isCementCompany = true;
       }
       //this.requestId = res.requestId;
@@ -141,20 +135,20 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
     }else if(this.formType =='check'){
       stepper.next();
     }
-    else {
-      this.admissionFormService.nextPage.subscribe(res =>{
-          if(res.nextPage){
-            this.requestCoreService.setCurrentCustomerRequestId(res.requestId);
+    else if((this.formType == 'add')) { // there is some logic should be added
+      //this.admissionFormService.nextPage.subscribe(res =>{
+      //   if(res.nextPage){
+        //   this.requestCoreService.setCurrentCustomerRequestId(res.requestId);
              stepper.next();
-          }
-      })
+        //  }
+    //  })
       
     }
     }
    // console.log(this.isCementCompany);
 //    });
   //}
-  backToAdmissionForm(){
+  backToAdmissionForm(stepper: MatStepper){
     this.scroll();
     this.admissionFormMappingService.count.next(0);
     this.admissionFormMappingService.attachmentArrForApi.next([]);
@@ -164,6 +158,20 @@ export class SubmitAdmissionStepperComponent implements OnInit, OnChanges {
       nextPage: false,
       requestId: this.requestId,
     });
+    let selectedCompany = this.admissionForm?.currentCompany[0];
+    console.log(selectedCompany);
+     //check if the company is a cement company
+  
+     if (selectedCompany?.activity.code === 'RDF-Cement') {
+        alert(55550);
+       this.isCementCompany = true;
+     }
+     //this.requestId = res.requestId;
+   //  stepper.next();
+   this.cdRef.detectChanges();
+    stepper.previous();
+    stepper.reset();
+    
   }
   onSubmitRdfFormData(stepper: MatStepper) {
     this.scroll();

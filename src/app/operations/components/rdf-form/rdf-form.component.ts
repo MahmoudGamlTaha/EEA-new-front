@@ -135,11 +135,10 @@ export class RdfFormComponent {
     });
     if(clearList.length > 0)
     this.operationsApiService.clearInputField(this.requestId, clearList);
+  
     this.UpdateStatusRequest(requestStatus,inputsList)
-     ///
-    
-     //this.UpdateStatusRequest();
-      return 
+   
+      return; 
     }else if(this.formType=='edit' || this.formType== 'add'){
         this.convertingFormsToRequestObj();
     }else if(this.requestStatus == 'AcceptRDF'){

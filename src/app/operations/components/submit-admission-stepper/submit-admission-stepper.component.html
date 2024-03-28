@@ -25,7 +25,7 @@
       >
         {{ "admissionForm.next" | translate }}
       </button>
-      <button class="col-2 btn gradient" matStepperPrevious (click)="backToAdmissionForm()">
+      <button class="col-2 btn gradient" matStepperPrevious (click)="backToAdmissionForm(stepper)">
         {{ "admissionForm.back" | translate }}
       </button>
     </div>
@@ -38,7 +38,7 @@
       <button class="col-2 btn gradient" matStepperNext (click)="openDialog()">
         {{ "admissionForm.next" | translate }}
       </button>
-      <button class="col-2 btn gradient" matStepperPrevious (click)="scroll()">
+      <button class="col-2 btn gradient" matStepperPrevious (click)="backToAdmissionForm(stepper)">
         {{ "admissionForm.back" | translate }}
       </button>
     </div>

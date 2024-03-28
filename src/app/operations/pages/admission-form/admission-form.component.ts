@@ -92,6 +92,7 @@ export class AdmissionFormComponent {
   isCementCompany;
   loggerList ;
   reviewer: string = 'مصطفى محمد';
+  currentCompany;
 
   count = 0;
   constructor(
@@ -291,7 +292,7 @@ export class AdmissionFormComponent {
   }
 
   onSubmit() {
-    console.log(this.formType);
+   console.log(this.formType);
     if (this.auth.userRole.includes('customer') && this.formType == 'add') {
       this.submitForm(false);
     } else if(this.auth.userRole.includes('customer') && this.formType == 'edit') {
@@ -299,8 +300,13 @@ export class AdmissionFormComponent {
     } else {
       this.reviewForm();
     }
+    this.setCurrentSelectdCompany( this.cardForm['dynamicFormGroup'].value.companyId);
   }
-
+setCurrentSelectdCompany(id:number){
+ this.currentCompany = this.companies.filter(rs=>{
+  return rs.id==id
+})
+}
   reviewForm() {
     let requestStatus = this.operationsService.getStatus(this.auth.user.sub.administrativeId);
     let cardForm = this.cardForm['dynamicFormGroup'].value;
@@ -381,10 +387,11 @@ export class AdmissionFormComponent {
       .subscribe((response) => {});
       if(inputsList.length > 0){
       this.operationsApiService.submitInputField(this.requestId, inputsList).subscribe((response) => {
+        this.toastr.success('Status Submitted Successfully');
+        this.router.navigateByUrl('operations/requestsSubmitted');
             });
           }
-            this.toastr.success('Status Submitted Successfully');
-      this.router.navigateByUrl('operations/requestsSubmitted');
+       
 
     }
   
@@ -468,12 +475,14 @@ export class AdmissionFormComponent {
                   requestId: res.content['id'],
                 });
                 this.requestCoreService.setCustomerRequestStatus(res['status']);
+                this.requestCoreService.setCurrentCustomerRequestId(res['id']);
                 return;
               /*  this.countSubscription.unsubscribe();
                 this.submitSubscription.unsubscribe();
                 this.attachmentSubscription.unsubscribe();
                 this.invoiceSubscription.unsubscribe();
                 this.requestDetailSubscription.unsubscribe();*/
+               
               },
               (error) => {
                 this.translationService.toastrTranslation(
